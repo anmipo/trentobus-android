@@ -3,4 +3,5 @@
     <string name="app_name">Trento Bus</string>
     
     <string name="error_cannot_load_schedule_index">Cannot load schedule index</string>
+    <string name="view_bus_info_header" formatted="false">%s: choose timetable</string>
 </resources>
