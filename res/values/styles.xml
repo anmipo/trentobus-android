@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="stopNameTextView">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <color name="tableRowEven">#FFFFFFFF</color>
+    <color name="tableRowOdd">#FFCCCCCC</color>
+</resources>

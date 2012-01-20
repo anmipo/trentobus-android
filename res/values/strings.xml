@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Trento Bus</string>
+    
+    <string name="error_cannot_load_schedule_index">Cannot load schedule index</string>
+</resources>
