@@ -73,10 +73,11 @@ public class ScheduleManager {
                         buses.add(busInfo);
                     }
                     ScheduleInfo schInfo = 
-                            new ScheduleInfo(direction, schType, scheduleId); 
+                            new ScheduleInfo(direction, schType, 
+                            		scheduleDataFileName, scheduleId); 
                     busInfo.addScheduleInfo(schInfo);
                     scheduleInfos.put(Integer.valueOf(scheduleId), schInfo);
-                    loadSchedule(scheduleDataFileName, schInfo);
+//                    loadSchedule(scheduleDataFileName, schInfo);
                     scheduleId++;
                 }
             } finally {
@@ -89,11 +90,16 @@ public class ScheduleManager {
         }
     }
 
-    private void loadSchedule(String fileName, ScheduleInfo scheduleInfo) 
-            throws IOException {
+    private void loadSchedule(Integer scheduleId) throws IOException {
+    	ScheduleInfo scheduleInfo = scheduleInfos.get(scheduleId);
         Schedule schedule = new Schedule(scheduleInfo);
+        
+        String fileName = scheduleInfo.getFileName();
+        Log.d(TAG, "Loading schedule from " + fileName);
         schedule.loadFromAsset(context, SCHEDULE_PATH.concat(fileName));
-        schedules.put(Integer.valueOf(scheduleInfo.getScheduleId()), schedule);
+        
+        //and cache it for future
+        schedules.put(scheduleId, schedule);
     }
 
     public void debugPrintBuses() {
@@ -114,9 +120,19 @@ public class ScheduleManager {
      * Returns schedule by its ID
      * @param bus
      * @return
+     * @throws  
      */
     public Schedule getSchedule(int scheduleId) {
-        return schedules.get(Integer.valueOf(scheduleId));
+    	Integer id = Integer.valueOf(scheduleId); 
+    	if (!schedules.containsKey(id)) {
+    		try {
+				loadSchedule(id);
+			} catch (IOException ioe) {
+				Log.wtf(TAG, "cannot load schedule id: " + id, ioe);
+				throw new RuntimeException(ioe);
+			}
+    	}
+        return schedules.get(id);
     }
 
     /**

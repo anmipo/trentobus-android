@@ -8,13 +8,29 @@ public class ScheduleInfo {
     private String direction;
     private ScheduleType type;
     private int scheduleId;
+	private String fileName;
     
-    public ScheduleInfo(String direction, ScheduleType type, int scheduleId) {
+    /**
+     * @param direction
+     *            String describing route direction.
+     * @param type
+     *            Type of the schedule (see {@link ScheduleType}).
+     * @param dataFileName
+     *            Name of the data file (in /assets) containing the timetable.
+     * @param scheduleId
+     *            Unique ID of this schedule.
+     */
+    public ScheduleInfo(String direction, ScheduleType type, 
+    		String dataFileName, int scheduleId) {
         this.direction = direction;
         this.type = type;
+        this.fileName = dataFileName;
         this.scheduleId = scheduleId;
     }
-    public int getScheduleId() {
+    public String getFileName() {
+		return fileName;
+	}
+	public int getScheduleId() {
         return scheduleId;
     }
     public String getName() {
