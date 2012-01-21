@@ -1,8 +1,5 @@
 package com.anmipo.android.trentobus.view;
 
-import com.anmipo.android.trentobus.R;
-import com.anmipo.android.trentobus.db.Schedule;
-
 import android.content.Context;
 import android.text.TextUtils.TruncateAt;
 import android.util.AttributeSet;
@@ -11,20 +8,23 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.BaseAdapter;
 import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.AbsListView.OnScrollListener;
 
-public class TimetableView extends RelativeLayout implements OnScrollListener {
-    private static final String TAG = "Timetable";
+import com.anmipo.android.trentobus.R;
+import com.anmipo.android.trentobus.db.Schedule;
+
+public class TimetableView extends LinearLayout implements OnScrollListener {
+    static final String TAG = "Timetable";
 
 	// width of the left fixed column with bus stop names
 	public static final int FIXED_COLUMN_WIDTH = 150;
 
-	private static final int ROW_HEIGHT = 40;
+	static final int ROW_HEIGHT = 40;
 
 	// ID value for stop names view component
 	private static final int STOP_NAMES_VIEW_ID = 1;
@@ -34,8 +34,8 @@ public class TimetableView extends RelativeLayout implements OnScrollListener {
 	private HorizontalScrollView timetableScroller;
 	private boolean leftScrollActive = false;
 	private boolean rightScrollActive = false;
-	private String[] stopNames;
-	private String[][] times;
+	private CharSequence[] stopNames;
+	private CharSequence[][] times;
 
 
 	public TimetableView(Context context, AttributeSet attrs) {
@@ -58,16 +58,15 @@ public class TimetableView extends RelativeLayout implements OnScrollListener {
     private void setupAndAddChildren() {
     	stopNamesList.setId(STOP_NAMES_VIEW_ID);
     	stopNamesList.setVerticalScrollBarEnabled(false);
-		LayoutParams stopNamesLayoutParams = new RelativeLayout.LayoutParams(
+		LayoutParams stopNamesLayoutParams = new LinearLayout.LayoutParams(
 				FIXED_COLUMN_WIDTH, LayoutParams.MATCH_PARENT);
 		addView(stopNamesList, stopNamesLayoutParams);
 		
-		LayoutParams scrollerLayoutParams = new RelativeLayout.LayoutParams(
+		LayoutParams scrollerLayoutParams = new LinearLayout.LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-		scrollerLayoutParams.addRule(RIGHT_OF, STOP_NAMES_VIEW_ID);
 		addView(timetableScroller, scrollerLayoutParams);
 		
-		LayoutParams timetableLayoutParams = new RelativeLayout.LayoutParams(
+		LayoutParams timetableLayoutParams = new LinearLayout.LayoutParams(
 				LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
 		timetableScroller.addView(timetableList, timetableLayoutParams);
 	}
@@ -78,7 +77,6 @@ public class TimetableView extends RelativeLayout implements OnScrollListener {
 		public StopNamesAdapter(Context context) {
 			super();
 			this.context = context;
-//			stopNames = context.getResources().getStringArray(R.array.leftColumn);
 		}
 		
 		@Override
@@ -91,7 +89,7 @@ public class TimetableView extends RelativeLayout implements OnScrollListener {
 			return view;
 		}
 		@Override
-		public String getItem(int position) {
+		public CharSequence getItem(int position) {
 			return stopNames[position];
 		}
 		@Override
@@ -110,16 +108,15 @@ public class TimetableView extends RelativeLayout implements OnScrollListener {
     	public TimetableAdapter(Context context) {
     		super();
     		this.context = context;
-//        	times = context.getResources().getStringArray(R.array.rightColumn);
 		}
-    	
+
 		@Override
 		public int getCount() {
 			return times.length;
 		}
 
 		@Override
-		public String[] getItem(int position) {
+		public CharSequence[] getItem(int position) {
 			return times[position];
 		}
 
@@ -130,18 +127,11 @@ public class TimetableView extends RelativeLayout implements OnScrollListener {
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
-			TextView view = (TextView) convertView;
+			TimetableRow view = (TimetableRow) convertView;
 			if (view == null) {
-				view = createTextView(context, R.style.timetableTime, false);
+				view = new TimetableRow(context);
 			}
-			
-			StringBuilder sb = new StringBuilder();
-			String[] row = times[position];
-			for (String item: row) {
-				sb.append(item);
-				sb.append(" ");
-			}
-			((TextView)view).setText(sb);
+			view.setItems(times[position]);
 			
 			return view;
 		}
@@ -157,6 +147,7 @@ public class TimetableView extends RelativeLayout implements OnScrollListener {
 		}
 		view.setHeight(ROW_HEIGHT);
 		view.setGravity(Gravity.CENTER_VERTICAL);
+		view.setDrawingCacheEnabled(false);
 		return view;
     }
 
@@ -165,7 +156,7 @@ public class TimetableView extends RelativeLayout implements OnScrollListener {
 		if (view == stopNamesList) {
 			if (!rightScrollActive) {
 				leftScrollActive = (scrollState != SCROLL_STATE_IDLE);
-			}			
+			}
 		} else if (view == timetableList) {
 			if (!leftScrollActive) {
 				rightScrollActive = (scrollState != SCROLL_STATE_IDLE);
@@ -179,25 +170,21 @@ public class TimetableView extends RelativeLayout implements OnScrollListener {
 	public void onScroll(AbsListView view, int firstVisibleItem,
 			int visibleItemCount, int totalItemCount) {
 		if (view == stopNamesList) {
-			if (!rightScrollActive) {
+			if (leftScrollActive) {
 				View v = view.getChildAt(0);
 				int top = (v == null) ? 0 : v.getTop();
 				timetableList.setSelectionFromTop(firstVisibleItem, top);
-				Log.v(TAG, "scrolling left");
 			}
 		} else if (view == timetableList) {
-			if (!leftScrollActive) {
+			if (rightScrollActive) {
 				View v = view.getChildAt(0);
 				int top = (v == null) ? 0 : v.getTop();
 				stopNamesList.setSelectionFromTop(firstVisibleItem, top);
-				Log.v(TAG, "scrolling right");
 			}
 		}
 	}
 
 	public void setSchedule(Schedule schedule) {
-        int rowCount = schedule.getRowCount();
-        int colCount = schedule.getColCount();
         stopNames = schedule.getStopNames();
         times = schedule.getTimes();
         this.postInvalidate();
