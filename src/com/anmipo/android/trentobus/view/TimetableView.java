@@ -1,6 +1,7 @@
 package com.anmipo.android.trentobus.view;
 
 import com.anmipo.android.trentobus.R;
+import com.anmipo.android.trentobus.db.Schedule;
 
 import android.content.Context;
 import android.text.TextUtils.TruncateAt;
@@ -31,13 +32,17 @@ public class TimetableView extends RelativeLayout implements OnScrollListener {
 	private ListView stopNamesList;
 	private ListView timetableList;
 	private HorizontalScrollView timetableScroller;
-
 	private boolean leftScrollActive = false;
 	private boolean rightScrollActive = false;
+	private String[] stopNames;
+	private String[][] times;
 
 
 	public TimetableView(Context context, AttributeSet attrs) {
 		super(context, attrs);
+		stopNames = new String[]{};
+		times = new String[][]{};
+		
 		stopNamesList = new ListView(context);
 		timetableScroller = new HorizontalScrollView(context);
 		timetableList = new ListView(context);
@@ -47,10 +52,10 @@ public class TimetableView extends RelativeLayout implements OnScrollListener {
 		timetableList.setAdapter(new TimetableAdapter(context));
 		timetableList.setOnScrollListener(this);
 		
-		addAndLayoutChildren();
+		setupAndAddChildren();
 	}
 	
-    private void addAndLayoutChildren() {
+    private void setupAndAddChildren() {
     	stopNamesList.setId(STOP_NAMES_VIEW_ID);
     	stopNamesList.setVerticalScrollBarEnabled(false);
 		LayoutParams stopNamesLayoutParams = new RelativeLayout.LayoutParams(
@@ -64,21 +69,16 @@ public class TimetableView extends RelativeLayout implements OnScrollListener {
 		
 		LayoutParams timetableLayoutParams = new RelativeLayout.LayoutParams(
 				LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
-		timetableScroller.addView(timetableList, timetableLayoutParams);		
+		timetableScroller.addView(timetableList, timetableLayoutParams);
 	}
 
     
 	private class StopNamesAdapter extends BaseAdapter {
-    	String[] items;
     	Context context;
 		public StopNamesAdapter(Context context) {
 			super();
 			this.context = context;
-			items = context.getResources().getStringArray(R.array.leftColumn);
-		}
-		@Override
-		public String getItem(int position) {
-			return items[position];
+//			stopNames = context.getResources().getStringArray(R.array.leftColumn);
 		}
 		
 		@Override
@@ -87,12 +87,16 @@ public class TimetableView extends RelativeLayout implements OnScrollListener {
 			if (view == null) {
 				view = createTextView(context, R.style.timetableStopName, true);
 			}
-			((TextView)view).setText(items[position]);
+			((TextView)view).setText(stopNames[position]);
 			return view;
 		}
 		@Override
+		public String getItem(int position) {
+			return stopNames[position];
+		}
+		@Override
 		public int getCount() {
-			return items.length;
+			return stopNames.length;
 		}
 		@Override
 		public long getItemId(int position) {
@@ -102,22 +106,21 @@ public class TimetableView extends RelativeLayout implements OnScrollListener {
     
     private class TimetableAdapter extends BaseAdapter {
     	Context context;
-    	String[] items;
     	
     	public TimetableAdapter(Context context) {
     		super();
     		this.context = context;
-        	items = context.getResources().getStringArray(R.array.rightColumn);
+//        	times = context.getResources().getStringArray(R.array.rightColumn);
 		}
     	
 		@Override
 		public int getCount() {
-			return items.length;
+			return times.length;
 		}
 
 		@Override
-		public Object getItem(int position) {
-			return items[position];
+		public String[] getItem(int position) {
+			return times[position];
 		}
 
 		@Override
@@ -131,7 +134,15 @@ public class TimetableView extends RelativeLayout implements OnScrollListener {
 			if (view == null) {
 				view = createTextView(context, R.style.timetableTime, false);
 			}
-			((TextView)view).setText(items[position]);
+			
+			StringBuilder sb = new StringBuilder();
+			String[] row = times[position];
+			for (String item: row) {
+				sb.append(item);
+				sb.append(" ");
+			}
+			((TextView)view).setText(sb);
+			
 			return view;
 		}
     	
@@ -182,5 +193,13 @@ public class TimetableView extends RelativeLayout implements OnScrollListener {
 				Log.v(TAG, "scrolling right");
 			}
 		}
+	}
+
+	public void setSchedule(Schedule schedule) {
+        int rowCount = schedule.getRowCount();
+        int colCount = schedule.getColCount();
+        stopNames = schedule.getStopNames();
+        times = schedule.getTimes();
+        this.postInvalidate();
 	}
 }

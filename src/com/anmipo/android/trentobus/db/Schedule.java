@@ -149,4 +149,14 @@ public class Schedule {
     public CharSequence getStopName(int row) {
         return stopNames[row];
     }
+    
+    // this is potentially unsafe, but greatly improves performance
+    public String[][] getTimes() {
+    	return times;
+    }
+    
+    // this is potentially unsafe, but greatly improves performance
+    public String[] getStopNames() {
+    	return stopNames;
+    }
 }
