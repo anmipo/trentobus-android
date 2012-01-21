@@ -1,34 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
 
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+    <ListView
+        android:id="@+id/stop_names"
+        android:layout_width="150dp"
+        android:layout_height="match_parent" />
 
-            <TableLayout
-                android:id="@+id/stop_names"
-                android:layout_width="150dp"
-                android:layout_height="fill_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp" >
-            </TableLayout>
+    <HorizontalScrollView
+        android:id="@+id/timetable_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/stop_names" >
 
-            <HorizontalScrollView
-                android:id="@+id/app_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:layout_toRightOf="@+id/stop_names"
-                android:orientation="horizontal" >
+        <ListView
+            android:id="@+id/timetable"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:entries="@array/rightColumn" />
+    </HorizontalScrollView>
 
-                <TableLayout
-                    android:id="@+id/table"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-                </TableLayout>
-            </HorizontalScrollView>
-        </RelativeLayout>
-</ScrollView>
+</RelativeLayout>
