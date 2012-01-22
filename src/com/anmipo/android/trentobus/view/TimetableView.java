@@ -6,23 +6,23 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.Paint.Style;
-import android.graphics.Path;
 import android.graphics.Region.Op;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.GestureDetector;
+import android.view.GestureDetector.OnGestureListener;
+import android.view.MotionEvent;
 import android.view.View;
 
 import com.anmipo.android.trentobus.db.Schedule;
 
-public class TimetableView extends View {
+public class TimetableView extends View implements OnGestureListener {
     static final String TAG = "Timetable";
 
 	// width of the left fixed column with bus stop names
-	public static final int FIXED_COLUMN_WIDTH = 150;
-	public static final int FONT_SIZE_DP = 20;
+	public static final int FONT_SIZE_DP = 18;
 
 	private String[] fixedCol;
 	private String[] fixedRow;
@@ -45,13 +45,18 @@ public class TimetableView extends View {
 
 	private int topRow = 0;      // currently visible top row number
 	private int leftCol = 0;     // currently visible left column number
-	private int xOffset = 0;
-	private int yOffset = 0;
+	private int offsetX = 0;
+	private int offsetY = 0;
+
+	private GestureDetector gestureDetector;
 
 
 	public TimetableView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		setBorderWidth(2);
+		
+		gestureDetector = new GestureDetector(this);
+		
 		// TODO: remove this debug data
 		setData(new String[]{"row1", "row2", "row3", "row4", "row5", "row6"},
 				new String[]{"col1", "col2", "col3", "col4"},
@@ -112,8 +117,32 @@ public class TimetableView extends View {
 		super.onSizeChanged(w, h, oldw, oldh);
 		width = w;
 		height = h;
-		fixedColWidth = 150;
 	}
+	
+	@Override
+	protected void onLayout(boolean changed, int left, int top, int right,
+			int bottom) {
+		super.onLayout(changed, left, top, right, bottom);
+		fixedColWidth = (int) measureFixedColumnWidth();
+	}
+
+	/**
+	 * Calculates the fixed column's width, so that it either
+	 * fits all entries, or occupies not more than 50% of the view;
+	 * @return
+	 */
+	protected float measureFixedColumnWidth() {
+		float result = 0;
+		for (int i = 0; i < rowCount; i++) {
+			float w = fixedColumnPaint.measureText(fixedCol[i]);
+			if (w > result) {
+				result = w;
+			}
+		}
+		result += 2 * cellPaddingX;
+		return (result <= width/2) ? result : width/2;
+	}
+
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
@@ -129,11 +158,11 @@ public class TimetableView extends View {
 		float itemWidth = colWidth + borderWidth;
 		float itemHeight = rowHeight + borderWidth;
 		float textOffset = getTextCenterOffset(rowHeight, cellPaint);
-		float x = fixedColWidth + borderWidth - xOffset;
+		float x = fixedColWidth + borderWidth - offsetX;
 		int xIndex = leftCol;
 		while ((x < width) && (xIndex < colCount)) {
 			int yIndex = topRow;
-			float y = rowHeight + borderWidth - yOffset;
+			float y = rowHeight + borderWidth - offsetY;
 			while ((y < height) && (yIndex < rowCount)) {
 				canvas.drawText(cells[yIndex][xIndex], 
 						x + cellPaddingX, y + textOffset, 
@@ -155,7 +184,7 @@ public class TimetableView extends View {
 				width, rowHeight + borderWidth, Op.REPLACE);
 		float textOffsetX = colWidth/2;
 		float textOffsetY = getTextCenterOffset(rowHeight, fixedRowPaint);
-		float x = fixedColWidth + borderWidth - xOffset;
+		float x = fixedColWidth + borderWidth - offsetX;
 		int index = leftCol;
 		while ((x < width) && (index < colCount)) {
 			canvas.drawText(fixedRow[index], 
@@ -165,15 +194,19 @@ public class TimetableView extends View {
 			x += halfBorderWidth;
 			index++;
 		}
+		// draw top-left empty corner 
 		canvas.clipRect(0, 0, width, height, Op.REPLACE);
 		canvas.drawLine(0, rowHeight + halfBorderWidth, 
 				x, rowHeight + halfBorderWidth, fixedRowPaint);
+		canvas.drawLine(fixedColWidth + halfBorderWidth, 0, 
+				fixedColWidth + halfBorderWidth, rowHeight + halfBorderWidth, 
+				fixedRowPaint);
 	}
 
 	private void drawFixedColumn(Canvas canvas) {
-		canvas.clipRect(0, 0, fixedColWidth + borderWidth, height, Op.REPLACE);
+		canvas.clipRect(0, rowHeight, fixedColWidth + borderWidth, height, Op.REPLACE);
 		float textOffsetY = getTextCenterOffset(rowHeight, fixedColumnPaint);
-		float y = -yOffset + rowHeight + borderWidth; // skip the fixed row
+		float y = -offsetY + rowHeight + borderWidth; // skip the fixed row
 		int index = topRow;
 		while ((y < height) && (index < rowCount)) {
 			canvas.drawText(fixedCol[index], 
@@ -236,11 +269,67 @@ public class TimetableView extends View {
         if (cells.length != rowCount || cells[0].length != colCount) {
         	throw new IllegalArgumentException("Table dimensions do not match");
         }
-        postInvalidate();
+        onLayout(true, 0, 0, width, height);
+        invalidate();
 	}
 	
 	public void setSchedule(Schedule schedule) {
 		setData(schedule.getStopNames(), 
 				schedule.getLegends(), schedule.getTimes());
+	}
+
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		return gestureDetector.onTouchEvent(event);
+	}
+
+	public boolean onSingleTapUp(MotionEvent ev) {
+//		Log.d("onSingleTapUp", ev.toString());
+		return true;
+	}
+
+	@Override
+	public void onShowPress(MotionEvent ev) {
+//		Log.d("onShowPress", ev.toString());
+	}
+
+	@Override
+	public void onLongPress(MotionEvent ev) {
+//		Log.d("onLongPress", ev.toString());
+	}
+
+	@Override
+	public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
+			float distanceY) {
+		Log.d("onScroll", distanceX + ", " + distanceY);
+		scrollBy((int) distanceX, (int) distanceY);
+		return true;
+	}
+
+	@Override
+	public boolean onDown(MotionEvent ev) {
+//		Log.d("onDown", ev.toString());
+		return true;
+	}
+
+	@Override
+	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
+			float velocityY) {
+		Log.d("onFling", e1.toString() + ", " + e2.toString());
+		return true;
+	}
+	
+	public void scrollBy(int dx, int dy) {
+		setOffsetX(offsetX + dx);
+		setOffsetY(offsetY + dy);
+		invalidate();
+	}
+
+	private void setOffsetY(int newOffsetY) {
+		offsetY = newOffsetY;
+	}
+
+	private void setOffsetX(int newOffsetX) {
+		offsetX = newOffsetX;
 	}
 }
