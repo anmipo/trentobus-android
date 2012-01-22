@@ -150,13 +150,37 @@ public class Schedule {
         return stopNames[row];
     }
     
-    // this is potentially unsafe, but greatly improves performance
+    /**
+     * Returns the matrix of departure times.
+     * <b>CONTRACT</b>: this method returns the original schedule array;
+     * this significantly improves the performance, but the caller 
+     * must take care to keep the received array unmodified.
+     * @return
+     */
     public String[][] getTimes() {
     	return times;
     }
     
-    // this is potentially unsafe, but greatly improves performance
+    /**
+     * Returns an array of bus stop names.
+     * <b>CONTRACT</b>: this method returns the original array;
+     * this significantly improves the performance, but the caller 
+     * must take care to keep the received array unmodified.
+     * @return
+     */
     public String[] getStopNames() {
     	return stopNames;
     }
+
+    /**
+     * Returns an array of legend symbols for each route (timetable column).
+     * <b>CONTRACT</b>: this method returns the original array;
+     * this significantly improves the performance, but the caller 
+     * must take care to keep the received array unmodified.
+     * @return
+     */
+	public String[] getLegends() {
+		// TODO: return proper legends, this is a stub
+		return frequenzaLine;
+	}
 }
