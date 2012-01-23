@@ -15,6 +15,7 @@ import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Scroller;
 
 import com.anmipo.android.trentobus.db.Schedule;
 
@@ -22,7 +23,7 @@ public class TimetableView extends View implements OnGestureListener {
     static final String TAG = "Timetable";
 
 	// width of the left fixed column with bus stop names
-	public static final int FONT_SIZE_DP = 18;
+	public static final int FONT_SIZE_DP = 16;
 
 	private String[] fixedCol;
 	private String[] fixedRow;
@@ -50,12 +51,15 @@ public class TimetableView extends View implements OnGestureListener {
 
 	private GestureDetector gestureDetector;
 
+	private Scroller scroller;
+
 
 	public TimetableView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		setBorderWidth(2);
 		
 		gestureDetector = new GestureDetector(this);
+		scroller = new Scroller(context);
 		
 		// TODO: remove this debug data
 		setData(new String[]{"row1", "row2", "row3", "row4", "row5", "row6"},
@@ -309,13 +313,28 @@ public class TimetableView extends View implements OnGestureListener {
 	@Override
 	public boolean onDown(MotionEvent ev) {
 //		Log.d("onDown", ev.toString());
+		scroller.abortAnimation();
 		return true;
+	}
+	
+	@Override
+	public void computeScroll() {
+		if (scroller.computeScrollOffset()) {
+			offsetX = scroller.getCurrX();
+			offsetY = scroller.getCurrY();
+			postInvalidate();
+		}
 	}
 
 	@Override
 	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
 			float velocityY) {
 		Log.d("onFling", e1.toString() + ", " + e2.toString());
+		scroller.fling(offsetX, offsetY, 
+				(int) -velocityX, (int) -velocityY, 
+				0, colCount * (colWidth + borderWidth), 
+				0, rowCount * (rowHeight + borderWidth));
+		
 		return true;
 	}
 	
