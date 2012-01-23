@@ -12,14 +12,13 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.GestureDetector;
-import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Scroller;
 
 import com.anmipo.android.trentobus.db.Schedule;
 
-public class TimetableView extends View implements OnGestureListener {
+public class TimetableView extends View {
     static final String TAG = "Timetable";
 
 	// width of the left fixed column with bus stop names
@@ -49,17 +48,20 @@ public class TimetableView extends View implements OnGestureListener {
 	private int leftCol = 0;     // currently visible left column number
 	private int offsetX = 0;
 	private int offsetY = 0;
+	private int maxOffsetX;
+	private int maxOffsetY;
 
 	private GestureDetector gestureDetector;
 
 	private Scroller scroller;
 
 
+
 	public TimetableView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		setBorderWidth(2);
 		
-		gestureDetector = new GestureDetector(this);
+		gestureDetector = new GestureDetector(context, new GestureListener());
 		scroller = new Scroller(context);
 		
 		// TODO: remove this debug data
@@ -136,7 +138,9 @@ public class TimetableView extends View implements OnGestureListener {
 			int bottom) {
 		super.onLayout(changed, left, top, right, bottom);
 		fixedColWidth = (int) measureFixedColumnWidth();
-	}
+		maxOffsetX = colCount * (colWidth + borderWidth) - (width - fixedColWidth - borderWidth);
+		maxOffsetY = rowCount * (rowHeight + borderWidth) - (height - rowHeight - borderWidth);
+	}	
 
 	/**
 	 * Calculates the fixed column's width, so that it either
@@ -171,11 +175,12 @@ public class TimetableView extends View implements OnGestureListener {
 		float itemHeight = rowHeight + borderWidth;
 		float textOffset = getTextCenterOffset(rowHeight, cellPaint);
 		float cellCenterOffset = colWidth/2;
-		float x = fixedColWidth + borderWidth - offsetX;
+		float x = fixedColWidth + borderWidth + (colWidth + borderWidth) * leftCol - offsetX;
 		int xIndex = leftCol;
 		while ((x < width) && (xIndex < colCount)) {
 			int yIndex = topRow;
-			float y = rowHeight + borderWidth - offsetY;
+			//float y = rowHeight + borderWidth - offsetY;
+			float y = (topRow + 1) * (rowHeight + borderWidth) - offsetY;
 			while ((y < height) && (yIndex < rowCount)) {
 				canvas.drawText(cells[yIndex][xIndex], 
 						x + cellCenterOffset, y + textOffset, 
@@ -201,7 +206,7 @@ public class TimetableView extends View implements OnGestureListener {
 				width, rowHeight + borderWidth, Op.REPLACE);
 		float textOffsetX = colWidth/2;
 		float textOffsetY = getTextCenterOffset(rowHeight, fixedRowPaint);
-		float x = fixedColWidth + borderWidth - offsetX;
+		float x = fixedColWidth + borderWidth + (colWidth + borderWidth) * leftCol - offsetX;
 		int index = leftCol;
 		while ((x < width) && (index < colCount)) {
 			canvas.drawText(fixedRow[index], 
@@ -223,7 +228,8 @@ public class TimetableView extends View implements OnGestureListener {
 	private void drawFixedColumn(Canvas canvas) {
 		canvas.clipRect(0, rowHeight, fixedColWidth + borderWidth, height, Op.REPLACE);
 		float textOffsetY = getTextCenterOffset(rowHeight, fixedColumnPaint);
-		float y = -offsetY + rowHeight + borderWidth; // skip the fixed row
+		// skip the fixed row and invisible entries
+		float y = (rowHeight + borderWidth) * (topRow + 1) - offsetY;
 		int index = topRow;
 		while ((y < height) && (index < rowCount)) {
 			canvas.drawText(fixedCol[index], 
@@ -287,7 +293,7 @@ public class TimetableView extends View implements OnGestureListener {
         	throw new IllegalArgumentException("Table dimensions do not match");
         }
         onLayout(true, 0, 0, width, height);
-        invalidate();
+        postInvalidate();
 	}
 	
 	public void setSchedule(Schedule schedule) {
@@ -300,68 +306,81 @@ public class TimetableView extends View implements OnGestureListener {
 		return gestureDetector.onTouchEvent(event);
 	}
 
-	public boolean onSingleTapUp(MotionEvent ev) {
-//		Log.d("onSingleTapUp", ev.toString());
-		return true;
-	}
-
-	@Override
-	public void onShowPress(MotionEvent ev) {
-//		Log.d("onShowPress", ev.toString());
-	}
-
-	@Override
-	public void onLongPress(MotionEvent ev) {
-//		Log.d("onLongPress", ev.toString());
-	}
-
-	@Override
-	public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
-			float distanceY) {
-		Log.d("onScroll", distanceX + ", " + distanceY);
-		scrollBy((int) distanceX, (int) distanceY);
-		return true;
-	}
-
-	@Override
-	public boolean onDown(MotionEvent ev) {
-//		Log.d("onDown", ev.toString());
-		scroller.abortAnimation();
-		return true;
+	private class GestureListener extends GestureDetector.SimpleOnGestureListener {
+		@Override
+		public boolean onScroll(MotionEvent e1, MotionEvent e2, float dx, 
+				float dy) {
+			scrollBy((int) dx, (int) dy);
+			return true;
+		}
+	
+		@Override
+		public boolean onDown(MotionEvent ev) {
+			scroller.forceFinished(true);
+			return true;
+		}
+		
+		@Override
+		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
+				float velocityY) {
+			Log.d("onFling", velocityX + ", " + velocityY);
+			scroller.fling(offsetX, offsetY, 
+					(int) -velocityX, (int) -velocityY, 
+					0, maxOffsetX, 
+					0, maxOffsetY);
+			// It is necessary to call postInvalidate(), so that 
+			// computeScroll() will eventually get called.
+			// (For some reason, simple invalidate() won't work.)
+			postInvalidate(); 
+			return true;
+		}
 	}
 	
 	@Override
 	public void computeScroll() {
 		if (scroller.computeScrollOffset()) {
-			offsetX = scroller.getCurrX();
-			offsetY = scroller.getCurrY();
+			setOffsetX(scroller.getCurrX());
+			setOffsetY(scroller.getCurrY());
+			// It is necessary to call postInvalidate(), so that 
+			// computeScroll() will be called again later.
+			// (For some reason, simple invalidate() won't work.)
 			postInvalidate();
 		}
 	}
 
 	@Override
-	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
-			float velocityY) {
-		Log.d("onFling", e1.toString() + ", " + e2.toString());
-		scroller.fling(offsetX, offsetY, 
-				(int) -velocityX, (int) -velocityY, 
-				0, colCount * (colWidth + borderWidth), 
-				0, rowCount * (rowHeight + borderWidth));
-		
-		return true;
+	public void scrollTo(int x, int y) {
+		setOffsetX(x);
+		setOffsetY(y);
+		postInvalidate();
 	}
 	
+	@Override
 	public void scrollBy(int dx, int dy) {
 		setOffsetX(offsetX + dx);
 		setOffsetY(offsetY + dy);
-		invalidate();
-	}
-
-	private void setOffsetY(int newOffsetY) {
-		offsetY = newOffsetY;
+		postInvalidate();
 	}
 
 	private void setOffsetX(int newOffsetX) {
-		offsetX = newOffsetX;
+		if (newOffsetX < 0) {
+			offsetX = 0;
+		} else if (newOffsetX > maxOffsetX) {
+			offsetX = maxOffsetX;
+		} else {
+			offsetX = newOffsetX;
+		}
+		leftCol = offsetX / (colWidth + borderWidth);
+	}
+
+	private void setOffsetY(int newOffsetY) {
+		if (newOffsetY < 0) {
+			offsetY = 0;
+		} else if (newOffsetY > maxOffsetY) {
+			offsetY = maxOffsetY;
+		} else {
+			offsetY = newOffsetY;
+		}
+		topRow = offsetY / (rowHeight + borderWidth);
 	}
 }
