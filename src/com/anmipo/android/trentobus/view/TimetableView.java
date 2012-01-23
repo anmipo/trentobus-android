@@ -43,6 +43,7 @@ public class TimetableView extends View implements OnGestureListener {
 	private Paint fixedColumnPaint;
 	private Paint fixedRowPaint;
 	private Paint cellPaint; 
+	private Paint cellBorderPaint; 
 
 	private int topRow = 0;      // currently visible top row number
 	private int leftCol = 0;     // currently visible left column number
@@ -66,7 +67,7 @@ public class TimetableView extends View implements OnGestureListener {
 				new String[]{"col1", "col2", "col3", "col4"},
 				new String[][]
 				{{"12:34", "56:78", "90:12", "34:56"},
-				 {"12:34", "56:78", "90:12", "34:56"},
+				 {"12:34", "56:78", "*", "34:56"},
 				 {"12:34", "56:78", "90:12", "34:56"},
 				 {"12:34", "56:78", "90:12", "34:56"},
 				 {"12:34", "56:78", "90:12", "34:56"},
@@ -91,12 +92,19 @@ public class TimetableView extends View implements OnGestureListener {
 		fixedRowPaint.setAntiAlias(true);
 		fixedRowPaint.setStrokeWidth(borderWidth);
 		
+		cellBorderPaint = new Paint();
+		cellBorderPaint.setColor(Color.GRAY);
+		cellBorderPaint.setStyle(Style.STROKE);
+		cellBorderPaint.setStrokeWidth(0.0f);
+		cellBorderPaint.setAntiAlias(false);
+
 		cellPaint = new Paint();
 		cellPaint.setColor(Color.BLACK);
 		cellPaint.setTextSize(fontSizePixels);
 		cellPaint.setStyle(Style.STROKE);
-		cellPaint.setTextAlign(Align.LEFT);
+		cellPaint.setTextAlign(Align.CENTER);
 		cellPaint.setAntiAlias(true);
+		
 		colWidth = (int)cellPaint.measureText("88:88") + 2 * cellPaddingX;
 		rowHeight = (int)(1.5f * cellPaint.getTextSize());
 	}
@@ -162,6 +170,7 @@ public class TimetableView extends View implements OnGestureListener {
 		float itemWidth = colWidth + borderWidth;
 		float itemHeight = rowHeight + borderWidth;
 		float textOffset = getTextCenterOffset(rowHeight, cellPaint);
+		float cellCenterOffset = colWidth/2;
 		float x = fixedColWidth + borderWidth - offsetX;
 		int xIndex = leftCol;
 		while ((x < width) && (xIndex < colCount)) {
@@ -169,12 +178,16 @@ public class TimetableView extends View implements OnGestureListener {
 			float y = rowHeight + borderWidth - offsetY;
 			while ((y < height) && (yIndex < rowCount)) {
 				canvas.drawText(cells[yIndex][xIndex], 
-						x + cellPaddingX, y + textOffset, 
+						x + cellCenterOffset, y + textOffset, 
 						cellPaint);
 				canvas.drawLine(x, y + rowHeight + halfBorderWidth, 
-						x + colWidth + halfBorderWidth, y + rowHeight + halfBorderWidth, cellPaint);
+						x + colWidth + halfBorderWidth, 
+						y + rowHeight + halfBorderWidth, 
+						cellBorderPaint);
 				canvas.drawLine(x + colWidth + halfBorderWidth, y, 
-						x + colWidth + halfBorderWidth, y + rowHeight + halfBorderWidth, cellPaint);
+						x + colWidth + halfBorderWidth, 
+						y + rowHeight + halfBorderWidth, 
+						cellBorderPaint);
 				y += itemHeight;
 				yIndex++;
 			}
