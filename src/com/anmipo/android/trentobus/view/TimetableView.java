@@ -1,13 +1,16 @@
 package com.anmipo.android.trentobus.view;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.Paint.Style;
+import android.graphics.Rect;
 import android.graphics.Region.Op;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -16,6 +19,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Scroller;
 
+import com.anmipo.android.trentobus.R;
 import com.anmipo.android.trentobus.db.Schedule;
 
 public class TimetableView extends View {
@@ -52,24 +56,23 @@ public class TimetableView extends View {
 	// drawing sizes / dimensions (calculated based on View size and paints)  
 	private int width, height;   // view/canvas size
 	private int fixedColWidth;   // width of the left (fixed) column
-	private int borderWidth;     // border between cells
-	private int halfBorderWidth; // borderWidth/2
 	private int maxOffsetX;      // max allowed horizontal offset
 	private int maxOffsetY;      // max allowed vertical offset
 	private int colWidth;        // cell columns width
 	private int rowHeight;       // height of all rows
-	private int cellWidth;       // = colWidth + borderWidth	
-	private int cellHeight;      // = rowHeight + borderWidth
-	private int rowHeightAndHalfBorder; // = rowHeight + borderWidth / 2
-	private int colWidthAndHalfBorder;  // = colWidth + borderWidth / 2
-
+	
 	private GestureDetector gestureDetector;
 	private Scroller scroller;
 
+	// background drawables for fixed and normal cells
+	private Drawable fixedBackgroundDrawable;
+	private Drawable fixedColumnEdgeDrawable;
+	private Drawable cellBackgroundDrawable;
 
 	public TimetableView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		setBorderWidth(DEFAULT_BORDER_WIDTH);
+		initResources(context);
 		
 		gestureDetector = new GestureDetector(context, new GestureListener());
 		scroller = new Scroller(context);
@@ -86,6 +89,13 @@ public class TimetableView extends View {
 				 {"12:34", "56:78", "90:12", "34:56"}});
 	}
 
+	private void initResources(Context context) {
+		Resources res = context.getResources();
+		fixedBackgroundDrawable = res.getDrawable(R.drawable.fixed_bg);
+		fixedColumnEdgeDrawable = res.getDrawable(R.drawable.fixed_column_edge);
+		cellBackgroundDrawable = res.getDrawable(R.drawable.cell_bg);
+	}
+	
 	private void setupPaints() {
 		float fontSizePixels = TypedValue
 				.applyDimension(TypedValue.COMPLEX_UNIT_DIP, FONT_SIZE_DP,
@@ -95,14 +105,12 @@ public class TimetableView extends View {
 		fixedColumnPaint.setTextSize(fontSizePixels);
 		fixedColumnPaint.setTypeface(Typeface.DEFAULT_BOLD);
 		fixedColumnPaint.setAntiAlias(true);
-		fixedColumnPaint.setStrokeWidth(borderWidth);
 		
 		fixedRowPaint = new Paint();
 		fixedRowPaint.setTextAlign(Align.CENTER);
 		fixedRowPaint.setTextSize(fontSizePixels);
 		fixedRowPaint.setTypeface(Typeface.DEFAULT_BOLD);
 		fixedRowPaint.setAntiAlias(true);
-		fixedRowPaint.setStrokeWidth(borderWidth);
 		
 		cellBorderPaint = new Paint();
 		cellBorderPaint.setColor(Color.GRAY);
@@ -119,19 +127,10 @@ public class TimetableView extends View {
 		
 		colWidth = (int)cellPaint.measureText("88:88") + 2 * CELL_PADDING_X;
 		rowHeight = (int)(1.5f * cellPaint.getTextSize());
-		cellWidth = colWidth + borderWidth;
-		cellHeight = rowHeight + borderWidth;
-		rowHeightAndHalfBorder = rowHeight + halfBorderWidth;
-		colWidthAndHalfBorder = colWidth + halfBorderWidth;
 	}
 
 	public void setBorderWidth(int borderWidth) {
-		this.borderWidth = borderWidth;
-		this.halfBorderWidth = borderWidth/2;
 		setupPaints();
-	}
-	public int getBorderWidth() {
-		return borderWidth;
 	}
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -152,9 +151,9 @@ public class TimetableView extends View {
 			int bottom) {
 		super.onLayout(changed, left, top, right, bottom);
 		fixedColWidth = (int) measureFixedColumnWidth();
-		maxOffsetX = colCount * cellWidth 
-				- (width - fixedColWidth - borderWidth);
-		maxOffsetY = rowCount * cellHeight - (height - cellHeight);
+		maxOffsetX = colCount * colWidth 
+				- (width - fixedColWidth);
+		maxOffsetY = rowCount * rowHeight - (height - rowHeight);
 	}	
 
 	/**
@@ -177,84 +176,80 @@ public class TimetableView extends View {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
-		debugDraw(canvas);
 		drawFixedColumn(canvas);
 		drawFixedRow(canvas);
 		drawCells(canvas);
+		// draw top-left empty corner 
+		canvas.clipRect(0, 0, width, height, Op.REPLACE);
+		fixedBackgroundDrawable.setBounds(0, 0, fixedColWidth, rowHeight);
+		fixedBackgroundDrawable.draw(canvas);
 	}
 	
 	private void drawCells(Canvas canvas) {
 		canvas.clipRect(
-				fixedColWidth + borderWidth, rowHeightAndHalfBorder,
+				fixedColWidth, rowHeight,
 				width, height, Op.REPLACE);
-		float textOffset = getTextCenterOffset(rowHeight, cellPaint);
-		float cellCenterOffset = colWidth / 2;
-		float x = fixedColWidth + borderWidth + cellWidth * leftCol - offsetX;
-		float y0 = (topRow + 1) * cellHeight - offsetY;
+		int textOffset = getTextCenterOffset(rowHeight, cellPaint);
+		int cellCenterOffset = colWidth / 2;
+		int x = fixedColWidth + colWidth * leftCol - offsetX;
+		int y0 = (topRow + 1) * rowHeight - offsetY;
 		int xIndex = leftCol;
 		while ((x < width) && (xIndex < colCount)) {
 			int yIndex = topRow;
-			//float y = rowHeight + borderWidth - offsetY;
-			float y = y0;
-			float cellRight = x + colWidthAndHalfBorder; 
+			int y = y0;
+			int cellRight = x + colWidth; 
 			while ((y < height) && (yIndex < rowCount)) {
-				float cellBottom = y + rowHeightAndHalfBorder;
+				int cellBottom = y + rowHeight;
+				cellBackgroundDrawable.setBounds(x, y, cellRight, cellBottom);
+				cellBackgroundDrawable.draw(canvas);
 				canvas.drawText(cells[yIndex][xIndex], 
 						x + cellCenterOffset, y + textOffset, 
 						cellPaint);
-				canvas.drawLine(x, cellBottom, cellRight, cellBottom, 
-						cellBorderPaint);
-				canvas.drawLine(cellRight, y, cellRight, cellBottom, 
-						cellBorderPaint);
-				y += cellHeight;
+				y += rowHeight;
 				yIndex++;
 			}
-			x += cellWidth;
+			x += colWidth;
 			xIndex++;
 		}
 	}
 
 	private void drawFixedRow(Canvas canvas) {
-		canvas.clipRect(fixedColWidth + borderWidth, 0,
-				width, cellHeight, Op.REPLACE);
-		float textOffsetX = colWidth / 2;
-		float textOffsetY = getTextCenterOffset(rowHeight, fixedRowPaint);
-		float x = fixedColWidth + borderWidth + cellWidth * leftCol - offsetX;
+		canvas.clipRect(fixedColWidth, 0,
+				width, rowHeight, Op.REPLACE);
+		int textOffsetX = colWidth / 2;
+		int textOffsetY = getTextCenterOffset(rowHeight, fixedRowPaint);
+		int x = fixedColWidth + colWidth * leftCol - offsetX;
 		int index = leftCol;
 		while ((x < width) && (index < colCount)) {
+			fixedBackgroundDrawable.setBounds(x, 0, x + colWidth, rowHeight);
+			fixedBackgroundDrawable.draw(canvas);
 			canvas.drawText(fixedRow[index], 
 					x + textOffsetX, textOffsetY, fixedRowPaint);
-			x += colWidthAndHalfBorder;
-			canvas.drawLine(x, 0, x, rowHeight, fixedRowPaint);
-			x += halfBorderWidth;
+			x += colWidth;
 			index++;
 		}
-		// draw top-left empty corner 
-		canvas.clipRect(0, 0, width, height, Op.REPLACE);
-		canvas.drawLine(0, rowHeightAndHalfBorder, 
-				x, rowHeightAndHalfBorder, fixedRowPaint);
-		canvas.drawLine(fixedColWidth + halfBorderWidth, 0, 
-				fixedColWidth + halfBorderWidth, rowHeightAndHalfBorder, 
-				fixedRowPaint);
 	}
 
 	private void drawFixedColumn(Canvas canvas) {
-		canvas.clipRect(0, rowHeight, fixedColWidth + borderWidth, height, 
+		canvas.clipRect(0, rowHeight, fixedColWidth, height, 
 				Op.REPLACE);
-		float textOffsetY = getTextCenterOffset(rowHeight, fixedColumnPaint);
-		// skip the fixed row and invisible entries
-		float y = cellHeight * (topRow + 1) - offsetY;
+		int textOffsetY = getTextCenterOffset(rowHeight, fixedColumnPaint);
+		int y = rowHeight * (topRow + 1) - offsetY;
 		int index = topRow;
 		while ((y < height) && (index < rowCount)) {
+			Rect bounds = new Rect(0, y, fixedColWidth, (y + rowHeight));
+			fixedBackgroundDrawable.setBounds(bounds);
+			fixedColumnEdgeDrawable.setBounds(bounds);
+
+			fixedBackgroundDrawable.draw(canvas);
 			canvas.drawText(fixedCol[index], CELL_PADDING_X, y + textOffsetY , 
 					fixedColumnPaint);
-			y += rowHeightAndHalfBorder;
-			canvas.drawLine(0, y, fixedColWidth, y, fixedColumnPaint);
-			y += halfBorderWidth;
+			fixedColumnEdgeDrawable.draw(canvas);
+			y += rowHeight;
 			index++;
 		}
-		canvas.drawLine(fixedColWidth + halfBorderWidth, 0, 
-				fixedColWidth + halfBorderWidth, y, fixedColumnPaint);
+		canvas.drawLine(fixedColWidth, 0, 
+				fixedColWidth, y, fixedColumnPaint);
 	}
 
 	/**
@@ -266,21 +261,16 @@ public class TimetableView extends View {
 	 *            Paint defining text drawing parameters.
 	 * @return
 	 */
-	private static float getTextCenterOffset(int lineHeight, Paint paint) {
+	private static int getTextCenterOffset(int lineHeight, Paint paint) {
 		/*
 		 * Full form:
 		 *     paint.descent() 
 		 *         - (paint.descent() - paint.ascent())/2
 		 *         + lineHeight/2;
 		 */
-		return (lineHeight - paint.ascent() - paint.descent()) / 2;
+		return (int)(lineHeight - paint.ascent() - paint.descent()) / 2;
 	}
 	
-	private void debugDraw(Canvas canvas) {
-		Paint paint = new Paint();
-		paint.setStyle(Style.STROKE);
-	}
-
 	/**
 	 * Sets data for this table view.
 	 * Dimensions of <code>cells</code> must correspond to these of 
@@ -388,7 +378,7 @@ public class TimetableView extends View {
 		} else {
 			offsetX = newOffsetX;
 		}
-		leftCol = offsetX / (colWidth + borderWidth);
+		leftCol = offsetX / colWidth;
 	}
 
 	private void setOffsetY(int newOffsetY) {
@@ -399,6 +389,6 @@ public class TimetableView extends View {
 		} else {
 			offsetY = newOffsetY;
 		}
-		topRow = offsetY / (rowHeight + borderWidth);
+		topRow = offsetY / rowHeight;
 	}
 }
