@@ -71,8 +71,8 @@ public class TimetableView extends View {
 
 	public TimetableView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		setBorderWidth(DEFAULT_BORDER_WIDTH);
 		initResources(context);
+		initPaints();
 		
 		gestureDetector = new GestureDetector(context, new GestureListener());
 		scroller = new Scroller(context);
@@ -82,7 +82,7 @@ public class TimetableView extends View {
 				new String[]{"col1", "col2", "col3", "col4"},
 				new String[][]
 				{{"12:34", "56:78", "90:12", "34:56"},
-				 {"12:34", "56:78", "*", "34:56"},
+				 {"12:34", "56:78", "*",     "34:56"},
 				 {"12:34", "56:78", "90:12", "34:56"},
 				 {"12:34", "56:78", "90:12", "34:56"},
 				 {"12:34", "56:78", "90:12", "34:56"},
@@ -96,7 +96,7 @@ public class TimetableView extends View {
 		cellBackgroundDrawable = res.getDrawable(R.drawable.cell_bg);
 	}
 	
-	private void setupPaints() {
+	private void initPaints() {
 		float fontSizePixels = TypedValue
 				.applyDimension(TypedValue.COMPLEX_UNIT_DIP, FONT_SIZE_DP,
 						getContext().getResources().getDisplayMetrics());
@@ -129,9 +129,6 @@ public class TimetableView extends View {
 		rowHeight = (int)(1.5f * cellPaint.getTextSize());
 	}
 
-	public void setBorderWidth(int borderWidth) {
-		setupPaints();
-	}
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		int measuredWidth = MeasureSpec.getSize(widthMeasureSpec);
