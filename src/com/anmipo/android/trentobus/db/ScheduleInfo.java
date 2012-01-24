@@ -5,6 +5,7 @@ package com.anmipo.android.trentobus.db;
  * @author Andrei Popleteev
  */
 public class ScheduleInfo {
+    private String busNumber;
     private String direction;
     private ScheduleType type;
     private int scheduleId;
@@ -20,8 +21,9 @@ public class ScheduleInfo {
      * @param scheduleId
      *            Unique ID of this schedule.
      */
-    public ScheduleInfo(String direction, ScheduleType type, 
+    public ScheduleInfo(String busNumber, String direction, ScheduleType type, 
     		String dataFileName, int scheduleId) {
+    	this.busNumber = busNumber;
         this.direction = direction;
         this.type = type;
         this.fileName = dataFileName;
@@ -33,8 +35,11 @@ public class ScheduleInfo {
 	public int getScheduleId() {
         return scheduleId;
     }
-    public String getName() {
-        return direction;
+    public String getBusNumber() {
+        return busNumber;
+    }
+    public String getDirection() {
+    	return direction;
     }
     public ScheduleType getType() {
         return type;

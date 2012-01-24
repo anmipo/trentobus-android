@@ -73,7 +73,7 @@ public class ScheduleManager {
                         buses.add(busInfo);
                     }
                     ScheduleInfo schInfo = 
-                            new ScheduleInfo(direction, schType, 
+                            new ScheduleInfo(busNumber, direction, schType, 
                             		scheduleDataFileName, scheduleId); 
                     busInfo.addScheduleInfo(schInfo);
                     scheduleInfos.put(Integer.valueOf(scheduleId), schInfo);

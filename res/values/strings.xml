@@ -4,4 +4,5 @@
     
     <string name="error_cannot_load_schedule_index">Cannot load schedule index</string>
     <string name="view_bus_info_header" formatted="false">%s: choose timetable</string>
+    <string name="view_schedule_title" formatted="false">%s: %s</string>
 </resources>

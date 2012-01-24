@@ -52,7 +52,7 @@ public class DirectionsAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) view.getTag();
         }
-        holder.direction.setText(getItem(position).getName());
+        holder.direction.setText(getItem(position).getDirection());
         holder.type.setText(getItem(position).getType().toString());
         //TODO show schedule type icon
         return view;
