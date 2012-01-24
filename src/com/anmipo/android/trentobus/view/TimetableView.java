@@ -336,7 +336,12 @@ public class TimetableView extends View {
 		@Override
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
 				float velocityY) {
-			Log.d("onFling", velocityX + ", " + velocityY);
+			// allow only single-axis fling, for user's convenience
+			if (Math.abs(velocityX) < Math.abs(velocityY)) {
+				velocityX = 0;
+			} else {
+				velocityY = 0;
+			}
 			scroller.fling(offsetX, offsetY, 
 					(int) -velocityX, (int) -velocityY, 
 					0, maxOffsetX, 
