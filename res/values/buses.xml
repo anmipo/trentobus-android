@@ -30,7 +30,7 @@
         <item>17</item>
         <item>NP</item>
     </string-array>
-    <string-array name="busBackgroundColors">
+    <array name="busBackgroundColors">
         <item>#FFB9B9B6</item> <!-- A -->
         <item>#FF6C7579</item> <!-- B -->
         <item>#FF0A0B0A</item> <!-- C -->
@@ -54,8 +54,8 @@
         <item>#FF0F2763</item> <!-- 16 -->
         <item>#FF1596CD</item> <!-- 17 -->
         <item>#FF0A0B0A</item> <!-- NP -->
-    </string-array>
-    <string-array name="busForegroundColors">
+    </array>
+    <array name="busForegroundColors">
         <item>#FF000000</item> <!-- A -->
         <item>#FFFFFFFF</item> <!-- B -->
         <item>#FFFFFFFF</item> <!-- C -->
@@ -79,5 +79,31 @@
         <item>#FFFFFFFF</item> <!-- 16 -->
         <item>#FF000000</item> <!-- 17 -->
         <item>#FFFFFFFF</item> <!-- NP -->
-    </string-array>
+    </array>
+    <array name="busDrawables">
+        <item>@drawable/bus_a</item>
+        <item>@drawable/bus_b</item>
+        <item>@drawable/bus_c</item>
+        <item>@drawable/bus_d</item>
+        <item>@drawable/bus_1</item>
+        <item>@drawable/bus_2</item>
+        <item>@drawable/bus_3</item>
+        <item>@drawable/bus_4</item>
+        <item>@drawable/bus_5</item>
+        <item>@drawable/bus_6</item>
+        <item>@drawable/bus_6b</item>
+        <item>@drawable/bus_7</item>
+        <item>@drawable/bus_8</item>
+        <item>@drawable/bus_9</item>
+        <item>@drawable/bus_10</item>
+        <item>@drawable/bus_11</item>
+        <item>@drawable/bus_12</item>
+        <item>@drawable/bus_13</item>
+        <item>@drawable/bus_14</item>
+        <item>@drawable/bus_15</item>
+        <item>@drawable/bus_16</item>
+        <item>@drawable/bus_17</item>
+        <item>@drawable/bus_np</item>
+    </array>
+    
 </resources>

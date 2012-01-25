@@ -3,11 +3,13 @@ package com.anmipo.android.trentobus.activities;
 import java.util.List;
 
 import android.content.Context;
-import android.view.Gravity;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
+import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 
 import com.anmipo.android.trentobus.R;
 import com.anmipo.android.trentobus.db.BusInfo;
@@ -33,17 +35,12 @@ public class BusGridAdapter extends ArrayAdapter<BusInfo> {
 	
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		TextView view = (TextView) convertView;
+		ImageView view = (ImageView) convertView;
 		if (convertView == null) {
-			view = new TextView(getContext());
-			view.setGravity(Gravity.CENTER);
-			view.setTextAppearance(getContext(), R.style.busNumberButton);
-			view.setPadding(0, ITEM_VERTICAL_PADDING, 0, ITEM_VERTICAL_PADDING);
+			view = new ImageView(getContext());
 		}
 		BusInfo bus = buses.get(position);
-		view.setBackgroundColor(bus.getMainColor());
-		view.setTextColor(bus.getAuxColor());
-		view.setText(bus.getNumber());
+		view.setBackgroundDrawable(bus.getDrawable());
 		view.setId(position);
 		return view;
 	}
