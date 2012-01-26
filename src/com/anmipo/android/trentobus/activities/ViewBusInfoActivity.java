@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.anmipo.android.trentobus.BusApplication;
 import com.anmipo.android.trentobus.R;
@@ -28,9 +28,8 @@ public class ViewBusInfoActivity extends Activity implements OnItemClickListener
         String busNumber = getIntent().getStringExtra(EXTRA_BUS_NUMBER);
         busInfo = BusApplication.scheduleManager.getBusInfo(busNumber);
         
-        TextView busNumberText = (TextView) findViewById(R.id.bus_number);
-        busNumberText.setText(
-        		this.getString(R.string.view_bus_info_header, busNumber));
+        ImageView busNumberImage = (ImageView) findViewById(R.id.bus_number);
+        busNumberImage.setImageDrawable(busInfo.getDrawable());
         
         scheduleList = (ListView) findViewById(R.id.schedule_info);
         DirectionsAdapter adapter = new DirectionsAdapter(this, busInfo);

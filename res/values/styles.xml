@@ -10,9 +10,10 @@
     </style>
     
     <style name="header">
-        <item name="android:textSize">20dp</item>
+        <item name="android:textSize">25dp</item>
         <item name="android:textColor">#FF4444AA</item>
-        <item name="android:padding">5dp</item>
+        <item name="android:gravity">center_vertical|left</item>
+        <item name="android:padding">10dp</item>
     </style>
     
     <color name="tableRowEven">#FFFFFFFF</color>

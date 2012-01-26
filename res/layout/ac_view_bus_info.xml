@@ -1,20 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/bus_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="5dp"
+        android:src="@drawable/bus_unknown"/>
 
     <TextView
-        android:id="@+id/bus_number"
+        android:id="@+id/header"
+        style="@style/header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
-        style="@style/header"/>
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/bus_number"
+        android:layout_alignBottom="@+id/bus_number"
+        android:layout_toRightOf="@+id/bus_number"
+        android:text="@string/choose_timetable" />
 
+    <ImageView android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bus_number"
+        android:src="@android:drawable/divider_horizontal_textfield"
+        android:scaleType="fitXY"/>
+    
     <ListView
         android:id="@+id/schedule_info"
-        android:choiceMode="singleChoice"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:layout_below="@+id/divider"
+        android:choiceMode="singleChoice" >
     </ListView>
 
-</LinearLayout>
+</RelativeLayout>
