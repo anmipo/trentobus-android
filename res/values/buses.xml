@@ -80,30 +80,4 @@
         <item>#FF000000</item> <!-- 17 -->
         <item>#FFFFFFFF</item> <!-- NP -->
     </array>
-    <array name="busDrawables">
-        <item>@drawable/bus_a</item>
-        <item>@drawable/bus_b</item>
-        <item>@drawable/bus_c</item>
-        <item>@drawable/bus_d</item>
-        <item>@drawable/bus_1</item>
-        <item>@drawable/bus_2</item>
-        <item>@drawable/bus_3</item>
-        <item>@drawable/bus_4</item>
-        <item>@drawable/bus_5</item>
-        <item>@drawable/bus_6</item>
-        <item>@drawable/bus_6b</item>
-        <item>@drawable/bus_7</item>
-        <item>@drawable/bus_8</item>
-        <item>@drawable/bus_9</item>
-        <item>@drawable/bus_10</item>
-        <item>@drawable/bus_11</item>
-        <item>@drawable/bus_12</item>
-        <item>@drawable/bus_13</item>
-        <item>@drawable/bus_14</item>
-        <item>@drawable/bus_15</item>
-        <item>@drawable/bus_16</item>
-        <item>@drawable/bus_17</item>
-        <item>@drawable/bus_np</item>
-    </array>
-    
 </resources>

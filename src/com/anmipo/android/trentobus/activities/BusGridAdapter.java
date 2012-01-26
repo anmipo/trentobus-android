@@ -19,7 +19,7 @@ public class BusGridAdapter extends BaseAdapter {
 		this.buses = buses;
 	}
 	
-    @Override
+	@Override
 	public int getCount() {
 		return buses.size();
 	}
@@ -39,7 +39,7 @@ public class BusGridAdapter extends BaseAdapter {
 			view = new ImageView(context);
 		}
 		BusInfo bus = buses.get(position);
-		view.setImageDrawable(bus.getDrawable());
+		view.setImageResource(bus.getDrawableResource());
 		return view;
 	}
 }
