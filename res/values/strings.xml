@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">Trento Bus</string>
-    
     <string name="error_cannot_load_schedule_index">Cannot load schedule index</string>
     <string name="choose_timetable">Choose timetable</string>
     <string name="view_schedule_title" formatted="false">%s: %s</string>
+
+    <!-- Frequency descriptions for legend -->
+    <string name="freq_autonoleggiatore_privato">Servizio effettuato da autonoleggiatore privato.</string>
+    <string name="freq_feriale_solo_sabato">Feriale solo il Sabato.</string>
+    <string name="freq_feriale_lunedi_a_venerdi">Feriale da Lunedì a Venerdì.</string>
+    <string name="freq_scolastica_lunedi_a_sabato">Scolastica da Lunedì a Sabato.</string>
+    <string name="freq_scolastica_lunedi_a_venerdi">Scolastica da Lunedì a Venerdì.</string>
+    <string name="freq_unknown"></string>
 </resources>

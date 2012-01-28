@@ -29,8 +29,6 @@ public class TimetableView extends View {
 	public static final int FONT_SIZE_DP = 16;
 	// horizontal padding for all cells, in px
 	private static final int CELL_PADDING_X = 5;
-	// default border width for fixed column/row
-	private static final int DEFAULT_BORDER_WIDTH = 2;
 	
 	// table data
 	private String[] fixedCol;
@@ -182,7 +180,7 @@ public class TimetableView extends View {
 		fixedBackgroundDrawable.draw(canvas);
 	}
 	
-	private void drawCells(Canvas canvas) {
+	protected void drawCells(Canvas canvas) {
 		canvas.clipRect(
 				fixedColWidth, rowHeight,
 				width, height, Op.REPLACE);
@@ -210,7 +208,7 @@ public class TimetableView extends View {
 		}
 	}
 
-	private void drawFixedRow(Canvas canvas) {
+	protected void drawFixedRow(Canvas canvas) {
 		canvas.clipRect(fixedColWidth, 0,
 				width, rowHeight, Op.REPLACE);
 		int textOffsetX = colWidth / 2;
@@ -227,7 +225,7 @@ public class TimetableView extends View {
 		}
 	}
 
-	private void drawFixedColumn(Canvas canvas) {
+	protected void drawFixedColumn(Canvas canvas) {
 		canvas.clipRect(0, rowHeight, fixedColWidth, height, 
 				Op.REPLACE);
 		int textOffsetY = getTextCenterOffset(rowHeight, fixedColumnPaint);
@@ -296,11 +294,6 @@ public class TimetableView extends View {
         postInvalidate();
 	}
 	
-	public void setSchedule(Schedule schedule) {
-		setData(schedule.getStopNames(), 
-				schedule.getLegends(), schedule.getTimes());
-	}
-
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		return gestureDetector.onTouchEvent(event);
