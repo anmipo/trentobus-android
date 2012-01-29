@@ -1,6 +1,5 @@
 package com.anmipo.android.trentobus.db;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.content.Context;
@@ -11,7 +10,6 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.anmipo.android.trentobus.R;
@@ -41,7 +39,7 @@ public class ScheduleLegend {
 		
 		sAllItemsMap = new HashMap<Character, ScheduleLegendItem>();
 		for (ScheduleLegendItem item: sAllItems) {
-			sAllItemsMap.put(item.getKey(), item);
+			sAllItemsMap.put(item.key, item);
 		}
 	}
 	
@@ -118,10 +116,10 @@ public class ScheduleLegend {
 			TextView textView = (TextView) v.findViewById(R.id.text);
 			// ImageView imageView = (ImageView) v.findViewById(R.id.icon);
 			ScheduleLegendItem legendItem = sAllItems[position];
-			textView.setText(legendItem.getTextId());
+			textView.setText(legendItem.textId);
 			// imageView.setImageResource(legendItem.getIconId());
 			textView.setCompoundDrawablesWithIntrinsicBounds(
-					legendItem.getIconId(), 0, 0, 0);
+					legendItem.iconId, 0, 0, 0);
 			textView.setCompoundDrawablePadding(iconPadding);
 
 			return v;

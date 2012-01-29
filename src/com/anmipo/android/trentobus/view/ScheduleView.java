@@ -72,7 +72,7 @@ public class ScheduleView extends TimetableView {
 		// centering icons horizontally
 		x += (colWidth - legendLength * iconSize) / 2;
 		for (int i = 0; i < legendLength; i++) {
-			Drawable d = res.getDrawable(legend.getItem(i).getIconId());
+			Drawable d = res.getDrawable(legend.getItem(i).iconId);
 			d.setBounds(x, y, x + iconSize, y + iconSize);
 			d.draw(canvas);
 			x += iconSize;
