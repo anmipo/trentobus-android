@@ -7,12 +7,17 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.Paint.Style;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.Region.Op;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.SparseArray;
 import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -29,6 +34,10 @@ public class TimetableView extends View {
 	public static final int FONT_SIZE_DP = 16;
 	// horizontal padding for all cells, in px
 	private static final int CELL_PADDING_X = 5;
+	
+	// state-saving key
+	private static final String STATE_OFFSET_X = "TimetableView.offsetX"; 
+	private static final String STATE_OFFSET_Y = "TimetableView.offsetY"; 
 	
 	// table data
 	private String[] fixedCol;
@@ -73,6 +82,7 @@ public class TimetableView extends View {
 		super(context, attrs);
 		initResources(context);
 		initPaints();
+		setSaveEnabled(true);
 		
 		gestureDetector = new GestureDetector(context, new GestureListener());
 		scroller = new Scroller(context);
@@ -395,11 +405,30 @@ public class TimetableView extends View {
 		}
 		topRow = offsetY / rowHeight;
 	}
-	
+
+	@Override
+	protected Parcelable onSaveInstanceState() {
+		// super must be called, but always returns null
+		super.onSaveInstanceState(); 
+		
+		Bundle bundle = new Bundle();
+		bundle.putInt(STATE_OFFSET_X, offsetX);
+		bundle.putInt(STATE_OFFSET_Y, offsetY);
+		return bundle;
+	}
+
+	@Override
+	protected void onRestoreInstanceState(Parcelable state) {
+		super.onRestoreInstanceState(null);
+		
+		Bundle bundle = (Bundle)state; 
+		setOffsetX(bundle.getInt(STATE_OFFSET_X, 0));
+		setOffsetY(bundle.getInt(STATE_OFFSET_Y, 0));
+	}
+
 	/*
 	 * Getters for descendant classes. 
 	 */
-	
 	protected int getRowHeight() {
 		return rowHeight;
 	}
