@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/menu_show_legend"
+        android:id="@+id/menu_legend"
         android:icon="@drawable/menu_legend"
         android:title="@string/menu_show_legend">
     </item>

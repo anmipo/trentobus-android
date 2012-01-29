@@ -1,45 +1,60 @@
 package com.anmipo.android.trentobus.db;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.anmipo.android.trentobus.R;
 
 public class ScheduleLegend {
-	private static HashMap<Character, Integer> sAllDrawables;
-	private static HashMap<Character, Integer> sAllDescriptions;
-	private int size;
+	// all available legend items
+	private static HashMap<Character, ScheduleLegendItem> sAllItemsMap;
+	private static ScheduleLegendItem[] sAllItems;
+	
 	static {
-		sAllDrawables = new HashMap<Character, Integer>();
-		sAllDescriptions = new HashMap<Character, Integer>();
+		sAllItems = new ScheduleLegendItem[5];
+		sAllItems[0] = new ScheduleLegendItem('Ü',
+				R.string.freq_feriale_lunedi_a_venerdi,
+				R.drawable.freq_square_empty);
+		sAllItems[1] = new ScheduleLegendItem('Ý',
+				R.string.freq_scolastica_lunedi_a_sabato, 
+				R.drawable.freq_star);
+		sAllItems[2] = new ScheduleLegendItem('Þ',
+				R.string.freq_scolastica_lunedi_a_venerdi,
+				R.drawable.freq_square_star);
+		sAllItems[3] = new ScheduleLegendItem('á', 
+				R.string.freq_feriale_solo_sabato, 
+				R.drawable.freq_square_filled);
+		sAllItems[4] = new ScheduleLegendItem('o', 
+				R.string.freq_autonoleggiatore_privato, 
+				R.drawable.linea_zero);
 		
-		sAllDescriptions.put('o', R.string.freq_autonoleggiatore_privato);
-		sAllDescriptions.put('á', R.string.freq_feriale_solo_sabato);
-		sAllDescriptions.put('Ü', R.string.freq_feriale_lunedi_a_venerdi);
-		sAllDescriptions.put('Ý', R.string.freq_scolastica_lunedi_a_sabato);
-		sAllDescriptions.put('Þ', R.string.freq_scolastica_lunedi_a_venerdi);
-		sAllDrawables.put('o', R.drawable.linea_zero);
-		sAllDrawables.put('á', R.drawable.freq_square_filled);
-		sAllDrawables.put('Ü', R.drawable.freq_square_empty);
-		sAllDrawables.put('Ý', R.drawable.freq_star);
-		sAllDrawables.put('Þ', R.drawable.freq_square_star);
+		sAllItemsMap = new HashMap<Character, ScheduleLegendItem>();
+		for (ScheduleLegendItem item: sAllItems) {
+			sAllItemsMap.put(item.getKey(), item);
+		}
 	}
 	
-	private int[] drawables;
-	private int[] descriptions;
-	
-	public ScheduleLegend(int size) {
-		super();
-		this.size = size;
+	// items of this specific legend
+	private ScheduleLegendItem[] items;
+		
+	protected ScheduleLegend(int size) {
+		items = new ScheduleLegendItem[size];
 	}
 
 	public static ScheduleLegend getInstance(String frequenza, String linea) {
 		int length = frequenza.length() + linea.length();
 		ScheduleLegend legend = new ScheduleLegend(length);
-		legend.drawables = new int[length];
-		legend.descriptions = new int[length];
 		
 		int index = 0;
 		for (int i = 0; i < frequenza.length(); i++) {
@@ -53,6 +68,21 @@ public class ScheduleLegend {
 		return legend;
 	}
 
+	private void setEntry(int index, char key) {
+		if (sAllItemsMap.containsKey(key)) {
+			items[index] = sAllItemsMap.get(key);
+		} else {
+			items[index] = ScheduleLegendItem.UNKNOWN;
+		}
+	}
+	public int getLength() {
+		return items.length;
+	}
+	public ScheduleLegendItem getItem(int index) {
+		return items[index];
+	}
+	
+
 	/**
 	 * Returns dimensions of the legend icons
 	 * @return
@@ -65,21 +95,36 @@ public class ScheduleLegend {
 		return result;
 	}
 
-	private void setEntry(int index, char key) {
-		drawables[index] =
-				sAllDrawables.containsKey(key) ?
-				sAllDrawables.get(key) : R.drawable.freq_unknown;
-		descriptions[index] = 
-				sAllDescriptions.containsKey(key) ?
-				sAllDescriptions.get(key) : R.string.freq_unknown;
-	}
-	public int getLength() {
-		return size;
-	}
-	public int getDrawableId(int index) {
-		return drawables[index];
-	}
-	public int getDescriptionId(int index) {
-		return descriptions[index];
-	}
+	public static class Adapter extends ArrayAdapter<ScheduleLegendItem> {
+		int iconPadding;
+		public Adapter(Context context) {
+			super(context, R.layout.item_legend_item, R.id.text, sAllItems);
+			DisplayMetrics dm = context.getResources().getDisplayMetrics();
+			iconPadding = (int) TypedValue.applyDimension(
+					TypedValue.COMPLEX_UNIT_DIP, 10, dm);
+		}
+
+		@Override
+		public int getCount() {
+			return sAllItems.length;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			// User super class to create the View
+			View v = super.getView(position, convertView, parent);
+			v.setClickable(false);
+
+			TextView textView = (TextView) v.findViewById(R.id.text);
+			// ImageView imageView = (ImageView) v.findViewById(R.id.icon);
+			ScheduleLegendItem legendItem = sAllItems[position];
+			textView.setText(legendItem.getTextId());
+			// imageView.setImageResource(legendItem.getIconId());
+			textView.setCompoundDrawablesWithIntrinsicBounds(
+					legendItem.getIconId(), 0, 0, 0);
+			textView.setCompoundDrawablePadding(iconPadding);
+
+			return v;
+		}
+	};
 }

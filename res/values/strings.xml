@@ -14,4 +14,5 @@
     <string name="freq_scolastica_lunedi_a_venerdi">Scolastica da Lunedì a Venerdì.</string>
     <string name="freq_unknown"></string>
     <string name="menu_show_legend">View legend</string>
+    <string name="schedule_legend">Schedule legend</string>
 </resources>

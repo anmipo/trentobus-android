@@ -1,16 +1,25 @@
 package com.anmipo.android.trentobus.activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.TextView;
 
 import com.anmipo.android.trentobus.BusApplication;
 import com.anmipo.android.trentobus.R;
 import com.anmipo.android.trentobus.db.Schedule;
+import com.anmipo.android.trentobus.db.ScheduleLegend;
 import com.anmipo.android.trentobus.view.ScheduleView;
 
 public class ViewScheduleActivity extends Activity {
@@ -43,7 +52,27 @@ public class ViewScheduleActivity extends Activity {
 		return true;
     }
     
-    public static void show(Context context, int scheduleId) {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	switch (item.getItemId()) {
+    	case R.id.menu_legend:
+    		showLegendDescription();
+    		return true;
+		default:
+			return false;
+    	}
+    }
+    
+    private void showLegendDescription() {
+    	ScheduleLegend.Adapter adapter = new ScheduleLegend.Adapter(this);
+		Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(R.string.schedule_legend)
+			.setAdapter(adapter, null)
+			.setIcon(0)
+			.show();
+	}
+
+	public static void show(Context context, int scheduleId) {
         Intent intent = new Intent(context, ViewScheduleActivity.class);
         intent.putExtra(EXTRA_SCHEDULE_ID, scheduleId);
         context.startActivity(intent);
