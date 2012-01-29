@@ -124,9 +124,7 @@ public class TimetableView extends View {
 		cellPaint.setStyle(Style.STROKE);
 		cellPaint.setTextAlign(Align.CENTER);
 		cellPaint.setAntiAlias(true);
-		
-		colWidth = (int)cellPaint.measureText("88:88") + 2 * CELL_PADDING_X;
-		rowHeight = (int)(1.5f * cellPaint.getTextSize());
+		updateChildrenLayout();
 	}
 
 	@Override
@@ -143,14 +141,23 @@ public class TimetableView extends View {
 		height = h;
 	}
 	
+	/**
+	 * (Re)evaluates dimensions of child elements (cell width/height).
+	 */
+	protected void updateChildrenLayout() {
+		setColWidth((int)cellPaint.measureText("88:88") + 2 * CELL_PADDING_X);
+		setRowHeight((int)(1.5f * cellPaint.getTextSize()));
+		setFixedColWidth((int) measureFixedColumnWidth());
+		setFixedRowHeight(rowHeight);
+		maxOffsetX = colCount * colWidth - (width - fixedColWidth);
+		maxOffsetY = rowCount * rowHeight - (height - fixedRowHeight);
+	}
+	
 	@Override
 	protected void onLayout(boolean changed, int left, int top, int right,
 			int bottom) {
 		super.onLayout(changed, left, top, right, bottom);
-		fixedColWidth = (int) measureFixedColumnWidth();
-		fixedRowHeight = getFixedRowHeight();
-		maxOffsetX = colCount * colWidth - (width - fixedColWidth);
-		maxOffsetY = rowCount * rowHeight - (height - fixedRowHeight);
+		updateChildrenLayout();
 	}	
 
 	/**
@@ -176,13 +183,16 @@ public class TimetableView extends View {
 		drawFixedColumn(canvas);
 		drawFixedRow(canvas);
 		drawCells(canvas);
+		drawCorner(canvas);
+	}
+	
+	protected void drawCorner(Canvas canvas) {
 		// draw top-left empty corner 
 		canvas.clipRect(0, 0, width, height, Op.REPLACE);
 		fixedBackgroundDrawable.setBounds(0, 0, fixedColWidth, fixedRowHeight);
-		fixedBackgroundDrawable.draw(canvas);
-//		canvas.drawLine(0, 0, 20, 20, cellPaint);
+		fixedBackgroundDrawable.draw(canvas);		
 	}
-	
+
 	protected void drawCells(Canvas canvas) {
 		canvas.clipRect(
 				fixedColWidth, fixedRowHeight,
@@ -393,14 +403,26 @@ public class TimetableView extends View {
 	protected int getRowHeight() {
 		return rowHeight;
 	}
+	protected void setRowHeight(int rowHeight) {
+		this.rowHeight = rowHeight;
+	}
 	protected int getFixedColWidth() {
 		return fixedColWidth;
+	}
+	protected void setFixedColWidth(int width) {
+		this.fixedColWidth = width;
 	}
 	protected int getColWidth() {
 		return colWidth;
 	}
+	protected void setColWidth(int width) {
+		this.colWidth = width;
+	}
 	protected int getFixedRowHeight() {
-		return rowHeight;
+		return fixedRowHeight;
+	}
+	protected void setFixedRowHeight(int height) {
+		this.fixedRowHeight = height;
 	}
 	protected int getTopRow() {
 		return topRow;

@@ -22,7 +22,8 @@ public class ScheduleView extends TimetableView {
 		super(context, attrs);
 		res = context.getResources();
 		
-		iconSize = ScheduleLegend.getIconSize(res); 
+		iconSize = ScheduleLegend.getIconSize(res);
+		updateChildrenLayout();
 	}
 	
 	public void setSchedule(Schedule schedule) {
@@ -35,15 +36,15 @@ public class ScheduleView extends TimetableView {
 	}
 
 	@Override
-	protected int getFixedRowHeight() {
+	protected void setFixedRowHeight(int height) {
 		// should be large enough for tapping
-		return 2 * iconSize;
+		super.setFixedRowHeight(2 * iconSize);
 	}
 	
 	@Override
-	protected int getColWidth() {
+	protected void setColWidth(int width) {
 		// the cells should fit the text and at least three icons
-		return Math.max(super.getColWidth(), iconSize * 3);
+		super.setColWidth(Math.max(width, iconSize * 3));
 	}
 	
 	@Override
