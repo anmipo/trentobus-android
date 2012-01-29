@@ -1,26 +1,23 @@
 package com.anmipo.android.trentobus.activities;
 
+import java.util.Calendar;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.TextView;
 
 import com.anmipo.android.trentobus.BusApplication;
 import com.anmipo.android.trentobus.R;
 import com.anmipo.android.trentobus.db.Schedule;
 import com.anmipo.android.trentobus.db.ScheduleLegend;
 import com.anmipo.android.trentobus.view.ScheduleView;
+import com.anmipo.android.trentobus.view.TimetableView.OnSizeChangedListener;
 
 public class ViewScheduleActivity extends Activity {
     private static final String EXTRA_SCHEDULE_ID = "schedule";
@@ -33,6 +30,7 @@ public class ViewScheduleActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ac_timetable);
+        
         int scheduleId = getIntent().getIntExtra(EXTRA_SCHEDULE_ID, -1);
         if (scheduleId < 0) {
             Log.wtf(TAG, "Invalid schedule id");
@@ -44,6 +42,20 @@ public class ViewScheduleActivity extends Activity {
         		schedule.getScheduleInfo().getDirection()));
         timetable = (ScheduleView) findViewById(R.id.timetable);
         timetable.setSchedule(schedule);
+        
+        // We need to scroll to the forthcoming column, but this requires
+        // knowledge of timetable view width, which becomes available too late. 
+        // One of the most reasonable ways is a custom OnSizeChanged listener.
+        // The solution is from here: http://stackoverflow.com/questions/4888624/android-need-to-use-onsizechanged-for-view-getwidth-height-in-class-extending
+        timetable.setOnSizeChangedListener(new OnSizeChangedListener() {
+			@Override
+			public void onSizeChanged(int width, int height) {
+		        // scroll to the nearest forthcoming column
+		        int forthcomingCol = 
+		        		schedule.getForthcomingDepartureColumn(Calendar.getInstance());
+		        timetable.scrollToColumn(forthcomingCol);				
+			}
+		});
     }
     
     @Override

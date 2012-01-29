@@ -8,7 +8,6 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 
-import com.anmipo.android.trentobus.R;
 import com.anmipo.android.trentobus.db.Schedule;
 import com.anmipo.android.trentobus.db.ScheduleLegend;
 
@@ -78,5 +77,9 @@ public class ScheduleView extends TimetableView {
 			d.draw(canvas);
 			x += iconSize;
 		}
+	}
+	
+	public void scrollToColumn(int col) {
+		setOffsetX(col * getColWidth());
 	}
 }

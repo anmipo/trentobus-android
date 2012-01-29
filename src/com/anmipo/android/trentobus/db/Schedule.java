@@ -3,6 +3,7 @@ package com.anmipo.android.trentobus.db;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Calendar;
 import java.util.Date;
 
 import android.content.Context;
@@ -192,5 +193,87 @@ public class Schedule {
 	 */
 	public ScheduleLegend[] getLegends() {
 		return legends;
+	}
+
+	/**
+	 * Returns the number of column that corresponds to the 
+	 * nearest forthcoming departure from the first bus stop.
+	 * 
+	 * @param calendar
+	 *            Calendar specifying the reference time. The resulting column 
+	 *            should contain either later time, or be the first one 
+	 *            in the schedule (meaning next day departure).
+	 * @return
+	 */
+	public int getForthcomingDepartureColumn(Calendar calendar) {
+		int result = 0;
+		Time refTime = new Time(
+				calendar.get(Calendar.HOUR_OF_DAY),
+				calendar.get(Calendar.MINUTE));
+		for (int col = 0; col < colCount; col++) {
+			Time colTime = getFirstTime(col);
+			if (colTime.compareTo(refTime) >= 0) {
+				result = col;
+				break;
+			}
+		}
+		return result;
+	}
+	
+	/**
+	 * Returns the first valid time in the given column.
+	 * If no valid time found, returns null.
+	 * @param times
+	 * @return
+	 */
+	private Time getFirstTime(int col) {
+		Time result = null;
+		for (int row = 0; row < rowCount; row++) {
+			result = parseTimeString(times[row][col]);
+			if (result != null) break;
+		}
+		return result;
+	}
+
+	/**
+	 * Parses the given time string (H:MM). 
+	 * If string is empty or ill-formatted, return null.
+	 * @param timeStr
+	 * @return
+	 */
+	public Time parseTimeString(String timeStr) {
+		Time result = null;
+		int dividerPos;
+		if (timeStr != null && timeStr.length() >= 3 && 
+				(dividerPos = timeStr.indexOf(':')) > 0) {
+			try {
+				result = new Time(
+						Integer.valueOf(timeStr.substring(0, dividerPos)),
+						Integer.valueOf(timeStr.substring(dividerPos + 1)));
+			} catch(NumberFormatException nfe) {
+				// do nothing: in case of problems we return null
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * Time of the schedule (hours and minutes) 
+	 */
+	private class Time implements Comparable<Time> {
+		final int hour;
+		final int minute;
+		public Time(int hour, int minute) {
+			this.hour = hour;
+			this.minute = minute;
+		}
+		@Override
+		public int compareTo(Time another) {
+			int result = hour - another.hour;
+			if (result == 0) {
+				result = minute - another.minute;
+			}
+			return result;
+		}
 	}
 }

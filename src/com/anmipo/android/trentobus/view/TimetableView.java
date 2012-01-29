@@ -7,17 +7,13 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.Paint.Style;
-import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.Region.Op;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.util.SparseArray;
 import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -25,7 +21,6 @@ import android.view.View;
 import android.widget.Scroller;
 
 import com.anmipo.android.trentobus.R;
-import com.anmipo.android.trentobus.db.Schedule;
 
 public class TimetableView extends View {
     static final String TAG = "Timetable";
@@ -54,6 +49,11 @@ public class TimetableView extends View {
 	private Paint cellPaint; 
 	private Paint cellBorderPaint; 
 
+	// background drawables for fixed and normal cells
+	private Drawable fixedBackgroundDrawable;
+	private Drawable fixedColumnEdgeDrawable;
+	private Drawable cellBackgroundDrawable;
+
 	// viewport
 	private int topRow = 0;      // currently visible top row number
 	private int leftCol = 0;     // currently visible left column number
@@ -71,12 +71,10 @@ public class TimetableView extends View {
 	
 	private GestureDetector gestureDetector;
 	private Scroller scroller;
-
-	// background drawables for fixed and normal cells
-	private Drawable fixedBackgroundDrawable;
-	private Drawable fixedColumnEdgeDrawable;
-	private Drawable cellBackgroundDrawable;
-
+	private OnSizeChangedListener onSizeChangedListener = null;
+	public interface OnSizeChangedListener {
+		public void onSizeChanged(int width, int height);
+	}
 
 	public TimetableView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -143,14 +141,17 @@ public class TimetableView extends View {
 		int measuredHeight = MeasureSpec.getSize(heightMeasureSpec);
 		setMeasuredDimension(measuredWidth, measuredHeight);
 	}
-	
+
 	@Override
 	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 		super.onSizeChanged(w, h, oldw, oldh);
 		width = w;
 		height = h;
+		updateChildrenLayout();
+		if (onSizeChangedListener != null) {
+			onSizeChangedListener.onSizeChanged(w, h);
+		}
 	}
-	
 	/**
 	 * (Re)evaluates dimensions of child elements (cell width/height).
 	 */
@@ -384,7 +385,7 @@ public class TimetableView extends View {
 		postInvalidate();
 	}
 
-	private void setOffsetX(int newOffsetX) {
+	protected void setOffsetX(int newOffsetX) {
 		if (newOffsetX < 0) {
 			offsetX = 0;
 		} else if (newOffsetX > maxOffsetX) {
@@ -395,7 +396,7 @@ public class TimetableView extends View {
 		leftCol = offsetX / colWidth;
 	}
 
-	private void setOffsetY(int newOffsetY) {
+	protected void setOffsetY(int newOffsetY) {
 		if (newOffsetY < 0) {
 			offsetY = 0;
 		} else if (newOffsetY > maxOffsetY) {
@@ -426,6 +427,10 @@ public class TimetableView extends View {
 		setOffsetY(bundle.getInt(STATE_OFFSET_Y, 0));
 	}
 
+	public void setOnSizeChangedListener(OnSizeChangedListener listener) {
+		onSizeChangedListener = listener;
+	}
+	
 	/*
 	 * Getters for descendant classes. 
 	 */
