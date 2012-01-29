@@ -2,11 +2,15 @@ package com.anmipo.android.trentobus.db;
 
 import java.util.HashMap;
 
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+
 import com.anmipo.android.trentobus.R;
 
 public class ScheduleLegend {
 	private static HashMap<Character, Integer> sAllDrawables;
 	private static HashMap<Character, Integer> sAllDescriptions;
+	private int size;
 	static {
 		sAllDrawables = new HashMap<Character, Integer>();
 		sAllDescriptions = new HashMap<Character, Integer>();
@@ -26,11 +30,16 @@ public class ScheduleLegend {
 	private int[] drawables;
 	private int[] descriptions;
 	
+	public ScheduleLegend(int size) {
+		super();
+		this.size = size;
+	}
+
 	public static ScheduleLegend getInstance(String frequenza, String linea) {
-		int size = frequenza.length() + linea.length();
-		ScheduleLegend legend = new ScheduleLegend();
-		legend.drawables = new int[size];
-		legend.descriptions = new int[size];
+		int length = frequenza.length() + linea.length();
+		ScheduleLegend legend = new ScheduleLegend(length);
+		legend.drawables = new int[length];
+		legend.descriptions = new int[length];
 		
 		int index = 0;
 		for (int i = 0; i < frequenza.length(); i++) {
@@ -44,6 +53,18 @@ public class ScheduleLegend {
 		return legend;
 	}
 
+	/**
+	 * Returns dimensions of the legend icons
+	 * @return
+	 */
+	public static int getIconSize(Resources res) {
+		int result;
+		Drawable d = res.getDrawable(R.drawable.freq_unknown);
+		result = d.getIntrinsicHeight();
+		d = null;
+		return result;
+	}
+
 	private void setEntry(int index, char key) {
 		drawables[index] =
 				sAllDrawables.containsKey(key) ?
@@ -51,5 +72,14 @@ public class ScheduleLegend {
 		descriptions[index] = 
 				sAllDescriptions.containsKey(key) ?
 				sAllDescriptions.get(key) : R.string.freq_unknown;
+	}
+	public int getLength() {
+		return size;
+	}
+	public int getDrawableId(int index) {
+		return drawables[index];
+	}
+	public int getDescriptionId(int index) {
+		return descriptions[index];
 	}
 }

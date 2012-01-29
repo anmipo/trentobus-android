@@ -54,6 +54,7 @@ public class TimetableView extends View {
 	// drawing sizes / dimensions (calculated based on View size and paints)  
 	private int width, height;   // view/canvas size
 	private int fixedColWidth;   // width of the left (fixed) column
+	private int fixedRowHeight;
 	private int maxOffsetX;      // max allowed horizontal offset
 	private int maxOffsetY;      // max allowed vertical offset
 	private int colWidth;        // cell columns width
@@ -66,6 +67,7 @@ public class TimetableView extends View {
 	private Drawable fixedBackgroundDrawable;
 	private Drawable fixedColumnEdgeDrawable;
 	private Drawable cellBackgroundDrawable;
+
 
 	public TimetableView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -146,9 +148,9 @@ public class TimetableView extends View {
 			int bottom) {
 		super.onLayout(changed, left, top, right, bottom);
 		fixedColWidth = (int) measureFixedColumnWidth();
-		maxOffsetX = colCount * colWidth 
-				- (width - fixedColWidth);
-		maxOffsetY = rowCount * rowHeight - (height - rowHeight);
+		fixedRowHeight = getFixedRowHeight();
+		maxOffsetX = colCount * colWidth - (width - fixedColWidth);
+		maxOffsetY = rowCount * rowHeight - (height - fixedRowHeight);
 	}	
 
 	/**
@@ -176,18 +178,19 @@ public class TimetableView extends View {
 		drawCells(canvas);
 		// draw top-left empty corner 
 		canvas.clipRect(0, 0, width, height, Op.REPLACE);
-		fixedBackgroundDrawable.setBounds(0, 0, fixedColWidth, rowHeight);
+		fixedBackgroundDrawable.setBounds(0, 0, fixedColWidth, fixedRowHeight);
 		fixedBackgroundDrawable.draw(canvas);
+//		canvas.drawLine(0, 0, 20, 20, cellPaint);
 	}
 	
 	protected void drawCells(Canvas canvas) {
 		canvas.clipRect(
-				fixedColWidth, rowHeight,
+				fixedColWidth, fixedRowHeight,
 				width, height, Op.REPLACE);
 		int textOffset = getTextCenterOffset(rowHeight, cellPaint);
 		int cellCenterOffset = colWidth / 2;
 		int x = fixedColWidth + colWidth * leftCol - offsetX;
-		int y0 = (topRow + 1) * rowHeight - offsetY;
+		int y0 = topRow * rowHeight + fixedRowHeight - offsetY;
 		int xIndex = leftCol;
 		while ((x < width) && (xIndex < colCount)) {
 			int yIndex = topRow;
@@ -210,13 +213,13 @@ public class TimetableView extends View {
 
 	protected void drawFixedRow(Canvas canvas) {
 		canvas.clipRect(fixedColWidth, 0,
-				width, rowHeight, Op.REPLACE);
+				width, fixedRowHeight, Op.REPLACE);
 		int textOffsetX = colWidth / 2;
-		int textOffsetY = getTextCenterOffset(rowHeight, fixedRowPaint);
+		int textOffsetY = getTextCenterOffset(fixedRowHeight, fixedRowPaint);
 		int x = fixedColWidth + colWidth * leftCol - offsetX;
 		int index = leftCol;
 		while ((x < width) && (index < colCount)) {
-			fixedBackgroundDrawable.setBounds(x, 0, x + colWidth, rowHeight);
+			fixedBackgroundDrawable.setBounds(x, 0, x + colWidth, fixedRowHeight);
 			fixedBackgroundDrawable.draw(canvas);
 			canvas.drawText(fixedRow[index], 
 					x + textOffsetX, textOffsetY, fixedRowPaint);
@@ -226,10 +229,10 @@ public class TimetableView extends View {
 	}
 
 	protected void drawFixedColumn(Canvas canvas) {
-		canvas.clipRect(0, rowHeight, fixedColWidth, height, 
+		canvas.clipRect(0, fixedRowHeight, fixedColWidth, height, 
 				Op.REPLACE);
 		int textOffsetY = getTextCenterOffset(rowHeight, fixedColumnPaint);
-		int y = rowHeight * (topRow + 1) - offsetY;
+		int y = rowHeight * topRow + fixedRowHeight - offsetY;
 		int index = topRow;
 		while ((y < height) && (index < rowCount)) {
 			Rect bounds = new Rect(0, y, fixedColWidth, (y + rowHeight));
@@ -256,7 +259,7 @@ public class TimetableView extends View {
 	 *            Paint defining text drawing parameters.
 	 * @return
 	 */
-	private static int getTextCenterOffset(int lineHeight, Paint paint) {
+	protected static int getTextCenterOffset(int lineHeight, Paint paint) {
 		/*
 		 * Full form:
 		 *     paint.descent() 
@@ -272,7 +275,8 @@ public class TimetableView extends View {
 	 * <code>fixedCol</code> and <code>fixedRow</code>, otherwise an
 	 * {@link IllegalArgumentException} is thrown.
 	 * Neither of dimensions can be zero (a {@link NullPointerException} 
-	 * is thrown otherwise).
+	 * is thrown otherwise). 
+	 * None of array items can be null (empty string ok).
 	 * 
 	 * @param fixedCol
 	 *            Contents for the left fixed column
@@ -380,5 +384,40 @@ public class TimetableView extends View {
 			offsetY = newOffsetY;
 		}
 		topRow = offsetY / rowHeight;
+	}
+	
+	/*
+	 * Getters for descendant classes. 
+	 */
+	
+	protected int getRowHeight() {
+		return rowHeight;
+	}
+	protected int getFixedColWidth() {
+		return fixedColWidth;
+	}
+	protected int getColWidth() {
+		return colWidth;
+	}
+	protected int getFixedRowHeight() {
+		return rowHeight;
+	}
+	protected int getTopRow() {
+		return topRow;
+	}
+	protected int getLeftCol() {
+		return leftCol;
+	}
+	protected int getOffsetX() {
+		return offsetX;
+	}
+	protected int getOffsetY() {
+		return offsetY;
+	}
+	protected int getColCount() {
+		return colCount;
+	}
+	protected int getRowCount() {
+		return rowCount;
 	}
 }

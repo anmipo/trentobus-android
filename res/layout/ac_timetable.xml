@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal" >
 
-    <com.anmipo.android.trentobus.view.TimetableView
+    <com.anmipo.android.trentobus.view.ScheduleView
         android:id="@+id/timetable"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

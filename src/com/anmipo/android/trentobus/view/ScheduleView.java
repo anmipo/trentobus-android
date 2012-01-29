@@ -1,18 +1,81 @@
 package com.anmipo.android.trentobus.view;
 
-import com.anmipo.android.trentobus.db.Schedule;
+import java.util.Arrays;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 
-public class ScheduleView extends TimetableView {
+import com.anmipo.android.trentobus.R;
+import com.anmipo.android.trentobus.db.Schedule;
+import com.anmipo.android.trentobus.db.ScheduleLegend;
 
+public class ScheduleView extends TimetableView {
+	
+	private ScheduleLegend[] legends;
+	private Resources res;
+	private int iconSize;
+	
 	public ScheduleView(Context context, AttributeSet attrs) {
 		super(context, attrs);
+		res = context.getResources();
+		
+		iconSize = ScheduleLegend.getIconSize(res); 
 	}
 	
 	public void setSchedule(Schedule schedule) {
-		setData(schedule.getStopNames(), 
-				schedule.getLegends(), schedule.getTimes());
+		legends = schedule.getLegends();
+		String[] fakeLegends = new String[legends.length];
+		// none of the items can be null, so fill with empty strings
+		Arrays.fill(fakeLegends, "");
+		
+		setData(schedule.getStopNames(), fakeLegends, schedule.getTimes());
+	}
+
+	@Override
+	protected int getFixedRowHeight() {
+		// should be large enough for tapping
+		return 2 * iconSize;
+	}
+	
+	@Override
+	protected int getColWidth() {
+		// the cells should fit the text and at least three icons
+		return Math.max(super.getColWidth(), iconSize * 3);
+	}
+	
+	@Override
+	protected void drawFixedRow(Canvas canvas) {
+		// parent draws background
+		super.drawFixedRow(canvas);
+		
+		int width = canvas.getWidth();
+		int fixedColWidth = getFixedColWidth();
+		int colWidth = getColWidth();
+		int colCount = getColCount();
+		
+		int y = (getFixedRowHeight() - iconSize) / 2;
+		int x = fixedColWidth + colWidth * getLeftCol() - getOffsetX();
+		int index = getLeftCol();
+		while ((x < width) && (index < colCount)) {
+			drawLegend(legends[index], canvas, x, y, colWidth);
+			x += colWidth;
+			index++;
+		}
+	}
+
+	protected void drawLegend(ScheduleLegend legend, Canvas canvas, 
+			int x, int y, int colWidth) {
+		int legendLength = legend.getLength();
+		// centering icons horizontally
+		x += (colWidth - legendLength * iconSize) / 2;
+		for (int i = 0; i < legendLength; i++) {
+			Drawable d = res.getDrawable(legend.getDrawableId(i));
+			d.setBounds(x, y, x + iconSize, y + iconSize);
+			d.draw(canvas);
+			x += iconSize;
+		}
 	}
 }

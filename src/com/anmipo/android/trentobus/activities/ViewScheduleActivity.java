@@ -9,13 +9,14 @@ import android.util.Log;
 import com.anmipo.android.trentobus.BusApplication;
 import com.anmipo.android.trentobus.R;
 import com.anmipo.android.trentobus.db.Schedule;
+import com.anmipo.android.trentobus.view.ScheduleView;
 import com.anmipo.android.trentobus.view.TimetableView;
 
 public class ViewScheduleActivity extends Activity {
     private static final String EXTRA_SCHEDULE_ID = "schedule";
     private static final String TAG = "Timetable";
 	
-    private TimetableView timetable;
+    private ScheduleView timetable;
     private Schedule schedule;
     
     @Override
@@ -31,7 +32,7 @@ public class ViewScheduleActivity extends Activity {
         setTitle(getString(R.string.view_schedule_title,
         		schedule.getScheduleInfo().getBusNumber(),
         		schedule.getScheduleInfo().getDirection()));
-        timetable = (TimetableView) findViewById(R.id.timetable);
+        timetable = (ScheduleView) findViewById(R.id.timetable);
         timetable.setSchedule(schedule);
     }
     
