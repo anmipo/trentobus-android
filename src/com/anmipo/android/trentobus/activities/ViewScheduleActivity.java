@@ -5,12 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 import com.anmipo.android.trentobus.BusApplication;
 import com.anmipo.android.trentobus.R;
 import com.anmipo.android.trentobus.db.Schedule;
 import com.anmipo.android.trentobus.view.ScheduleView;
-import com.anmipo.android.trentobus.view.TimetableView;
 
 public class ViewScheduleActivity extends Activity {
     private static final String EXTRA_SCHEDULE_ID = "schedule";
@@ -34,6 +35,12 @@ public class ViewScheduleActivity extends Activity {
         		schedule.getScheduleInfo().getDirection()));
         timetable = (ScheduleView) findViewById(R.id.timetable);
         timetable.setSchedule(schedule);
+    }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+    	getMenuInflater().inflate(R.menu.menu_timetable, menu);
+		return true;
     }
     
     public static void show(Context context, int scheduleId) {
