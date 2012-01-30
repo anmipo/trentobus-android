@@ -14,11 +14,10 @@ import android.content.Context;
  * @author Andrei Popleteev
  */
 public class Schedule {
+	
 	private ScheduleInfo scheduleInfo;
-	protected String[][] times;
+	protected Time[][] times;
 	protected String[] stopNames;
-	// protected String[] frequenzaLine;
-	// protected String[] lineaLine;
 	protected ScheduleLegend[] legends;
 	protected int rowCount;
 	protected int colCount;
@@ -42,7 +41,7 @@ public class Schedule {
 	protected void resize(int rows, int cols) {
 		this.rowCount = rows;
 		this.colCount = cols;
-		times = new String[rowCount][colCount];
+		times = new Time[rowCount][colCount];
 		legends = new ScheduleLegend[colCount];
 		stopNames = new String[rowCount];
 	}
@@ -94,11 +93,33 @@ public class Schedule {
 		String[] lineaLine = readScheduleLine(dataIn, colCount);
 		for (int row = 0; row < rowCount; row++) {
 			stopNames[row] = dataIn.readUTF();
-			times[row] = readScheduleLine(dataIn, colCount);
+			readTimetableLine(times[row], dataIn, colCount);
 		}
 		for (int col = 0; col < colCount; col++) {
 			legends[col] = ScheduleLegend
 					.getInstance(frequenzaLine[col], lineaLine[col]);
+		}
+	}
+
+	/**
+	 * Reads one timetable row with <code>count</code> items, 
+	 * and converts them to an array of {@link Time} instances.
+	 *  
+	 * @param timetableRow
+	 *            An allocated array to store the result. 
+	 *            Must be at least <code>count</code> items long. 
+	 * @param in
+	 *            Data input stream.
+	 * @param count
+	 *            Number of items to read.
+	 * @return
+	 * @throws IOException 
+	 */
+	private void readTimetableLine(Time[] timetableRow, 
+			DataInputStream dataIn, int count) throws IOException {
+		String[] timesStr = readScheduleLine(dataIn, colCount);
+		for (int i = 0; i < timesStr.length; i++) {
+			timetableRow[i] = Time.parse(timesStr[i]);
 		}
 	}
 
@@ -152,7 +173,7 @@ public class Schedule {
 		return colCount;
 	}
 
-	public String getTime(int row, int col) {
+	public Time getTime(int row, int col) {
 		return times[row][col];
 	}
 
@@ -168,7 +189,7 @@ public class Schedule {
 	 * 
 	 * @return
 	 */
-	public String[][] getTimes() {
+	public Time[][] getTimes() {
 		return times;
 	}
 
@@ -222,58 +243,34 @@ public class Schedule {
 	
 	/**
 	 * Returns the first valid time in the given column.
-	 * If no valid time found, returns null.
-	 * @param times
+	 * If no valid time found, returns the value of the last row 
+	 * of the requested column.
+	 * 
+	 * @param col
 	 * @return
 	 */
 	private Time getFirstTime(int col) {
-		Time result = null;
+		Time result = Time.EMPTY;
 		for (int row = 0; row < rowCount; row++) {
-			result = parseTimeString(times[row][col]);
-			if (result != null) break;
+			if (times[row][col].isValidTime()) {
+				result = times[row][col]; 
+				break;
+			}
 		}
 		return result;
 	}
 
 	/**
-	 * Parses the given time string (H:MM). 
-	 * If string is empty or ill-formatted, return null.
-	 * @param timeStr
+	 * Returns timetable times as 2D string array.
 	 * @return
 	 */
-	public Time parseTimeString(String timeStr) {
-		Time result = null;
-		int dividerPos;
-		if (timeStr != null && timeStr.length() >= 3 && 
-				(dividerPos = timeStr.indexOf(':')) > 0) {
-			try {
-				result = new Time(
-						Integer.valueOf(timeStr.substring(0, dividerPos)),
-						Integer.valueOf(timeStr.substring(dividerPos + 1)));
-			} catch(NumberFormatException nfe) {
-				// do nothing: in case of problems we return null
+	public String[][] getTimesAsStrings() {
+		String[][] result = new String[rowCount][colCount];
+		for (int row = 0; row < rowCount; row++) {
+			for (int col = 0; col < colCount; col++) {
+				result[row][col] = times[row][col].toString();
 			}
 		}
 		return result;
-	}
-
-	/**
-	 * Time of the schedule (hours and minutes) 
-	 */
-	private class Time implements Comparable<Time> {
-		final int hour;
-		final int minute;
-		public Time(int hour, int minute) {
-			this.hour = hour;
-			this.minute = minute;
-		}
-		@Override
-		public int compareTo(Time another) {
-			int result = hour - another.hour;
-			if (result == 0) {
-				result = minute - another.minute;
-			}
-			return result;
-		}
 	}
 }

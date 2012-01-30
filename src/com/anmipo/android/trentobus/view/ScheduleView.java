@@ -31,7 +31,8 @@ public class ScheduleView extends TimetableView {
 		// none of the items can be null, so fill with empty strings
 		Arrays.fill(fakeLegends, "");
 		
-		setData(schedule.getStopNames(), fakeLegends, schedule.getTimes());
+		setData(schedule.getStopNames(), fakeLegends, 
+				schedule.getTimesAsStrings());
 	}
 
 	@Override
