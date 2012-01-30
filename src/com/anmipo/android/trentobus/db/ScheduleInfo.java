@@ -5,11 +5,11 @@ package com.anmipo.android.trentobus.db;
  * @author Andrei Popleteev
  */
 public class ScheduleInfo {
-    private String busNumber;
-    private String direction;
-    private ScheduleType type;
-    private int scheduleId;
-	private String fileName;
+    final public String busNumber;
+    final public String direction;
+    final public ScheduleType type;
+    final public int scheduleId;
+	final public String fileName;
     
     /**
      * @param direction
@@ -28,21 +28,6 @@ public class ScheduleInfo {
         this.type = type;
         this.fileName = dataFileName;
         this.scheduleId = scheduleId;
-    }
-    public String getFileName() {
-		return fileName;
-	}
-	public int getScheduleId() {
-        return scheduleId;
-    }
-    public String getBusNumber() {
-        return busNumber;
-    }
-    public String getDirection() {
-    	return direction;
-    }
-    public ScheduleType getType() {
-        return type;
     }
     public String toString() {
         return "(" + type + ") " + direction;

@@ -38,8 +38,8 @@ public class ViewScheduleActivity extends Activity {
         }
         schedule = BusApplication.scheduleManager.getSchedule(scheduleId);
         setTitle(getString(R.string.view_schedule_title,
-        		schedule.getScheduleInfo().getBusNumber(),
-        		schedule.getScheduleInfo().getDirection()));
+        		schedule.getScheduleInfo().busNumber,
+        		schedule.getScheduleInfo().direction));
         timetable = (ScheduleView) findViewById(R.id.timetable);
         timetable.setSchedule(schedule);
         

@@ -1,6 +1,7 @@
 package com.anmipo.android.trentobus.db;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -71,14 +72,10 @@ public class BusInfo {
 		scheduleInfos.add(scheduleInfo);
 	}
 
-	public ScheduleInfo getScheduleInfo(int index) {
-		return scheduleInfos.get(index);
+	public List<ScheduleInfo> getScheduleInfos() {
+		return Collections.unmodifiableList(scheduleInfos);
 	}
-
-	public int getScheduleCount() {
-		return scheduleInfos.size();
-	}
-
+	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Bus ");

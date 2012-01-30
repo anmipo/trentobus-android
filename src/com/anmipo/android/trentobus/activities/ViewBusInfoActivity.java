@@ -55,6 +55,6 @@ public class ViewBusInfoActivity extends Activity implements OnItemClickListener
 			int pos, long id) {
 		DirectionsAdapter adapter = (DirectionsAdapter)adapterView.getAdapter();
 		ScheduleInfo scheduleInfo = adapter.getItem(pos);
-		ViewScheduleActivity.show(this, scheduleInfo.getScheduleId());
+		ViewScheduleActivity.show(this, scheduleInfo.scheduleId);
 	}
 }

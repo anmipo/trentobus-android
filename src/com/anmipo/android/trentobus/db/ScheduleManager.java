@@ -94,7 +94,7 @@ public class ScheduleManager {
     	ScheduleInfo scheduleInfo = scheduleInfos.get(scheduleId);
         Schedule schedule = new Schedule(scheduleInfo);
         
-        String fileName = scheduleInfo.getFileName();
+        String fileName = scheduleInfo.fileName;
         Log.d(TAG, "Loading schedule from " + fileName);
         schedule.loadFromAsset(context, SCHEDULE_PATH.concat(fileName));
         
