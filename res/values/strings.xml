@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="schedule_validity">From 1/01/2011 to 1/01/2012</string>
+    <string name="version_text">Version 1.0</string>
     <string name="app_name">Trento Bus</string>
+    <string name="app_title">Trento Bus Schedule</string>
+    
     <string name="error_cannot_load_schedule_index">Cannot load schedule index</string>
     <string name="choose_timetable">Choose timetable</string>
     <string name="view_schedule_title" formatted="false">%s: %s</string>
@@ -15,4 +19,12 @@
     <string name="freq_unknown"></string>
     <string name="menu_show_legend">View legend</string>
     <string name="schedule_legend">Schedule legend</string>
+    <string name="menu_about">About</string>
+    
+    <string name="about_activity_title">About TrentoBus</string>
+    <string name="copyright">©2012 Andrei Popleteev</string>
+    <string name="check_for_update">Check for update</string>
+    <string name="rate_this_app">Rate this app</string>
+    <string name="about_logo_description">Application logo</string>
+    <string name="market_not_available">Sorry, Android Market is not available.</string>
 </resources>

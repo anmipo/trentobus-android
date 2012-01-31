@@ -9,19 +9,22 @@
         android:targetSdkVersion="8" />
 
     <application
+        android:name=".BusApplication"
         android:icon="@drawable/ic_app_icon"
         android:label="@string/app_name"
-        android:name=".BusApplication"
         android:theme="@android:style/Theme.Light" >
         <activity android:name=".activities.BusChoiceActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity android:name=".activities.ViewBusInfoActivity" />
         <activity android:name=".activities.ViewScheduleActivity" />
+        <activity
+            android:name=".activities.AboutActivity"
+            android:label="@string/about_activity_title" />
     </application>
 
 </manifest>

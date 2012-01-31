@@ -60,6 +60,7 @@ public class ViewScheduleActivity extends Activity {
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+    	super.onPrepareOptionsMenu(menu);
     	getMenuInflater().inflate(R.menu.menu_timetable, menu);
 		return true;
     }
