@@ -13,6 +13,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
+import com.anmipo.android.common.EulaChecker;
+import com.anmipo.android.common.EulaChecker.EulaListener;
 import com.anmipo.android.trentobus.BusApplication;
 import com.anmipo.android.trentobus.R;
 import com.anmipo.android.trentobus.db.BusInfo;
@@ -34,6 +36,15 @@ public class BusChoiceActivity extends Activity implements OnItemClickListener {
         busGrid.setAdapter(adapter);
         
         busGrid.setOnItemClickListener(this);
+        
+        EulaChecker.checkEulaAccepted(this, new EulaListener() {
+			@Override
+			public void onEulaAccepted(boolean accepted) {
+				if (!accepted) {
+					finish();
+				}
+			}
+		});
     }
 
     @Override

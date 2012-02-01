@@ -27,4 +27,9 @@
     <string name="rate_this_app">Rate this app</string>
     <string name="about_logo_description">Application logo</string>
     <string name="market_not_available">Sorry, Android Market is not available.</string>
+    
+    <string name="eula_title">License agreement</string>
+    <string name="eula_text">This software is provided by the author \'as is\' and any express or implied warranties, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose are disclaimed. In no event shall the author be liable for any direct, indirect, incidental, special, exemplary, or consequential damages however caused and on any theory of liability, whether in contact, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such damage.</string>
+    <string name="eula_accept">Accept</string>
+    <string name="eula_reject">Decline</string>
 </resources>
