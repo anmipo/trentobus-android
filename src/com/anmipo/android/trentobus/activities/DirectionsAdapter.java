@@ -63,7 +63,7 @@ public class DirectionsAdapter extends BaseAdapter {
         }
         ScheduleInfo info = getItem(position);
         holder.direction.setText(info.direction);
-        holder.type.setText(info.type.toString());
+        holder.type.setText(info.type.nameResourceId);
         //TODO show schedule type icon
         return view;
     }

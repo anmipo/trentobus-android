@@ -9,6 +9,9 @@
     <string name="choose_timetable">Scegli l\'orario</string>
     <string name="view_schedule_title" formatted="false">%s: %s</string>
 
+	<string name="schedule_type_workday">Feriale</string>
+    <string name="schedule_type_holiday">Festivo</string>
+    
     <!-- Frequency descriptions for legend -->
     <string name="freq_autonoleggiatore_privato">Servizio effettuato da autonoleggiatore privato.</string>
     <string name="freq_feriale_solo_sabato">Feriale solo il Sabato.</string>
