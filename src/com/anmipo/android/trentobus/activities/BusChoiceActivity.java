@@ -36,7 +36,11 @@ public class BusChoiceActivity extends Activity implements OnItemClickListener {
         busGrid.setAdapter(adapter);
         
         busGrid.setOnItemClickListener(this);
-        
+    }
+
+    @Override
+    protected void onResume() {
+    	super.onResume();
         EulaChecker.checkEulaAccepted(this, new EulaListener() {
 			@Override
 			public void onEulaAccepted(boolean accepted) {
@@ -46,7 +50,13 @@ public class BusChoiceActivity extends Activity implements OnItemClickListener {
 			}
 		});
     }
-
+    
+    @Override
+    protected void onPause() {
+    	EulaChecker.dismiss();
+    	super.onPause();
+    }
+    
     @Override
     public void onItemClick(AdapterView<?> adapterView, View item, 
             int pos, long id) {

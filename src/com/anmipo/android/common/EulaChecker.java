@@ -1,7 +1,6 @@
 package com.anmipo.android.common;
 
 import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -27,9 +26,11 @@ public class EulaChecker {
 	}
 	
 	private static final String PREF_EULA_ACCEPTED = "eula_v1_accepted";
+	private static EulaChecker instance = null; // singleton instance
 	private Context context;
 	private EulaListener listener;
-
+	private AlertDialog dialog;
+	
 	protected EulaChecker(Context context, EulaListener eulaListener) {
 		super();
 		this.context = context;
@@ -38,10 +39,28 @@ public class EulaChecker {
 
 	public static void checkEulaAccepted(Context context, 
 			EulaListener eulaListener) {
-		EulaChecker checker = new EulaChecker(context, eulaListener);
-		checker.checkEulaAccepted();
+		if (instance == null) {
+			instance = new EulaChecker(context, eulaListener);
+		}
+		instance.checkEulaAccepted();
 	}
 	
+	/**
+	 * Removes dialog (if shown) from the screen.
+	 */
+	public static void dismiss() {
+		if (instance != null) {
+			instance.dismissDialog();
+			instance = null;
+		}
+	}
+	
+	protected void dismissDialog() {
+		if (dialog != null) {
+			dialog.dismiss();
+			dialog = null;
+		}
+	}
 
 	/**
 	 * Checks if EULA has been accepted before.
@@ -78,8 +97,7 @@ public class EulaChecker {
 			}
 		};
 		
-		Builder builder = new AlertDialog.Builder(context);
-		builder
+		dialog = new AlertDialog.Builder(context)
 			.setTitle(R.string.eula_title)
 			.setMessage(R.string.eula_text)
 			.setPositiveButton(R.string.eula_accept, clickListener)
