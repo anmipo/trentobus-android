@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.anmipo.android.common.EulaChecker;
 import com.anmipo.android.common.EulaChecker.EulaListener;
@@ -34,13 +35,15 @@ public class BusChoiceActivity extends Activity implements OnItemClickListener {
         List<BusInfo> buses = BusApplication.scheduleManager.getBuses();
         BusGridAdapter adapter = new BusGridAdapter(this, buses);
         busGrid.setAdapter(adapter);
-        
         busGrid.setOnItemClickListener(this);
     }
 
     @Override
     protected void onResume() {
     	super.onResume();
+    	
+    	checkScheduleValidity();
+        
         EulaChecker.checkEulaAccepted(this, new EulaListener() {
 			@Override
 			public void onEulaAccepted(boolean accepted) {
@@ -51,7 +54,18 @@ public class BusChoiceActivity extends Activity implements OnItemClickListener {
 		});
     }
     
-    @Override
+    private void checkScheduleValidity() {
+        int validity = BusApplication.scheduleManager.getScheduleValidity();
+        if (validity < 0) {
+        	Toast.makeText(this, R.string.schedule_is_not_yet_valid, 
+        			Toast.LENGTH_LONG).show();
+        } else if (validity > 0) {
+        	Toast.makeText(this, R.string.schedule_is_out_of_date, 
+        			Toast.LENGTH_LONG).show();
+        }
+	}
+
+	@Override
     protected void onPause() {
     	EulaChecker.dismiss();
     	super.onPause();

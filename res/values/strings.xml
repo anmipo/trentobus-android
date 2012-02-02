@@ -9,6 +9,8 @@
     <string name="error_cannot_load_schedule_index">Cannot load schedule index</string>
     <string name="choose_timetable">Choose timetable</string>
     <string name="view_schedule_title" formatted="false">%s: %s</string>
+    <string name="schedule_is_not_yet_valid">Schedule data is not valid yet.</string>
+    <string name="schedule_is_out_of_date">Schedule data is out of date. Please update the application.</string>
 
     <string name="schedule_type_workday">Workday</string>
     <string name="schedule_type_holiday">Holiday</string>

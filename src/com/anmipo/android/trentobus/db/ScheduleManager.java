@@ -194,8 +194,23 @@ public class ScheduleManager {
     	return validTo;
     }
     
-    public boolean isScheduleValid() {
+    /**
+     * Checks if the schedule data is up to date.
+     * If it is valid, returns zero; 
+     * if it is expired, returns positive value;
+     * if it is not yet valid, returns negative value.
+     * @return
+     */
+    public int getScheduleValidity() {
     	Date now = new Date();
-    	return (now.compareTo(validFrom) >= 0) && (now.compareTo(validTo) <= 0);
+    	int result = 0;
+    	if (now.compareTo(validFrom) < 0) {
+    		result = -1;
+    	} else if (now.compareTo(validTo) > 0) {
+    		result = 1;
+    	} else {
+    		result = 0;
+    	}
+    	return result;
     }
 }
