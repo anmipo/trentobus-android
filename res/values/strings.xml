@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="schedule_validity">From 1/01/2011 to 1/01/2012</string>
-    <string name="version_text">Version 1.0</string>
+    <string name="version_text" formatted="false">Version %s</string>
     <string name="app_name">Trento Bus</string>
     <string name="app_title">Trento Bus Schedule</string>
+	<string name="date_format">dd/MM/yyyy</string>
     
     <string name="error_cannot_load_schedule_index">Cannot load schedule index</string>
     <string name="choose_timetable">Choose timetable</string>
@@ -25,6 +25,7 @@
     <string name="menu_about">About</string>
     
     <string name="about_activity_title">About TrentoBus</string>
+    <string name="schedule_validity" formatted="false">From %s to %s</string>
     <string name="copyright">©2012 Andrei Popleteev</string>
     <string name="check_for_update">Check for update</string>
     <string name="rate_this_app">Rate this app</string>

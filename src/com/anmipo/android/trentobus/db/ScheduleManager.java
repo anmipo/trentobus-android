@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -18,11 +19,13 @@ public class ScheduleManager {
     
     private static final String SCHEDULE_PATH = "schedule/";
     private static final String INDEX_FILE_NAME = "bus.idx";
+    private static final String VALIDITY_FILE_NAME = "validity.dat";
     private static final String TAG = "ScheduleManager";
     private Context context;
     private List<BusInfo> buses;
     private HashMap<Integer, ScheduleInfo> scheduleInfos;
     private HashMap<Integer, Schedule> schedules;
+    private Date validFrom, validTo;
     
     public ScheduleManager(Context context) {
         this.context = context.getApplicationContext();
@@ -37,11 +40,31 @@ public class ScheduleManager {
      */
     public void init() throws IOException {
         loadIndex();
+        loadValidityDates();
         debugPrintBuses();
     }
     
     
-    private void loadIndex() throws IOException {
+    private void loadValidityDates() throws IOException {
+    	InputStream rawIn = context.getAssets().open(SCHEDULE_PATH + VALIDITY_FILE_NAME);
+    	try {
+    		DataInputStream dataIn = new DataInputStream(rawIn);
+    		try {
+    			validFrom = new Date(dataIn.readLong());
+    			validTo = new Date(dataIn.readLong());
+    		} finally {
+    			if (dataIn != null) {
+    				dataIn.close();
+    			}
+    		}
+    	} finally {
+    		if (rawIn != null) {
+    			rawIn.close();
+    		}
+    	}
+	}
+
+	private void loadIndex() throws IOException {
         buses.clear();
         scheduleInfos.clear();
         schedules.clear();
@@ -154,5 +177,25 @@ public class ScheduleManager {
             Log.wtf(TAG, "getBusInfo returns null for bus '" + busNumber + "'");
         }
         return result;
+    }
+    
+    /**
+     * Returns the starting date of the schedule validity.
+     * @return
+     */
+    public Date getValidFrom() {
+    	return validFrom;
+    }
+    /**
+     * Returns the ending date of the schedule validity.
+     * @return
+     */
+    public Date getValidTo() {
+    	return validTo;
+    }
+    
+    public boolean isScheduleValid() {
+    	Date now = new Date();
+    	return (now.compareTo(validFrom) >= 0) && (now.compareTo(validTo) <= 0);
     }
 }

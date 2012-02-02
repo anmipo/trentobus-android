@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="schedule_validity">Dal ? al ?</string>
-    <string name="version_text">Versione 1.0</string>
+    <string name="version_text" formatted="false">Versione %s</string>
     <string name="app_name">Trento Bus</string>
     <string name="app_title">Orario Trento Bus</string>
+    <string name="date_format">dd/MM/yyyy</string>
     
     <string name="error_cannot_load_schedule_index">Errore di caricamento</string>
     <string name="choose_timetable">Scegli l\'orario</string>
@@ -24,6 +24,7 @@
     <string name="menu_about">Info su</string>
     
     <string name="about_activity_title">Informazioni su TrentoBus</string>
+    <string name="schedule_validity" formatted="false">Dal %s al %s</string>
     <string name="copyright">©2012 Andrei Popleteev</string>
     <string name="check_for_update">Verifica aggiornamenti</string>
     <string name="rate_this_app">Valuta questa applicazione</string>
