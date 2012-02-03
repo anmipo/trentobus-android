@@ -1,0 +1,2 @@
+TrentoBus provides timetables of urban Trento buses on your Android phone or tablet. 
+No mobile internet connection required: once a new schedule is available, you will receive the update via Android Market.
