@@ -16,11 +16,11 @@
     <string name="schedule_type_holiday">Holiday</string>
     
     <!-- Frequency descriptions for legend -->
-    <string name="freq_autonoleggiatore_privato">Servizio effettuato da autonoleggiatore privato.</string>
-    <string name="freq_feriale_solo_sabato">Feriale solo il Sabato.</string>
-    <string name="freq_feriale_lunedi_a_venerdi">Feriale da Lunedì a Venerdì.</string>
-    <string name="freq_scolastica_lunedi_a_sabato">Scolastica da Lunedì a Sabato.</string>
-    <string name="freq_scolastica_lunedi_a_venerdi">Scolastica da Lunedì a Venerdì.</string>
+    <string name="freq_autonoleggiatore_privato">Performed by a private carrier.</string>
+    <string name="freq_feriale_solo_sabato">Only on Saturdays.</string>
+    <string name="freq_feriale_lunedi_a_venerdi">Monday to Friday.</string>
+    <string name="freq_scolastica_lunedi_a_sabato">School bus, Monday to Saturday.</string>
+    <string name="freq_scolastica_lunedi_a_venerdi">School bus, Monday to Friday.</string>
     <string name="freq_unknown"></string>
     <string name="menu_show_legend">View legend</string>
     <string name="schedule_legend">Schedule legend</string>
