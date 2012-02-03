@@ -162,6 +162,9 @@ public class TimetableView extends View {
 		setFixedRowHeight(rowHeight);
 		maxOffsetX = colCount * colWidth - (width - fixedColWidth);
 		maxOffsetY = rowCount * rowHeight - (height - fixedRowHeight);
+		// for small tables max values can become negative, forbid this.
+		if (maxOffsetX < 0) maxOffsetX = 0;
+		if (maxOffsetY < 0) maxOffsetY = 0;
 	}
 	
 	@Override
