@@ -6,20 +6,25 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.anmipo.android.trentobus.BusApplication;
 import com.anmipo.android.trentobus.R;
 import com.anmipo.android.trentobus.db.Schedule;
 import com.anmipo.android.trentobus.db.ScheduleLegend;
+import com.anmipo.android.trentobus.db.ScheduleLegend.Adapter;
 import com.anmipo.android.trentobus.view.ScheduleView;
+import com.anmipo.android.trentobus.view.TimetableView.OnCellClickListener;
 import com.anmipo.android.trentobus.view.TimetableView.OnSizeChangedListener;
 
-public class ViewScheduleActivity extends Activity {
+public class ViewScheduleActivity extends Activity implements OnCellClickListener {
     private static final String EXTRA_SCHEDULE_ID = "schedule";
     private static final String TAG = "Timetable";
 	
@@ -42,6 +47,7 @@ public class ViewScheduleActivity extends Activity {
         		schedule.getScheduleInfo().direction));
         timetable = (ScheduleView) findViewById(R.id.timetable);
         timetable.setSchedule(schedule);
+        timetable.setOnCellClickListener(this);
         
         // We need to scroll to the forthcoming column, but this requires
         // knowledge of timetable view width, which becomes available too late. 
@@ -58,7 +64,7 @@ public class ViewScheduleActivity extends Activity {
 		});
     }
     
-    @Override
+	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
     	super.onPrepareOptionsMenu(menu);
     	getMenuInflater().inflate(R.menu.menu_timetable, menu);
@@ -69,25 +75,52 @@ public class ViewScheduleActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
     	switch (item.getItemId()) {
     	case R.id.menu_legend:
-    		showLegendDescription();
+    		showGeneralLegendDescription();
     		return true;
 		default:
 			return false;
     	}
     }
-    
-    private void showLegendDescription() {
-    	ScheduleLegend.Adapter adapter = new ScheduleLegend.Adapter(this);
-		Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle(R.string.schedule_legend)
-			.setAdapter(adapter, null)
-			.setIcon(0)
-			.show();
+
+    @Override
+    public void onCellClick(int col, int row) {
+		if (row == -1) {
+			showLegendForColumn(col);
+		}
+    }
+
+    protected void showLegendForColumn(int col) {
+    	Adapter adapter = schedule.getLegends()[col]
+    			.getDescriptionsAdapter(this);
+    	if (adapter.getCount() > 0) {
+    		showLegendDialog(adapter);
+    	} else {
+    		Toast.makeText(this, R.string.freq_nothing_special, 
+    				Toast.LENGTH_SHORT).show();
+    	}
 	}
 
+    protected void showGeneralLegendDescription() {
+    	showLegendDialog(new ScheduleLegend.Adapter(this));
+	}
+
+    protected void showLegendDialog(ScheduleLegend.Adapter adapter) {
+		Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(R.string.schedule_legend)
+			.setAdapter(adapter, new OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.dismiss();
+				}
+			})
+			.setIcon(0)
+			.show();
+    }
+    
 	public static void show(Context context, int scheduleId) {
         Intent intent = new Intent(context, ViewScheduleActivity.class);
         intent.putExtra(EXTRA_SCHEDULE_ID, scheduleId);
         context.startActivity(intent);
     }
+
 }

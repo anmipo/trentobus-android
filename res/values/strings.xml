@@ -16,6 +16,7 @@
     <string name="schedule_type_holiday">Holiday</string>
     
     <!-- Frequency descriptions for legend -->
+    <string name="freq_nothing_special">Normal route, nothing special.</string>
     <string name="freq_autonoleggiatore_privato">Performed by a private carrier.</string>
     <string name="freq_mezzo_extraurbano">Performed by a suburban (\'extraurbano\') bus</string>
     <string name="freq_feriale_solo_sabato">Only on Saturdays.</string>

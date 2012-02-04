@@ -1,6 +1,8 @@
 package com.anmipo.android.trentobus.db;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -56,29 +58,29 @@ public class ScheduleLegend {
 		 * "Linea" items, those that are drawn, 
 		 * but are not listed in legend description.
 		 */
-		sAllItemsMap.put("1", new ScheduleLegendItem("1", 0, R.drawable.linea_1));
-		sAllItemsMap.put("2", new ScheduleLegendItem("2", 0, R.drawable.linea_2));
-		sAllItemsMap.put("3", new ScheduleLegendItem("3", 0, R.drawable.linea_3));
-		sAllItemsMap.put("4", new ScheduleLegendItem("4", 0, R.drawable.linea_4));
-		sAllItemsMap.put("5", new ScheduleLegendItem("5", 0, R.drawable.linea_5));
-		sAllItemsMap.put("6", new ScheduleLegendItem("6", 0, R.drawable.linea_6));
-		sAllItemsMap.put("6/", new ScheduleLegendItem("6/", 0, R.drawable.linea_6b));
-		sAllItemsMap.put("7", new ScheduleLegendItem("7", 0, R.drawable.linea_7));
-		sAllItemsMap.put("8", new ScheduleLegendItem("8", 0, R.drawable.linea_8));
-		sAllItemsMap.put("9", new ScheduleLegendItem("9", 0, R.drawable.linea_9));
-		sAllItemsMap.put("10", new ScheduleLegendItem("10", 0, R.drawable.linea_10));
-		sAllItemsMap.put("11", new ScheduleLegendItem("11", 0, R.drawable.linea_11));
-		sAllItemsMap.put("12", new ScheduleLegendItem("12", 0, R.drawable.linea_12));
-		sAllItemsMap.put("13", new ScheduleLegendItem("13", 0, R.drawable.linea_13));
-		sAllItemsMap.put("14", new ScheduleLegendItem("14", 0, R.drawable.linea_14));
-		sAllItemsMap.put("15", new ScheduleLegendItem("15", 0, R.drawable.linea_15));
-		sAllItemsMap.put("16", new ScheduleLegendItem("16", 0, R.drawable.linea_16));
-		sAllItemsMap.put("17", new ScheduleLegendItem("17", 0, R.drawable.linea_17));
-		sAllItemsMap.put("A", new ScheduleLegendItem("A", 0, R.drawable.linea_a));
-		sAllItemsMap.put("B", new ScheduleLegendItem("B", 0, R.drawable.linea_b));
-		sAllItemsMap.put("C", new ScheduleLegendItem("C", 0, R.drawable.linea_c));
-		sAllItemsMap.put("D", new ScheduleLegendItem("D", 0, R.drawable.linea_d));
-		sAllItemsMap.put("NP", new ScheduleLegendItem("NP", 0, R.drawable.linea_np));
+		sAllItemsMap.put("1", new ScheduleLegendItem("1", R.drawable.linea_1));
+		sAllItemsMap.put("2", new ScheduleLegendItem("2", R.drawable.linea_2));
+		sAllItemsMap.put("3", new ScheduleLegendItem("3", R.drawable.linea_3));
+		sAllItemsMap.put("4", new ScheduleLegendItem("4", R.drawable.linea_4));
+		sAllItemsMap.put("5", new ScheduleLegendItem("5", R.drawable.linea_5));
+		sAllItemsMap.put("6", new ScheduleLegendItem("6", R.drawable.linea_6));
+		sAllItemsMap.put("6/", new ScheduleLegendItem("6/", R.drawable.linea_6b));
+		sAllItemsMap.put("7", new ScheduleLegendItem("7", R.drawable.linea_7));
+		sAllItemsMap.put("8", new ScheduleLegendItem("8", R.drawable.linea_8));
+		sAllItemsMap.put("9", new ScheduleLegendItem("9", R.drawable.linea_9));
+		sAllItemsMap.put("10", new ScheduleLegendItem("10", R.drawable.linea_10));
+		sAllItemsMap.put("11", new ScheduleLegendItem("11", R.drawable.linea_11));
+		sAllItemsMap.put("12", new ScheduleLegendItem("12", R.drawable.linea_12));
+		sAllItemsMap.put("13", new ScheduleLegendItem("13", R.drawable.linea_13));
+		sAllItemsMap.put("14", new ScheduleLegendItem("14", R.drawable.linea_14));
+		sAllItemsMap.put("15", new ScheduleLegendItem("15", R.drawable.linea_15));
+		sAllItemsMap.put("16", new ScheduleLegendItem("16", R.drawable.linea_16));
+		sAllItemsMap.put("17", new ScheduleLegendItem("17", R.drawable.linea_17));
+		sAllItemsMap.put("A", new ScheduleLegendItem("A", R.drawable.linea_a));
+		sAllItemsMap.put("B", new ScheduleLegendItem("B", R.drawable.linea_b));
+		sAllItemsMap.put("C", new ScheduleLegendItem("C", R.drawable.linea_c));
+		sAllItemsMap.put("D", new ScheduleLegendItem("D", R.drawable.linea_d));
+		sAllItemsMap.put("NP", new ScheduleLegendItem("NP", R.drawable.linea_np));
 	}
 	
 	// items of this specific legend
@@ -135,20 +137,40 @@ public class ScheduleLegend {
 		return result;
 	}
 
+	/**
+	 * Returns an adapter with the items of this legend which have description. 
+	 * @param context
+	 * @return
+	 */
+	public Adapter getDescriptionsAdapter(Context context) {
+		ArrayList<ScheduleLegendItem> itemsWithDescription = 
+				new ArrayList<ScheduleLegendItem>(items.length);
+		for (ScheduleLegendItem item: items) {
+			if (item.hasText()) {
+				itemsWithDescription.add(item);
+			}
+		}
+		return new Adapter(context, itemsWithDescription);
+	};
+	
 	public static class Adapter extends ArrayAdapter<ScheduleLegendItem> {
 		int iconPadding;
+		
 		public Adapter(Context context) {
-			super(context, R.layout.item_legend_item, R.id.text, sItemsWithDescription);
-			DisplayMetrics dm = context.getResources().getDisplayMetrics();
+			super(context, R.layout.item_legend_item, R.id.text, 
+					sItemsWithDescription);
+			setupLayout();
+		}
+		public Adapter(Context context, List<ScheduleLegendItem> items) {
+			super(context, R.layout.item_legend_item, R.id.text, items);
+			setupLayout();
+		}
+
+		private void setupLayout() {
+			DisplayMetrics dm = getContext().getResources().getDisplayMetrics();
 			iconPadding = (int) TypedValue.applyDimension(
 					TypedValue.COMPLEX_UNIT_DIP, 10, dm);
 		}
-
-		@Override
-		public int getCount() {
-			return sItemsWithDescription.length;
-		}
-
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			// Use super class to create the View
@@ -156,7 +178,7 @@ public class ScheduleLegend {
 			v.setClickable(false);
 
 			TextView textView = (TextView) v.findViewById(R.id.text);
-			ScheduleLegendItem legendItem = sItemsWithDescription[position];
+			ScheduleLegendItem legendItem = getItem(position);
 			textView.setText(legendItem.textId);
 			textView.setCompoundDrawablesWithIntrinsicBounds(
 					legendItem.iconId, 0, 0, 0);
@@ -164,5 +186,5 @@ public class ScheduleLegend {
 
 			return v;
 		}
-	};
+	}
 }

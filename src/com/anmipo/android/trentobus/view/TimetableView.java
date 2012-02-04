@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.Paint.Style;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.Region.Op;
 import android.graphics.Typeface;
@@ -25,7 +26,7 @@ import com.anmipo.android.trentobus.R;
 public class TimetableView extends View {
     static final String TAG = "Timetable";
 
-	// width of the left fixed column with bus stop names
+	// font size for cell text
 	public static final int FONT_SIZE_DP = 16;
 	// horizontal padding for all cells, in px
 	private static final int CELL_PADDING_X = 5;
@@ -75,7 +76,18 @@ public class TimetableView extends View {
 	public interface OnSizeChangedListener {
 		public void onSizeChanged(int width, int height);
 	}
-
+	private OnCellClickListener onCellClickListener = null;
+	public interface OnCellClickListener {
+		/**
+		 * Called when the user clicks/taps a table cell.
+		 * <code>col</code> and <code>row</code> values are between -1 and 
+		 * number of columns/rows; -1 indicates the fixed column/row.
+		 * @param col
+		 * @param row
+		 */
+		public void onCellClick(int col, int row);
+	}
+	
 	public TimetableView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		initResources(context);
@@ -342,6 +354,15 @@ public class TimetableView extends View {
 		}
 		
 		@Override
+		public boolean onSingleTapUp(MotionEvent e) {
+			Point colRow = coordsToCell((int) e.getX(), (int) e.getY());
+			if (colRow != null && onCellClickListener != null) {
+				onCellClickListener.onCellClick(colRow.x, colRow.y);
+			}
+			return true;
+		}
+		
+		@Override
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
 				float velocityY) {
 			// allow only single-axis fling, for user's convenience
@@ -361,7 +382,32 @@ public class TimetableView extends View {
 			return true;
 		}
 	}
-	
+
+	/**
+	 * Returns col/row number corresponding to the given graphical coords 
+	 * (in this view system). For fixed row/col, the value is -1.
+	 * If the coords do not correspond to any cell, returns null.
+	 * @param x
+	 *        X graphical coordinate within this view.
+	 * @param y
+	 *        Y graphical coordinate within this view.
+	 * @return
+	 */
+	protected Point coordsToCell(int x, int y) {
+		int col, row;
+		if (y <= fixedRowHeight) {
+			row = -1;
+		} else {
+			row = (y - fixedRowHeight + offsetY) / rowHeight;
+		}
+		if (x <= fixedColWidth) {
+			col = -1;
+		} else {
+			col = (x - fixedColWidth + offsetX) / colWidth;
+		}
+		return new Point(col, row);
+	}
+
 	@Override
 	public void computeScroll() {
 		if (scroller.computeScrollOffset()) {
@@ -432,6 +478,9 @@ public class TimetableView extends View {
 
 	public void setOnSizeChangedListener(OnSizeChangedListener listener) {
 		onSizeChangedListener = listener;
+	}
+	public void setOnCellClickListener(OnCellClickListener listener) {
+		onCellClickListener = listener;
 	}
 	
 	/*
