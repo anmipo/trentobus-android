@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="version_text" formatted="false">Versione %s</string>
     <string name="app_name">Trento Bus</string>
     <string name="app_title">Orari autobus Trento</string>
@@ -8,7 +9,6 @@
     <string name="error_cannot_load_schedule_index">Errore di caricamento dati</string>
     <string name="choose_timetable">Scegli l\'orario</string>
     <string name="view_schedule_title" formatted="false">%s: %s</string>
-    
     <string name="schedule_is_not_yet_valid">L\'orario non è ancora in vigore.</string>
     <string name="schedule_is_out_of_date">L\'orario è scaduto. Aggiorna l\'applicazione.</string>
 

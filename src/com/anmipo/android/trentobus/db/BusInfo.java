@@ -5,11 +5,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.graphics.Color;
-
-import com.anmipo.android.trentobus.BusApplication;
 import com.anmipo.android.trentobus.R;
 
 /**
@@ -18,17 +13,12 @@ import com.anmipo.android.trentobus.R;
  * @author Andrei Popleteev
  */
 public class BusInfo {
-	// bus colors for those not defined in resources
-	private static final int DEFAULT_MAIN_COLOR = Color.BLACK;
-	private static final int DEFAULT_AUX_COLOR = Color.WHITE;
 	private static final int UNKNOWN_BUS_DRAWABLE_ID = R.drawable.bus_unknown;
 
 	private String busNumber;
 	private List<ScheduleInfo> scheduleInfos;
 
 	private static boolean resourcesLoaded = false;
-	private static HashMap<String, Integer> mainColors;
-	private static HashMap<String, Integer> auxColors;
 	private static HashMap<String, Integer> drawableResources;
 
 	public BusInfo(String number) {
@@ -89,38 +79,6 @@ public class BusInfo {
 	}
 
 	/**
-	 * Returns main color associated with the bus (background for the number).
-	 * 
-	 * @return
-	 */
-	public int getMainColor() {
-		if (!resourcesLoaded) {
-			loadResources();
-		}
-		int result = DEFAULT_MAIN_COLOR;
-		if (mainColors.containsKey(busNumber)) {
-			result = mainColors.get(busNumber);
-		}
-		return result;
-	}
-
-	/**
-	 * Returns auxiliary color associated with the bus (for bus number text).
-	 * 
-	 * @return
-	 */
-	public int getAuxColor() {
-		if (!resourcesLoaded) {
-			loadResources();
-		}
-		int result = DEFAULT_AUX_COLOR;
-		if (auxColors.containsKey(busNumber)) {
-			result = auxColors.get(busNumber);
-		}
-		return result;
-	}
-
-	/**
 	 * Return drawable resource ID for this bus number.
 	 * 
 	 * @return
@@ -142,22 +100,6 @@ public class BusInfo {
 	 * Loads bus colors from resources.
 	 */
 	protected static void loadResources() {
-		Resources res = BusApplication.resources;
-		String[] busNumbersStr = res.getStringArray(R.array.busNumbers);
-		TypedArray bgColorsStr = res
-				.obtainTypedArray(R.array.busBackgroundColors);
-		TypedArray fgColorsStr = res
-				.obtainTypedArray(R.array.busForegroundColors);
-
-		mainColors = new HashMap<String, Integer>();
-		auxColors = new HashMap<String, Integer>();
-		for (int i = 0; i < busNumbersStr.length; i++) {
-			String busNumber = busNumbersStr[i];
-			mainColors.put(busNumber,
-					bgColorsStr.getColor(i, DEFAULT_MAIN_COLOR));
-			auxColors
-					.put(busNumber, fgColorsStr.getColor(i, DEFAULT_AUX_COLOR));
-		}
 		initDrawables();
 		resourcesLoaded = true;
 	}
