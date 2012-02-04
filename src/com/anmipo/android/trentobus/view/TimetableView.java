@@ -14,6 +14,9 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import android.text.TextUtils.TruncateAt;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.GestureDetector;
@@ -39,20 +42,22 @@ public class TimetableView extends View {
 	private String[] fixedCol;
 	private String[] fixedRow;
 	private String[][] cells;
+
+	// fixedCol content ellipsized to fit the column 
+	private String[] fixedColEllipsized;
+	
 	
 	// table dimensions
 	private int rowCount;
 	private int colCount;
 
 	// paints for table parts
-	private Paint fixedColumnPaint;
-	private Paint fixedRowPaint;
-	private Paint cellPaint; 
-	private Paint cellBorderPaint; 
+	private TextPaint fixedColumnPaint;
+	private TextPaint fixedRowPaint;
+	private TextPaint cellPaint; 
 
 	// background drawables for fixed and normal cells
 	private Drawable fixedBackgroundDrawable;
-	private Drawable fixedColumnEdgeDrawable;
 	private Drawable cellBackgroundDrawable;
 
 	// viewport
@@ -112,7 +117,6 @@ public class TimetableView extends View {
 	private void initResources(Context context) {
 		Resources res = context.getResources();
 		fixedBackgroundDrawable = res.getDrawable(R.drawable.fixed_bg);
-		fixedColumnEdgeDrawable = res.getDrawable(R.drawable.fixed_column_edge);
 		cellBackgroundDrawable = res.getDrawable(R.drawable.cell_bg);
 	}
 	
@@ -120,31 +124,27 @@ public class TimetableView extends View {
 		float fontSizePixels = TypedValue
 				.applyDimension(TypedValue.COMPLEX_UNIT_DIP, FONT_SIZE_DP,
 						getContext().getResources().getDisplayMetrics());
-		fixedColumnPaint = new Paint();
+		fixedColumnPaint = new TextPaint();
 		fixedColumnPaint.setTextAlign(Align.LEFT);
 		fixedColumnPaint.setTextSize(fontSizePixels);
 		fixedColumnPaint.setTypeface(Typeface.DEFAULT_BOLD);
 		fixedColumnPaint.setAntiAlias(true);
 		
-		fixedRowPaint = new Paint();
+		fixedRowPaint = new TextPaint();
 		fixedRowPaint.setTextAlign(Align.CENTER);
 		fixedRowPaint.setTextSize(fontSizePixels);
 		fixedRowPaint.setTypeface(Typeface.DEFAULT_BOLD);
 		fixedRowPaint.setAntiAlias(true);
 		
-		cellBorderPaint = new Paint();
-		cellBorderPaint.setColor(Color.GRAY);
-		cellBorderPaint.setStyle(Style.STROKE);
-		cellBorderPaint.setStrokeWidth(0.0f);
-		cellBorderPaint.setAntiAlias(false);
-
-		cellPaint = new Paint();
+		cellPaint = new TextPaint();
 		cellPaint.setColor(Color.BLACK);
 		cellPaint.setTextSize(fontSizePixels);
 		cellPaint.setStyle(Style.STROKE);
 		cellPaint.setTextAlign(Align.CENTER);
 		cellPaint.setAntiAlias(true);
 		updateChildrenLayout();
+		
+		ellipsizeTexts();
 	}
 
 	@Override
@@ -179,6 +179,15 @@ public class TimetableView extends View {
 		if (maxOffsetY < 0) maxOffsetY = 0;
 	}
 	
+	protected void ellipsizeTexts() {
+		if (fixedCol != null) {
+			fixedColEllipsized = new String[fixedCol.length];
+			for (int i = 0; i < fixedCol.length; i++) {
+				fixedColEllipsized[i] = TextUtils.ellipsize(fixedCol[i], 
+						fixedColumnPaint, fixedColWidth, TruncateAt.END).toString(); 
+			}
+		}
+	}
 	@Override
 	protected void onLayout(boolean changed, int left, int top, int right,
 			int bottom) {
@@ -273,12 +282,11 @@ public class TimetableView extends View {
 		while ((y < height) && (index < rowCount)) {
 			Rect bounds = new Rect(0, y, fixedColWidth, (y + rowHeight));
 			fixedBackgroundDrawable.setBounds(bounds);
-			fixedColumnEdgeDrawable.setBounds(bounds);
 
 			fixedBackgroundDrawable.draw(canvas);
-			canvas.drawText(fixedCol[index], CELL_PADDING_X, y + textOffsetY , 
+			canvas.drawText(fixedColEllipsized[index], 
+					CELL_PADDING_X, y + textOffsetY , 
 					fixedColumnPaint);
-			fixedColumnEdgeDrawable.draw(canvas);
 			y += rowHeight;
 			index++;
 		}
@@ -497,6 +505,7 @@ public class TimetableView extends View {
 	}
 	protected void setFixedColWidth(int width) {
 		this.fixedColWidth = width;
+		ellipsizeTexts();
 	}
 	protected int getColWidth() {
 		return colWidth;
