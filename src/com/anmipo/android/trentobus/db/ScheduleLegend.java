@@ -16,31 +16,65 @@ import com.anmipo.android.trentobus.R;
 
 public class ScheduleLegend {
 	// all available legend items
-	private static HashMap<Character, ScheduleLegendItem> sAllItemsMap;
-	private static ScheduleLegendItem[] sAllItems;
+	private static HashMap<String, ScheduleLegendItem> sAllItemsMap;
+	private static ScheduleLegendItem[] sItemsWithDescription;
 	
 	static {
-		sAllItems = new ScheduleLegendItem[5];
-		sAllItems[0] = new ScheduleLegendItem('Ü',
+		int index = 0;
+		sItemsWithDescription = new ScheduleLegendItem[5];
+		/* 
+		 * "Frequenza" items, those that are to be shown 
+		 * in the legend description. 
+		 */
+		sItemsWithDescription[index++] = new ScheduleLegendItem("\u00DC",
 				R.string.freq_feriale_lunedi_a_venerdi,
 				R.drawable.freq_square_empty);
-		sAllItems[1] = new ScheduleLegendItem('Ý',
+		sItemsWithDescription[index++] = new ScheduleLegendItem("\u00DD",
 				R.string.freq_scolastica_lunedi_a_sabato, 
 				R.drawable.freq_star);
-		sAllItems[2] = new ScheduleLegendItem('Þ',
+		sItemsWithDescription[index++] = new ScheduleLegendItem("\u00DE",
 				R.string.freq_scolastica_lunedi_a_venerdi,
 				R.drawable.freq_square_star);
-		sAllItems[3] = new ScheduleLegendItem('á', 
+		sItemsWithDescription[index++] = new ScheduleLegendItem("\u00E1", 
 				R.string.freq_feriale_solo_sabato, 
 				R.drawable.freq_square_filled);
-		sAllItems[4] = new ScheduleLegendItem('o', 
+		// A unique "Linea" item that has a description. 
+		sItemsWithDescription[index++] = new ScheduleLegendItem("o", 
 				R.string.freq_autonoleggiatore_privato, 
 				R.drawable.linea_zero);
 		
-		sAllItemsMap = new HashMap<Character, ScheduleLegendItem>();
-		for (ScheduleLegendItem item: sAllItems) {
+		sAllItemsMap = new HashMap<String, ScheduleLegendItem>();
+		for (ScheduleLegendItem item: sItemsWithDescription) {
 			sAllItemsMap.put(item.key, item);
 		}
+		
+		/*
+		 * "Linea" items, those that are drawn, 
+		 * but are not listed in legend description.
+		 */
+		sAllItemsMap.put("1", new ScheduleLegendItem("1", 0, R.drawable.linea_1));
+		sAllItemsMap.put("2", new ScheduleLegendItem("2", 0, R.drawable.linea_2));
+		sAllItemsMap.put("3", new ScheduleLegendItem("3", 0, R.drawable.linea_3));
+		sAllItemsMap.put("4", new ScheduleLegendItem("4", 0, R.drawable.linea_4));
+		sAllItemsMap.put("5", new ScheduleLegendItem("5", 0, R.drawable.linea_5));
+		sAllItemsMap.put("6", new ScheduleLegendItem("6", 0, R.drawable.linea_6));
+		sAllItemsMap.put("6/", new ScheduleLegendItem("6/", 0, R.drawable.linea_6b));
+		sAllItemsMap.put("7", new ScheduleLegendItem("7", 0, R.drawable.linea_7));
+		sAllItemsMap.put("8", new ScheduleLegendItem("8", 0, R.drawable.linea_8));
+		sAllItemsMap.put("9", new ScheduleLegendItem("9", 0, R.drawable.linea_9));
+		sAllItemsMap.put("10", new ScheduleLegendItem("10", 0, R.drawable.linea_10));
+		sAllItemsMap.put("11", new ScheduleLegendItem("11", 0, R.drawable.linea_11));
+		sAllItemsMap.put("12", new ScheduleLegendItem("12", 0, R.drawable.linea_12));
+		sAllItemsMap.put("13", new ScheduleLegendItem("13", 0, R.drawable.linea_13));
+		sAllItemsMap.put("14", new ScheduleLegendItem("14", 0, R.drawable.linea_14));
+		sAllItemsMap.put("15", new ScheduleLegendItem("15", 0, R.drawable.linea_15));
+		sAllItemsMap.put("16", new ScheduleLegendItem("16", 0, R.drawable.linea_16));
+		sAllItemsMap.put("17", new ScheduleLegendItem("17", 0, R.drawable.linea_17));
+		sAllItemsMap.put("A", new ScheduleLegendItem("A", 0, R.drawable.linea_a));
+		sAllItemsMap.put("B", new ScheduleLegendItem("B", 0, R.drawable.linea_b));
+		sAllItemsMap.put("C", new ScheduleLegendItem("C", 0, R.drawable.linea_c));
+		sAllItemsMap.put("D", new ScheduleLegendItem("D", 0, R.drawable.linea_d));
+		sAllItemsMap.put("NP", new ScheduleLegendItem("NP", 0, R.drawable.linea_np));
 	}
 	
 	// items of this specific legend
@@ -51,22 +85,26 @@ public class ScheduleLegend {
 	}
 
 	public static ScheduleLegend getInstance(String frequenza, String linea) {
-		int length = frequenza.length() + linea.length();
+		int length = frequenza.length() + 
+				((linea.length() > 0) ? 1 : 0);
 		ScheduleLegend legend = new ScheduleLegend(length);
 		
+		// in "Frequenza" there can be several entries,
+		// each represented by one character
 		int index = 0;
 		for (int i = 0; i < frequenza.length(); i++) {
-			legend.setEntry(index, frequenza.charAt(i));
+			legend.setEntry(index, String.valueOf(frequenza.charAt(i)));
 			index++;
 		}
-		for (int i = 0; i < linea.length(); i++) {
-			legend.setEntry(index, linea.charAt(i));
-			index++;
+		// in "Linea" there can be at most one entry, 
+		// but a multicharacter one (like bus number 17 or NP)
+		if (linea.length() > 0) {
+			legend.setEntry(index, linea);
 		}
 		return legend;
 	}
 
-	private void setEntry(int index, char key) {
+	private void setEntry(int index, String key) {
 		if (sAllItemsMap.containsKey(key)) {
 			items[index] = sAllItemsMap.get(key);
 		} else {
@@ -96,7 +134,7 @@ public class ScheduleLegend {
 	public static class Adapter extends ArrayAdapter<ScheduleLegendItem> {
 		int iconPadding;
 		public Adapter(Context context) {
-			super(context, R.layout.item_legend_item, R.id.text, sAllItems);
+			super(context, R.layout.item_legend_item, R.id.text, sItemsWithDescription);
 			DisplayMetrics dm = context.getResources().getDisplayMetrics();
 			iconPadding = (int) TypedValue.applyDimension(
 					TypedValue.COMPLEX_UNIT_DIP, 10, dm);
@@ -104,20 +142,18 @@ public class ScheduleLegend {
 
 		@Override
 		public int getCount() {
-			return sAllItems.length;
+			return sItemsWithDescription.length;
 		}
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
-			// User super class to create the View
+			// Use super class to create the View
 			View v = super.getView(position, convertView, parent);
 			v.setClickable(false);
 
 			TextView textView = (TextView) v.findViewById(R.id.text);
-			// ImageView imageView = (ImageView) v.findViewById(R.id.icon);
-			ScheduleLegendItem legendItem = sAllItems[position];
+			ScheduleLegendItem legendItem = sItemsWithDescription[position];
 			textView.setText(legendItem.textId);
-			// imageView.setImageResource(legendItem.getIconId());
 			textView.setCompoundDrawablesWithIntrinsicBounds(
 					legendItem.iconId, 0, 0, 0);
 			textView.setCompoundDrawablePadding(iconPadding);
