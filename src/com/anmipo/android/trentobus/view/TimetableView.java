@@ -82,15 +82,14 @@ public class TimetableView extends View {
 		public void onSizeChanged(int width, int height);
 	}
 	private OnCellClickListener onCellClickListener = null;
+	/**
+	 * Listener of table cell clicks.
+	 * <code>col</code> and <code>row</code> values are between -1 and 
+	 * number of columns/rows; -1 indicates the fixed column/row.
+	 */
 	public interface OnCellClickListener {
-		/**
-		 * Called when the user clicks/taps a table cell.
-		 * <code>col</code> and <code>row</code> values are between -1 and 
-		 * number of columns/rows; -1 indicates the fixed column/row.
-		 * @param col
-		 * @param row
-		 */
-		public void onCellClick(int col, int row);
+		public void onCellSingleTap(int col, int row);
+		public void onCellLongPress(int col, int row);
 	}
 	
 	public TimetableView(Context context, AttributeSet attrs) {
@@ -362,12 +361,20 @@ public class TimetableView extends View {
 		}
 		
 		@Override
-		public boolean onSingleTapUp(MotionEvent e) {
+		public boolean onSingleTapConfirmed(MotionEvent e) {
 			Point colRow = coordsToCell((int) e.getX(), (int) e.getY());
 			if (colRow != null && onCellClickListener != null) {
-				onCellClickListener.onCellClick(colRow.x, colRow.y);
+				onCellClickListener.onCellSingleTap(colRow.x, colRow.y);
 			}
 			return true;
+		}
+		
+		@Override
+		public void onLongPress(MotionEvent e) {
+			Point colRow = coordsToCell((int) e.getX(), (int) e.getY());
+			if (colRow != null && onCellClickListener != null) {
+				onCellClickListener.onCellLongPress(colRow.x, colRow.y);
+			}
 		}
 		
 		@Override

@@ -83,13 +83,26 @@ public class ViewScheduleActivity extends Activity implements OnCellClickListene
     }
 
     @Override
-    public void onCellClick(int col, int row) {
-		if (row == -1) {
+    public void onCellSingleTap(int col, int row) {
+		if (row == -1 && col >= 0) {
 			showLegendForColumn(col);
+		} else if (col == -1 && row >= 0) {
+			showStopNameForRow(row);
 		}
     }
 
-    protected void showLegendForColumn(int col) {
+    @Override
+    public void onCellLongPress(int col, int row) {
+    	// TODO: implement long press handling
+    	Log.d(TAG, "long press: " + col + ", " + row);
+    }
+    
+    private void showStopNameForRow(int row) {
+		Toast.makeText(this, schedule.getStopName(row), 
+				Toast.LENGTH_SHORT).show();
+	}
+
+	protected void showLegendForColumn(int col) {
     	Adapter adapter = schedule.getLegends()[col]
     			.getDescriptionsAdapter(this);
     	if (adapter.getCount() > 0) {
