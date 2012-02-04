@@ -17,6 +17,7 @@
     
     <!-- Frequency descriptions for legend -->
     <string name="freq_autonoleggiatore_privato">Servizio effettuato da autonoleggiatore privato</string>
+    <string name="freq_mezzo_extraurbano">Servizio effettuato con mezzo extraurbano</string>
     <string name="freq_feriale_solo_sabato">Feriale solo il Sabato</string>
     <string name="freq_feriale_lunedi_a_venerdi">Feriale da Lunedì a Venerdì</string>
     <string name="freq_scolastica_lunedi_a_sabato">Scolastica da Lunedì a Sabato</string>
