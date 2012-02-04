@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.anmipo.android.trentobus.R;
@@ -17,12 +16,10 @@ import com.anmipo.android.trentobus.db.BusInfo;
 import com.anmipo.android.trentobus.db.ScheduleInfo;
 
 public class DirectionsAdapter extends BaseAdapter {
-    private Context context;
     private ArrayList<ScheduleInfo> directions;
     private LayoutInflater layoutInflater;
     
     public DirectionsAdapter(Context context, BusInfo busInfo) {
-        this.context = context;
         layoutInflater = LayoutInflater.from(context);
         
         // sort (a copy of) directions to have workdays first
@@ -54,7 +51,6 @@ public class DirectionsAdapter extends BaseAdapter {
         if (view == null) {
             view = layoutInflater.inflate(R.layout.item_schedule_info, null);
             holder = new ViewHolder();
-            holder.icon = (ImageView) view.findViewById(R.id.icon);
             holder.direction = (TextView) view.findViewById(R.id.direction);
             holder.type = (TextView) view.findViewById(R.id.type);
             view.setTag(holder);
@@ -64,11 +60,9 @@ public class DirectionsAdapter extends BaseAdapter {
         ScheduleInfo info = getItem(position);
         holder.direction.setText(info.direction);
         holder.type.setText(info.type.nameResourceId);
-        //TODO show schedule type icon
         return view;
     }
     static class ViewHolder {
-        ImageView icon;
         TextView direction;
         TextView type;
     }
