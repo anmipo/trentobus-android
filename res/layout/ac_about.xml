@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    
     <ImageView
         android:id="@+id/logo"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/title"
         android:src="@drawable/app_logo" 
         android:contentDescription="@string/about_logo_description"/>
     
@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/logo"
+        android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="@string/app_title"
