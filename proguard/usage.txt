@@ -1,0 +1,47 @@
+com.anmipo.android.common.EulaChecker:
+    private static final java.lang.String PREF_EULA_ACCEPTED
+com.anmipo.android.trentobus.R
+com.anmipo.android.trentobus.R$attr
+com.anmipo.android.trentobus.R$drawable
+com.anmipo.android.trentobus.R$id
+com.anmipo.android.trentobus.R$layout
+com.anmipo.android.trentobus.R$menu
+com.anmipo.android.trentobus.R$string
+com.anmipo.android.trentobus.R$style
+com.anmipo.android.trentobus.activities.AboutActivity:
+    private static final java.lang.String APP_MARKET_URL
+com.anmipo.android.trentobus.activities.BusChoiceActivity:
+    protected static final java.lang.String TAG
+com.anmipo.android.trentobus.activities.ViewBusInfoActivity:
+    private static final java.lang.String TAG
+    public static final java.lang.String EXTRA_BUS_NUMBER
+com.anmipo.android.trentobus.activities.ViewScheduleActivity:
+    private static final java.lang.String EXTRA_SCHEDULE_ID
+    private static final java.lang.String TAG
+com.anmipo.android.trentobus.db.BusInfo:
+    private static final int UNKNOWN_BUS_DRAWABLE_ID
+com.anmipo.android.trentobus.db.Schedule:
+    169:169:public int getRowCount()
+    173:173:public int getColCount()
+    177:177:public com.anmipo.android.trentobus.db.Time getTime(int,int)
+    193:193:public com.anmipo.android.trentobus.db.Time[][] getTimes()
+com.anmipo.android.trentobus.db.ScheduleLegendItem:
+    private static final int NO_DESCRIPTION
+com.anmipo.android.trentobus.db.ScheduleManager:
+    private static final java.lang.String SCHEDULE_PATH
+    private static final java.lang.String INDEX_FILE_NAME
+    private static final java.lang.String VALIDITY_FILE_NAME
+    private static final java.lang.String TAG
+com.anmipo.android.trentobus.db.Time:
+    public static final char DIVIDER
+    private static final java.lang.String PIPE
+com.anmipo.android.trentobus.view.TimetableView:
+    static final java.lang.String TAG
+    public static final int FONT_SIZE_DP
+    private static final int CELL_PADDING_X
+    private static final java.lang.String STATE_OFFSET_X
+    private static final java.lang.String STATE_OFFSET_Y
+    505:505:protected int getRowHeight()
+    530:530:protected int getTopRow()
+    539:539:protected int getOffsetY()
+    545:545:protected int getRowCount()

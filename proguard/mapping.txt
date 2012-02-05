@@ -1,0 +1,260 @@
+com.anmipo.android.common.EulaChecker -> com.anmipo.android.a.a:
+    com.anmipo.android.common.EulaChecker instance -> a
+    android.content.Context context -> b
+    com.anmipo.android.common.EulaChecker$EulaListener listener -> c
+    android.app.AlertDialog dialog -> d
+    void checkEulaAccepted(android.content.Context,com.anmipo.android.common.EulaChecker$EulaListener) -> a
+    void dismiss() -> a
+    void notifyEulaAccepted(boolean) -> a
+    android.content.Context access$0(com.anmipo.android.common.EulaChecker) -> a
+com.anmipo.android.common.EulaChecker$1 -> com.anmipo.android.a.b:
+    com.anmipo.android.common.EulaChecker this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.anmipo.android.common.EulaChecker$2 -> com.anmipo.android.a.c:
+    com.anmipo.android.common.EulaChecker this$0 -> a
+    void onCancel(android.content.DialogInterface) -> onCancel
+com.anmipo.android.common.EulaChecker$EulaListener -> com.anmipo.android.a.d:
+    void onEulaAccepted(boolean) -> a
+com.anmipo.android.trentobus.BusApplication -> com.anmipo.android.trentobus.BusApplication:
+    com.anmipo.android.trentobus.db.ScheduleManager scheduleManager -> a
+    android.content.res.Resources resources -> b
+    void onCreate() -> onCreate
+com.anmipo.android.trentobus.activities.AboutActivity -> com.anmipo.android.trentobus.activities.AboutActivity:
+    android.widget.Button updateButton -> a
+    android.widget.Button rateButton -> b
+    android.widget.TextView validityText -> c
+    android.widget.TextView versionText -> d
+    void onCreate(android.os.Bundle) -> onCreate
+    void onClick(android.view.View) -> onClick
+    void openAppMarket() -> a
+com.anmipo.android.trentobus.activities.BusChoiceActivity -> com.anmipo.android.trentobus.activities.BusChoiceActivity:
+    android.widget.GridView busGrid -> a
+    void onCreate(android.os.Bundle) -> onCreate
+    void onResume() -> onResume
+    void onPause() -> onPause
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+com.anmipo.android.trentobus.activities.BusChoiceActivity$1 -> com.anmipo.android.trentobus.activities.f:
+    com.anmipo.android.trentobus.activities.BusChoiceActivity this$0 -> a
+    void onEulaAccepted(boolean) -> a
+com.anmipo.android.trentobus.activities.BusGridAdapter -> com.anmipo.android.trentobus.activities.c:
+    java.util.List buses -> a
+    android.content.Context context -> b
+    int getCount() -> getCount
+    com.anmipo.android.trentobus.db.BusInfo getItem(int) -> a
+    long getItemId(int) -> getItemId
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    java.lang.Object getItem(int) -> getItem
+com.anmipo.android.trentobus.activities.DirectionsAdapter -> com.anmipo.android.trentobus.activities.g:
+    java.util.ArrayList directions -> a
+    android.view.LayoutInflater layoutInflater -> b
+    com.anmipo.android.trentobus.db.ScheduleInfo getItem(int) -> a
+    long getItemId(int) -> getItemId
+    int getCount() -> getCount
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    java.lang.Object getItem(int) -> getItem
+com.anmipo.android.trentobus.activities.DirectionsAdapter$1 -> com.anmipo.android.trentobus.activities.b:
+    com.anmipo.android.trentobus.activities.DirectionsAdapter this$0 -> a
+    int compare(java.lang.Object,java.lang.Object) -> compare
+com.anmipo.android.trentobus.activities.DirectionsAdapter$ViewHolder -> com.anmipo.android.trentobus.activities.a:
+    android.widget.TextView direction -> a
+    android.widget.TextView type -> b
+com.anmipo.android.trentobus.activities.ViewBusInfoActivity -> com.anmipo.android.trentobus.activities.ViewBusInfoActivity:
+    com.anmipo.android.trentobus.db.BusInfo busInfo -> a
+    android.widget.ListView scheduleList -> b
+    void onCreate(android.os.Bundle) -> onCreate
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+com.anmipo.android.trentobus.activities.ViewScheduleActivity -> com.anmipo.android.trentobus.activities.ViewScheduleActivity:
+    com.anmipo.android.trentobus.view.ScheduleView timetable -> a
+    com.anmipo.android.trentobus.db.Schedule schedule -> b
+    void onCreate(android.os.Bundle) -> onCreate
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    void onCellSingleTap(int,int) -> a
+    void onCellLongPress(int,int) -> b
+    void showLegendDialog(com.anmipo.android.trentobus.db.ScheduleLegend$Adapter) -> a
+    com.anmipo.android.trentobus.db.Schedule access$0(com.anmipo.android.trentobus.activities.ViewScheduleActivity) -> a
+    com.anmipo.android.trentobus.view.ScheduleView access$1(com.anmipo.android.trentobus.activities.ViewScheduleActivity) -> b
+com.anmipo.android.trentobus.activities.ViewScheduleActivity$1 -> com.anmipo.android.trentobus.activities.e:
+    com.anmipo.android.trentobus.activities.ViewScheduleActivity this$0 -> a
+    void onSizeChanged$255f295() -> a
+com.anmipo.android.trentobus.activities.ViewScheduleActivity$2 -> com.anmipo.android.trentobus.activities.d:
+    com.anmipo.android.trentobus.activities.ViewScheduleActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.anmipo.android.trentobus.db.BusInfo -> com.anmipo.android.trentobus.a.d:
+    java.lang.String busNumber -> a
+    java.util.List scheduleInfos -> b
+    boolean resourcesLoaded -> c
+    java.util.HashMap drawableResources -> d
+    java.lang.String getNumber() -> a
+    void addScheduleInfo(com.anmipo.android.trentobus.db.ScheduleInfo) -> a
+    java.util.List getScheduleInfos() -> b
+    java.lang.String toString() -> toString
+    int getDrawableResource() -> c
+com.anmipo.android.trentobus.db.Schedule -> com.anmipo.android.trentobus.a.h:
+    com.anmipo.android.trentobus.db.ScheduleInfo scheduleInfo -> a
+    com.anmipo.android.trentobus.db.Time[][] times -> b
+    java.lang.String[] stopNames -> c
+    com.anmipo.android.trentobus.db.ScheduleLegend[] legends -> d
+    int rowCount -> e
+    int colCount -> f
+    java.util.Date validFrom -> g
+    java.util.Date validTo -> h
+    void resize(int,int) -> a
+    com.anmipo.android.trentobus.db.ScheduleInfo getScheduleInfo() -> a
+    void loadFromStream(java.io.DataInputStream) -> a
+    void readTimetableLine$58591d61(com.anmipo.android.trentobus.db.Time[],java.io.DataInputStream) -> a
+    java.lang.String[] readScheduleLine(java.io.DataInputStream,int) -> a
+    java.lang.CharSequence getStopName(int) -> a
+    java.lang.String[] getStopNames() -> b
+    com.anmipo.android.trentobus.db.ScheduleLegend[] getLegends() -> c
+    int getForthcomingDepartureColumn(java.util.Calendar) -> a
+    java.lang.String[][] getTimesAsStrings() -> d
+com.anmipo.android.trentobus.db.ScheduleInfo -> com.anmipo.android.trentobus.a.a:
+    java.lang.String busNumber -> a
+    java.lang.String direction -> b
+    com.anmipo.android.trentobus.db.ScheduleType type -> c
+    int scheduleId -> d
+    java.lang.String fileName -> e
+    java.lang.String toString() -> toString
+com.anmipo.android.trentobus.db.ScheduleLegend -> com.anmipo.android.trentobus.a.c:
+    java.util.HashMap sAllItemsMap -> a
+    com.anmipo.android.trentobus.db.ScheduleLegendItem[] sItemsWithDescription -> b
+    com.anmipo.android.trentobus.db.ScheduleLegendItem[] items -> c
+    com.anmipo.android.trentobus.db.ScheduleLegend getInstance(java.lang.String,java.lang.String) -> a
+    void setEntry(int,java.lang.String) -> a
+    int getLength() -> a
+    com.anmipo.android.trentobus.db.ScheduleLegendItem getItem(int) -> a
+    int getIconSize(android.content.res.Resources) -> a
+    com.anmipo.android.trentobus.db.ScheduleLegend$Adapter getDescriptionsAdapter(android.content.Context) -> a
+    com.anmipo.android.trentobus.db.ScheduleLegendItem[] access$0() -> b
+com.anmipo.android.trentobus.db.ScheduleLegend$Adapter -> com.anmipo.android.trentobus.a.b:
+    int iconPadding -> a
+    void setupLayout() -> a
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+com.anmipo.android.trentobus.db.ScheduleLegendItem -> com.anmipo.android.trentobus.a.g:
+    com.anmipo.android.trentobus.db.ScheduleLegendItem UNKNOWN -> a
+    java.lang.String key -> b
+    int textId -> c
+    int iconId -> d
+    java.lang.String toString() -> toString
+    boolean hasText() -> a
+com.anmipo.android.trentobus.db.ScheduleManager -> com.anmipo.android.trentobus.a.i:
+    android.content.Context context -> a
+    java.util.List buses -> b
+    java.util.HashMap scheduleInfos -> c
+    java.util.HashMap schedules -> d
+    java.util.Date validFrom -> e
+    java.util.Date validTo -> f
+    void init() -> a
+    void debugPrintBuses() -> f
+    java.util.List getBuses() -> b
+    com.anmipo.android.trentobus.db.Schedule getSchedule(int) -> a
+    com.anmipo.android.trentobus.db.BusInfo getBusInfo(java.lang.String) -> a
+    java.util.Date getValidFrom() -> c
+    java.util.Date getValidTo() -> d
+    int getScheduleValidity() -> e
+com.anmipo.android.trentobus.db.ScheduleType -> com.anmipo.android.trentobus.a.f:
+    com.anmipo.android.trentobus.db.ScheduleType WORKDAY -> b
+    com.anmipo.android.trentobus.db.ScheduleType HOLIDAY -> c
+    int nameResourceId -> a
+    com.anmipo.android.trentobus.db.ScheduleType[] ENUM$VALUES -> d
+    com.anmipo.android.trentobus.db.ScheduleType parse(java.lang.String) -> a
+    com.anmipo.android.trentobus.db.ScheduleType[] values() -> values
+    com.anmipo.android.trentobus.db.ScheduleType valueOf(java.lang.String) -> valueOf
+com.anmipo.android.trentobus.db.Time -> com.anmipo.android.trentobus.a.e:
+    com.anmipo.android.trentobus.db.Time EMPTY -> a
+    com.anmipo.android.trentobus.db.Time PASS -> b
+    int hour -> c
+    int minute -> d
+    java.lang.String text -> e
+    int compareTo(com.anmipo.android.trentobus.db.Time) -> a
+    java.lang.String toString() -> toString
+    com.anmipo.android.trentobus.db.Time parse(java.lang.String) -> a
+    boolean isValidTime() -> a
+    int compareTo(java.lang.Object) -> compareTo
+com.anmipo.android.trentobus.view.ScheduleView -> com.anmipo.android.trentobus.view.ScheduleView:
+    com.anmipo.android.trentobus.db.ScheduleLegend[] legends -> a
+    android.content.res.Resources res -> b
+    int iconSize -> c
+    void setSchedule(com.anmipo.android.trentobus.db.Schedule) -> a
+    void setFixedRowHeight(int) -> a
+    void setColWidth(int) -> b
+    void drawFixedRow(android.graphics.Canvas) -> a
+    void scrollToColumn(int) -> c
+com.anmipo.android.trentobus.view.TimetableView -> com.anmipo.android.trentobus.view.TimetableView:
+    java.lang.String[] fixedCol -> a
+    java.lang.String[] fixedRow -> b
+    java.lang.String[][] cells -> c
+    java.lang.String[] fixedColEllipsized -> d
+    int rowCount -> e
+    int colCount -> f
+    android.text.TextPaint fixedColumnPaint -> g
+    android.text.TextPaint fixedRowPaint -> h
+    android.text.TextPaint cellPaint -> i
+    android.graphics.drawable.Drawable fixedBackgroundDrawable -> j
+    android.graphics.drawable.Drawable cellBackgroundDrawable -> k
+    int topRow -> l
+    int leftCol -> m
+    int offsetX -> n
+    int offsetY -> o
+    int width -> p
+    int height -> q
+    int fixedColWidth -> r
+    int fixedRowHeight -> s
+    int maxOffsetX -> t
+    int maxOffsetY -> u
+    int colWidth -> v
+    int rowHeight -> w
+    android.view.GestureDetector gestureDetector -> x
+    android.widget.Scroller scroller -> y
+    com.anmipo.android.trentobus.view.TimetableView$OnSizeChangedListener onSizeChangedListener -> z
+    com.anmipo.android.trentobus.view.TimetableView$OnCellClickListener onCellClickListener -> A
+    void onMeasure(int,int) -> onMeasure
+    void onSizeChanged(int,int,int,int) -> onSizeChanged
+    void updateChildrenLayout() -> a
+    void ellipsizeTexts() -> h
+    void onLayout(boolean,int,int,int,int) -> onLayout
+    void onDraw(android.graphics.Canvas) -> onDraw
+    void drawCells(android.graphics.Canvas) -> b
+    void drawFixedRow(android.graphics.Canvas) -> a
+    int getTextCenterOffset(int,android.graphics.Paint) -> a
+    void setData(java.lang.String[],java.lang.String[],java.lang.String[][]) -> a
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    android.graphics.Point coordsToCell(int,int) -> a
+    void computeScroll() -> computeScroll
+    void scrollTo(int,int) -> scrollTo
+    void scrollBy(int,int) -> scrollBy
+    void setOffsetX(int) -> d
+    void setOffsetY(int) -> c
+    android.os.Parcelable onSaveInstanceState() -> onSaveInstanceState
+    void onRestoreInstanceState(android.os.Parcelable) -> onRestoreInstanceState
+    void setOnSizeChangedListener(com.anmipo.android.trentobus.view.TimetableView$OnSizeChangedListener) -> a
+    void setOnCellClickListener(com.anmipo.android.trentobus.view.TimetableView$OnCellClickListener) -> a
+    int getFixedColWidth() -> b
+    int getColWidth() -> c
+    void setColWidth(int) -> b
+    int getFixedRowHeight() -> d
+    void setFixedRowHeight(int) -> a
+    int getLeftCol() -> e
+    int getOffsetX() -> f
+    int getColCount() -> g
+    android.widget.Scroller access$0(com.anmipo.android.trentobus.view.TimetableView) -> a
+    com.anmipo.android.trentobus.view.TimetableView$OnCellClickListener access$1(com.anmipo.android.trentobus.view.TimetableView) -> b
+    int access$2(com.anmipo.android.trentobus.view.TimetableView) -> c
+    int access$3(com.anmipo.android.trentobus.view.TimetableView) -> d
+    int access$4(com.anmipo.android.trentobus.view.TimetableView) -> e
+    int access$5(com.anmipo.android.trentobus.view.TimetableView) -> f
+com.anmipo.android.trentobus.view.TimetableView$GestureListener -> com.anmipo.android.trentobus.view.a:
+    com.anmipo.android.trentobus.view.TimetableView this$0 -> a
+    boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
+    boolean onDown(android.view.MotionEvent) -> onDown
+    boolean onSingleTapConfirmed(android.view.MotionEvent) -> onSingleTapConfirmed
+    void onLongPress(android.view.MotionEvent) -> onLongPress
+    boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+com.anmipo.android.trentobus.view.TimetableView$OnCellClickListener -> com.anmipo.android.trentobus.view.b:
+    void onCellSingleTap(int,int) -> a
+    void onCellLongPress(int,int) -> b
+com.anmipo.android.trentobus.view.TimetableView$OnSizeChangedListener -> com.anmipo.android.trentobus.view.c:
+    void onSizeChanged$255f295() -> a

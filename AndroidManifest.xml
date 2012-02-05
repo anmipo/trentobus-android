@@ -7,7 +7,11 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="8" />
-
+	<supports-screens 
+	    android:smallScreens="true" 
+	    android:normalScreens="true" 
+	    android:largeScreens="true" 
+	    android:anyDensity="true"/>
     <application
         android:name=".BusApplication"
         android:icon="@drawable/ic_app_icon"
