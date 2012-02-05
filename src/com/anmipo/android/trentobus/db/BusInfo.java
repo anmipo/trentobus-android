@@ -52,6 +52,7 @@ public class BusInfo {
 		drawableResources.put("16", R.drawable.bus_16);
 		drawableResources.put("17", R.drawable.bus_17);
 		drawableResources.put("NP", R.drawable.bus_np);
+		drawableResources.put("FV", R.drawable.bus_fv);
 	}
 
 	public String getNumber() {

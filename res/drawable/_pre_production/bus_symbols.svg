@@ -15,7 +15,7 @@
    version="1.1"
    inkscape:version="0.48.2 r9819"
    sodipodi:docname="bus_symbols.svg"
-   inkscape:export-filename="C:\Users\Andrei\Dropbox\projects\eclipse\TrentoBusDroid\res\drawable\_pre_production\bus_symbols_64\bus_unknown.png"
+   inkscape:export-filename="C:\Users\Andrei\Dropbox\projects\eclipse\TrentoBusDroid\res\drawable-mdpi\bus_fv.png"
    inkscape:export-xdpi="72"
    inkscape:export-ydpi="72">
   <defs
@@ -27,15 +27,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.3778268"
-     inkscape:cx="320.78362"
-     inkscape:cy="518.88744"
+     inkscape:zoom="4.4079267"
+     inkscape:cx="346.28513"
+     inkscape:cy="548.17651"
      inkscape:document-units="px"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer1"
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:snap-global="false"
+     inkscape:snap-global="true"
      inkscape:window-width="1551"
      inkscape:window-height="1028"
      inkscape:window-x="121"
@@ -73,6 +73,30 @@
        orientation="0,1"
        position="418.86988,532.83949"
        id="guide3089" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="333.47091,577.36474"
+       id="guide3106" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="343.29225,562.52721"
+       id="guide3108" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="336.00335,574.60502"
+       id="guide3110" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="364.66166,569.95029"
+       id="guide3112" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="344.72081,580.15692"
+       id="guide3981" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="355.922,580.05952"
+       id="guide3983" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -82,10 +106,73 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="g3086"
+     inkscape:label="FV"
+     style="display:inline">
+    <rect
+       style="fill:none;stroke:#000000;stroke-opacity:1;display:inline"
+       id="rect3088"
+       width="78.999229"
+       height="79.307816"
+       x="311.19424"
+       y="440.30011"
+       rx="10"
+       ry="10"
+       inkscape:export-filename="C:\Users\Andrei\Dropbox\projects\eclipse\TrentoBusDroid\res\drawable\bus_unknown.png"
+       inkscape:export-xdpi="54"
+       inkscape:export-ydpi="54" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="Layer">
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3102"
+       width="31.298409"
+       height="29.48"
+       x="334.67221"
+       y="473.53641"
+       rx="2"
+       ry="2" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3104-1"
+       width="8.9741602"
+       height="14.837505"
+       x="355.6875"
+       y="474.99744" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3104-1-9"
+       width="8.9741602"
+       height="14.828"
+       x="336.00336"
+       y="474.99744" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3104-1-9-4"
+       width="8.9741602"
+       height="14.837536"
+       x="345.83432"
+       y="474.99744" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 334.951,462.49756 c 30.69425,-6.75485 30.69425,-6.75485 30.69425,-6.75485 l 0,0"
+       id="path3979"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 344.72081,474.99745 c 5.66553,-15.48686 5.60059,-15.48686 5.60059,-15.48686 5.6006,15.48686 5.6006,15.48686 5.6006,15.48686"
+       id="path3985"
+       inkscape:connector-curvature="0" />
+  </g>
   <g
      inkscape:groupmode="layer"
      id="g3094"
@@ -578,7 +665,7 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="5"
-     style="display:inline">
+     style="display:none">
     <rect
        style="fill:#f3c800;fill-opacity:1;stroke:none"
        id="rect3007"

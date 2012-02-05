@@ -17,12 +17,13 @@
     
     <!-- Frequency descriptions for legend -->
     <string name="freq_nothing_special">Normal route, nothing special.</string>
-    <string name="freq_autonoleggiatore_privato">Performed by a private carrier.</string>
-    <string name="freq_mezzo_extraurbano">Performed by a suburban (\'extraurbano\') bus</string>
-    <string name="freq_feriale_solo_sabato">Only on Saturdays.</string>
-    <string name="freq_feriale_lunedi_a_venerdi">Monday to Friday.</string>
-    <string name="freq_scolastica_lunedi_a_sabato">School bus, Monday to Saturday.</string>
-    <string name="freq_scolastica_lunedi_a_venerdi">School bus, Monday to Friday.</string>
+    <string name="freq_autonoleggiatore_privato">Performed by a private carrier</string>
+    <string name="freq_funivia_bus">Performed by a bus (in case of strong wind)</string>
+    <string name="freq_mezzo_extraurbano">Performed by a suburban (extraurbano) bus</string>
+    <string name="freq_feriale_solo_sabato">Only on Saturdays</string>
+    <string name="freq_feriale_lunedi_a_venerdi">Monday to Friday</string>
+    <string name="freq_scolastica_lunedi_a_sabato">School bus, Monday to Saturday</string>
+    <string name="freq_scolastica_lunedi_a_venerdi">School bus, Monday to Friday</string>
     <string name="freq_unknown"></string>
     <string name="menu_show_legend">View legend</string>
     <string name="schedule_legend">Schedule legend</string>
