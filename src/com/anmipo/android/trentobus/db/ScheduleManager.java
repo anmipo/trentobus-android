@@ -4,6 +4,8 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -19,12 +21,21 @@ public class ScheduleManager {
     
     private static final String SCHEDULE_PATH = "schedule/";
     private static final String INDEX_FILE_NAME = "bus.idx";
+    private static final String STOP_INDEX_FILE = "stops.idx";
     private static final String VALIDITY_FILE_NAME = "validity.dat";
     private static final String TAG = "ScheduleManager";
     private Context context;
     private List<BusInfo> buses;
+    // maps schedule ID to schedule info 
     private HashMap<Integer, ScheduleInfo> scheduleInfos;
+    // maps schedule ID to full schedule (with timetable)
     private HashMap<Integer, Schedule> schedules;
+    
+    // stop name to associated schedules
+    private HashMap<String, List<ScheduleInfo>> stopsIndex;
+    // maps schedule file name to schedule info
+    private HashMap<String, ScheduleInfo> fileToScheduleInfo;
+
     private Date validFrom, validTo;
     
     public ScheduleManager(Context context) {
@@ -32,6 +43,8 @@ public class ScheduleManager {
         buses = new ArrayList<BusInfo>(25);
         scheduleInfos = new HashMap<Integer, ScheduleInfo>();
         schedules = new HashMap<Integer, Schedule>();
+        fileToScheduleInfo = new HashMap<String, ScheduleInfo>();
+        stopsIndex = null; // to be lazy-initialized
     }
     
     /**
@@ -39,7 +52,7 @@ public class ScheduleManager {
      * @throws IOException 
      */
     public void init() throws IOException {
-        loadIndex();
+        loadDirectionsIndex();
         loadValidityDates();
         debugPrintBuses();
     }
@@ -64,10 +77,85 @@ public class ScheduleManager {
     	}
 	}
 
-	private void loadIndex() throws IOException {
+    /**
+     * Loads index of bus stop names and schedules with these stops.
+     * @throws IOException
+     */
+	protected void loadStopsIndex() {
+		if (stopsIndex != null) {
+			return;
+		}
+		
+		stopsIndex = new HashMap<String, List<ScheduleInfo>>();
+		try {
+			InputStream rawIn = null;
+			try { 
+				rawIn = context.getAssets().open(SCHEDULE_PATH + STOP_INDEX_FILE);
+				DataInputStream dataIn = new DataInputStream(rawIn);
+				try {
+					int numStops = dataIn.readInt();
+					for (int iStop = 0; iStop < numStops; iStop++) {
+						String stopName = dataIn.readUTF();
+						int numSchedules = dataIn.readInt();
+						ArrayList<ScheduleInfo> stopSchedules = 
+								new ArrayList<ScheduleInfo>(numSchedules);
+						for (int iSch = 0; iSch < numSchedules; iSch++) {
+							String fileName = dataIn.readUTF();
+							ScheduleInfo schInfo = fileToScheduleInfo.get(fileName); 
+							stopSchedules.add(schInfo);
+						}
+						stopsIndex.put(stopName, 
+								Collections.unmodifiableList(stopSchedules));
+					}
+				} finally {
+					if (dataIn != null) {
+						dataIn.close();
+					}
+				}
+			} finally {
+				if (rawIn != null) {
+					rawIn.close();
+				}
+			}
+		} catch (IOException ioe) {
+			// This method is a lazy-loader called from typical getters.
+			// 1) They should not care about IOException
+			// 2) If there's an IOException, the app would crash anyway
+			// Therefore we "hide" the IO exception as a runtime one.. 
+			throw new RuntimeException("Cannot load stops index", ioe);
+		}
+	}
+
+	/**
+	 * Returns a (non-modifiable) collection of all known bus stop names.
+	 * @return
+	 */
+	public Collection<String> getAllBusStops() {
+		if (stopsIndex == null) {
+			loadStopsIndex();
+		}
+		return Collections.unmodifiableCollection(stopsIndex.keySet());
+	}
+	
+	/**
+	 * Returns a (non-modifiable) list of {@link ScheduleInfo} which include
+	 * a stop with name indicated by <code>busStop</code>. 
+	 * If stop name is unknown, returns null.
+	 * @param busStopName
+	 * @return
+	 */
+	public List<ScheduleInfo> getScheduleInfosForStopName(String busStopName) {
+		if (stopsIndex == null) {
+			loadStopsIndex();
+		}
+		return stopsIndex.get(busStopName);
+	}
+	
+	private void loadDirectionsIndex() throws IOException {
         buses.clear();
         scheduleInfos.clear();
         schedules.clear();
+        fileToScheduleInfo.clear();
         
         InputStream rawIn = null;
         try {
@@ -100,7 +188,7 @@ public class ScheduleManager {
                             		scheduleDataFileName, scheduleId); 
                     busInfo.addScheduleInfo(schInfo);
                     scheduleInfos.put(Integer.valueOf(scheduleId), schInfo);
-//                    loadSchedule(scheduleDataFileName, schInfo);
+                    fileToScheduleInfo.put(scheduleDataFileName, schInfo);
                     scheduleId++;
                 }
             } finally {
