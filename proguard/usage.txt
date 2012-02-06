@@ -30,8 +30,12 @@ com.anmipo.android.trentobus.db.ScheduleLegendItem:
 com.anmipo.android.trentobus.db.ScheduleManager:
     private static final java.lang.String SCHEDULE_PATH
     private static final java.lang.String INDEX_FILE_NAME
+    private static final java.lang.String STOP_INDEX_FILE
     private static final java.lang.String VALIDITY_FILE_NAME
     private static final java.lang.String TAG
+    85:127:protected void loadStopsIndex()
+    134:137:public java.util.Collection getAllBusStops()
+    148:151:public java.util.List getScheduleInfosForStopName(java.lang.String)
 com.anmipo.android.trentobus.db.Time:
     public static final char DIVIDER
     private static final java.lang.String PIPE

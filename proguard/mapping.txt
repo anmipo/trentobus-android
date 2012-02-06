@@ -145,8 +145,10 @@ com.anmipo.android.trentobus.db.ScheduleManager -> com.anmipo.android.trentobus.
     java.util.List buses -> b
     java.util.HashMap scheduleInfos -> c
     java.util.HashMap schedules -> d
-    java.util.Date validFrom -> e
-    java.util.Date validTo -> f
+    java.util.HashMap stopsIndex -> e
+    java.util.HashMap fileToScheduleInfo -> f
+    java.util.Date validFrom -> g
+    java.util.Date validTo -> h
     void init() -> a
     void debugPrintBuses() -> f
     java.util.List getBuses() -> b
