@@ -9,7 +9,7 @@ import java.util.Date;
 import android.content.Context;
 
 /**
- * Complete schedule of one bus, for one direction.
+ * Complete schedule of one bus, for one route.
  * 
  * @author Andrei Popleteev
  */
@@ -61,7 +61,7 @@ public class Schedule {
 		// file.
 		dataIn.readUTF(); // String busNumber - ignored
 		dataIn.readUTF(); // String isHolidayChar - ignored
-		dataIn.readUTF(); // String direction - ignored
+		dataIn.readUTF(); // String route - ignored
 
 		// schedule validity dates
 		validFrom = new Date(dataIn.readLong());

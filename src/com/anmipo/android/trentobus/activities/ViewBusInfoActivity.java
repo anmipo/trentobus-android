@@ -32,7 +32,7 @@ public class ViewBusInfoActivity extends Activity implements OnItemClickListener
 		busNumberImage.setImageResource(busInfo.getDrawableResource());
 		
 		scheduleList = (ListView) findViewById(R.id.schedule_info);
-		DirectionsAdapter adapter = new DirectionsAdapter(this, busInfo);
+		RoutesAdapter adapter = new RoutesAdapter(this, busInfo);
 		scheduleList.setAdapter(adapter);
 		scheduleList.setOnItemClickListener(this);
 	}
@@ -53,7 +53,7 @@ public class ViewBusInfoActivity extends Activity implements OnItemClickListener
 	@Override
 	public void onItemClick(AdapterView<?> adapterView, View view,
 			int pos, long id) {
-		DirectionsAdapter adapter = (DirectionsAdapter)adapterView.getAdapter();
+		RoutesAdapter adapter = (RoutesAdapter)adapterView.getAdapter();
 		ScheduleInfo scheduleInfo = adapter.getItem(pos);
 		ViewScheduleActivity.show(this, scheduleInfo.scheduleId);
 	}

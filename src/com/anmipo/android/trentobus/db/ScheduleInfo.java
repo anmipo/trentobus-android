@@ -1,19 +1,19 @@
 package com.anmipo.android.trentobus.db;
 
 /**
- * Info about a particular schedule direction/type.
+ * Info about a particular schedule route/type.
  * @author Andrei Popleteev
  */
 public class ScheduleInfo {
     final public String busNumber;
-    final public String direction;
+    final public String route;
     final public ScheduleType type;
     final public int scheduleId;
 	final public String fileName;
     
     /**
-     * @param direction
-     *            String describing route direction.
+     * @param route
+     *            String describing the route's main nodes.
      * @param type
      *            Type of the schedule (see {@link ScheduleType}).
      * @param dataFileName
@@ -21,15 +21,15 @@ public class ScheduleInfo {
      * @param scheduleId
      *            Unique ID of this schedule.
      */
-    public ScheduleInfo(String busNumber, String direction, ScheduleType type, 
+    public ScheduleInfo(String busNumber, String route, ScheduleType type, 
     		String dataFileName, int scheduleId) {
     	this.busNumber = busNumber;
-        this.direction = direction;
+        this.route = route;
         this.type = type;
         this.fileName = dataFileName;
         this.scheduleId = scheduleId;
     }
     public String toString() {
-        return "(" + type + ") " + direction;
+        return "(" + type + ") " + route;
     }
 }

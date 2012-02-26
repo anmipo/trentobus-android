@@ -15,16 +15,16 @@ import com.anmipo.android.trentobus.R;
 import com.anmipo.android.trentobus.db.BusInfo;
 import com.anmipo.android.trentobus.db.ScheduleInfo;
 
-public class DirectionsAdapter extends BaseAdapter {
-    private ArrayList<ScheduleInfo> directions;
+public class RoutesAdapter extends BaseAdapter {
+    private ArrayList<ScheduleInfo> routes;
     private LayoutInflater layoutInflater;
     
-    public DirectionsAdapter(Context context, BusInfo busInfo) {
+    public RoutesAdapter(Context context, BusInfo busInfo) {
         layoutInflater = LayoutInflater.from(context);
         
-        // sort (a copy of) directions to have workdays first
-        directions = new ArrayList<ScheduleInfo>(busInfo.getScheduleInfos());
-        Collections.sort(directions, new Comparator<ScheduleInfo>() {
+        // sort (a copy of) routes to have workdays first
+        routes = new ArrayList<ScheduleInfo>(busInfo.getScheduleInfos());
+        Collections.sort(routes, new Comparator<ScheduleInfo>() {
 			@Override
 			public int compare(ScheduleInfo s1, ScheduleInfo s2) {
 				return s1.type.compareTo(s2.type);
@@ -34,7 +34,7 @@ public class DirectionsAdapter extends BaseAdapter {
     
     @Override
     public ScheduleInfo getItem(int position) {
-        return directions.get(position);
+        return routes.get(position);
     }
     @Override
     public long getItemId(int position) {
@@ -42,7 +42,7 @@ public class DirectionsAdapter extends BaseAdapter {
     }
     @Override
     public int getCount() {
-        return directions.size();
+        return routes.size();
     }
     
     @Override
@@ -51,19 +51,19 @@ public class DirectionsAdapter extends BaseAdapter {
         if (view == null) {
             view = layoutInflater.inflate(R.layout.item_schedule_info, null);
             holder = new ViewHolder();
-            holder.direction = (TextView) view.findViewById(R.id.direction);
+            holder.route = (TextView) view.findViewById(R.id.direction);
             holder.type = (TextView) view.findViewById(R.id.type);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
         }
         ScheduleInfo info = getItem(position);
-        holder.direction.setText(info.direction);
+        holder.route.setText(info.route);
         holder.type.setText(info.type.nameResourceId);
         return view;
     }
     static class ViewHolder {
-        TextView direction;
+        TextView route;
         TextView type;
     }
 }

@@ -52,7 +52,7 @@ public class ScheduleManager {
      * @throws IOException 
      */
     public void init() throws IOException {
-        loadDirectionsIndex();
+        loadRoutesIndex();
         loadValidityDates();
         debugPrintBuses();
     }
@@ -151,7 +151,7 @@ public class ScheduleManager {
 		return stopsIndex.get(busStopName);
 	}
 	
-	private void loadDirectionsIndex() throws IOException {
+	private void loadRoutesIndex() throws IOException {
         buses.clear();
         scheduleInfos.clear();
         schedules.clear();
@@ -161,7 +161,7 @@ public class ScheduleManager {
         try {
             rawIn = context.getAssets().open(SCHEDULE_PATH + INDEX_FILE_NAME);
     
-            // unique id for each schedule (bus number & direction & type)
+            // unique id for each schedule (bus number & route & type)
             int scheduleId = 0;
             DataInputStream dataIn = new DataInputStream(rawIn);
             try {
@@ -173,7 +173,7 @@ public class ScheduleManager {
                     String busNumber = dataIn.readUTF();
                     ScheduleType schType = ScheduleType.parse(
                             dataIn.readUTF());
-                    String direction = dataIn.readUTF();
+                    String route = dataIn.readUTF();
 
                     // Bus numbers are grouped in the index file, so we 
                     // don't have to check whether bus number is already 
@@ -184,7 +184,7 @@ public class ScheduleManager {
                         buses.add(busInfo);
                     }
                     ScheduleInfo schInfo = 
-                            new ScheduleInfo(busNumber, direction, schType, 
+                            new ScheduleInfo(busNumber, route, schType, 
                             		scheduleDataFileName, scheduleId); 
                     busInfo.addScheduleInfo(schInfo);
                     scheduleInfos.put(Integer.valueOf(scheduleId), schInfo);
@@ -220,7 +220,7 @@ public class ScheduleManager {
     }
     
     /**
-     * Returns info about all available buses (numbers, directions)
+     * Returns info about all available buses (numbers, routes)
      * @return 
      */
     public List<BusInfo> getBuses() {

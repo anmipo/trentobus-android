@@ -8,8 +8,8 @@ import com.anmipo.android.trentobus.R;
  * @author Andrei Popleteev
  */
 public enum ScheduleType {
-	WORKDAY(R.string.schedule_type_workday), HOLIDAY(
-			R.string.schedule_type_holiday);
+	WORKDAY(R.string.schedule_type_workday), 
+	HOLIDAY(R.string.schedule_type_holiday);
 
 	/** Specifies string resource ID with the enum instance name. */
 	final public int nameResourceId;

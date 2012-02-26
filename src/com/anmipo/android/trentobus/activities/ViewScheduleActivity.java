@@ -44,7 +44,7 @@ public class ViewScheduleActivity extends Activity implements OnCellClickListene
         schedule = BusApplication.scheduleManager.getSchedule(scheduleId);
         setTitle(getString(R.string.view_schedule_title,
         		schedule.getScheduleInfo().busNumber,
-        		schedule.getScheduleInfo().direction));
+        		schedule.getScheduleInfo().route));
         timetable = (ScheduleView) findViewById(R.id.timetable);
         timetable.setSchedule(schedule);
         timetable.setOnCellClickListener(this);
