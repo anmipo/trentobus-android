@@ -60,6 +60,7 @@ public class Schedule {
 		// Skip the fields already loaded by the parent form from the index
 		// file.
 		dataIn.readUTF(); // String busNumber - ignored
+		dataIn.readUTF(); // String direction - ignored
 		dataIn.readUTF(); // String isHolidayChar - ignored
 		dataIn.readUTF(); // String route - ignored
 

@@ -32,7 +32,7 @@ public class ScheduleManager {
     private HashMap<Integer, Schedule> schedules;
     
     // stop name to associated schedules
-    private HashMap<String, List<ScheduleInfo>> stopsIndex;
+    private HashMap<BusStop, List<ScheduleInfo>> stopsIndex;
     // maps schedule file name to schedule info
     private HashMap<String, ScheduleInfo> fileToScheduleInfo;
 
@@ -86,7 +86,7 @@ public class ScheduleManager {
 			return;
 		}
 		
-		stopsIndex = new HashMap<String, List<ScheduleInfo>>();
+		stopsIndex = new HashMap<BusStop, List<ScheduleInfo>>();
 		try {
 			InputStream rawIn = null;
 			try { 
@@ -95,7 +95,7 @@ public class ScheduleManager {
 				try {
 					int numStops = dataIn.readInt();
 					for (int iStop = 0; iStop < numStops; iStop++) {
-						String stopName = dataIn.readUTF();
+						BusStop busStop = BusStop.readFromDataStream(dataIn);
 						int numSchedules = dataIn.readInt();
 						ArrayList<ScheduleInfo> stopSchedules = 
 								new ArrayList<ScheduleInfo>(numSchedules);
@@ -104,7 +104,7 @@ public class ScheduleManager {
 							ScheduleInfo schInfo = fileToScheduleInfo.get(fileName); 
 							stopSchedules.add(schInfo);
 						}
-						stopsIndex.put(stopName, 
+						stopsIndex.put(busStop, 
 								Collections.unmodifiableList(stopSchedules));
 					}
 				} finally {
@@ -130,7 +130,7 @@ public class ScheduleManager {
 	 * Returns a (non-modifiable) collection of all known bus stop names.
 	 * @return
 	 */
-	public Collection<String> getAllBusStops() {
+	public Collection<BusStop> getAllBusStops() {
 		if (stopsIndex == null) {
 			loadStopsIndex();
 		}
@@ -171,6 +171,7 @@ public class ScheduleManager {
                     // The order is important, obviously
                     String scheduleDataFileName = dataIn.readUTF();
                     String busNumber = dataIn.readUTF();
+                    Direction direction = Direction.readFromStream(dataIn);
                     ScheduleType schType = ScheduleType.parse(
                             dataIn.readUTF());
                     String route = dataIn.readUTF();
@@ -184,8 +185,8 @@ public class ScheduleManager {
                         buses.add(busInfo);
                     }
                     ScheduleInfo schInfo = 
-                            new ScheduleInfo(busNumber, route, schType, 
-                            		scheduleDataFileName, scheduleId); 
+                            new ScheduleInfo(busNumber, direction, route, 
+                            		schType, scheduleDataFileName, scheduleId); 
                     busInfo.addScheduleInfo(schInfo);
                     scheduleInfos.put(Integer.valueOf(scheduleId), schInfo);
                     fileToScheduleInfo.put(scheduleDataFileName, schInfo);
