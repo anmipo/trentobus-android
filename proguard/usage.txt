@@ -20,11 +20,12 @@ com.anmipo.android.trentobus.activities.ViewScheduleActivity:
     private static final java.lang.String TAG
 com.anmipo.android.trentobus.db.BusInfo:
     private static final int UNKNOWN_BUS_DRAWABLE_ID
+com.anmipo.android.trentobus.db.BusStop
 com.anmipo.android.trentobus.db.Schedule:
-    169:169:public int getRowCount()
-    173:173:public int getColCount()
-    177:177:public com.anmipo.android.trentobus.db.Time getTime(int,int)
-    193:193:public com.anmipo.android.trentobus.db.Time[][] getTimes()
+    170:170:public int getRowCount()
+    174:174:public int getColCount()
+    178:178:public com.anmipo.android.trentobus.db.Time getTime(int,int)
+    194:194:public com.anmipo.android.trentobus.db.Time[][] getTimes()
 com.anmipo.android.trentobus.db.ScheduleLegendItem:
     private static final int NO_DESCRIPTION
 com.anmipo.android.trentobus.db.ScheduleManager:
