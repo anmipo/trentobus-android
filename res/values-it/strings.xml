@@ -24,6 +24,7 @@
     <string name="freq_feriale_lunedi_a_venerdi">Feriale da Lunedì a Venerdì</string>
     <string name="freq_scolastica_lunedi_a_sabato">Scolastica da Lunedì a Sabato</string>
     <string name="freq_scolastica_lunedi_a_venerdi">Scolastica da Lunedì a Venerdì</string>
+    <string name="freq_lun_ven_sospesa_2307_0209">Lun-Ven sospesa 23/07 - 02/09</string>
     <string name="freq_unknown"></string>
     <string name="menu_show_legend">Note di corsa</string>
     <string name="schedule_legend">Note di corsa</string>
