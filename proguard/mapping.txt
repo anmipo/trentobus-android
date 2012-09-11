@@ -29,16 +29,17 @@ com.anmipo.android.trentobus.activities.AboutActivity -> com.anmipo.android.tren
     void openAppMarket() -> a
 com.anmipo.android.trentobus.activities.BusChoiceActivity -> com.anmipo.android.trentobus.activities.BusChoiceActivity:
     android.widget.GridView busGrid -> a
+    android.widget.TextView validityStatusView -> b
     void onCreate(android.os.Bundle) -> onCreate
     void onResume() -> onResume
     void onPause() -> onPause
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
     boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
     boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-com.anmipo.android.trentobus.activities.BusChoiceActivity$1 -> com.anmipo.android.trentobus.activities.g:
+com.anmipo.android.trentobus.activities.BusChoiceActivity$1 -> com.anmipo.android.trentobus.activities.a:
     com.anmipo.android.trentobus.activities.BusChoiceActivity this$0 -> a
     void onEulaAccepted(boolean) -> a
-com.anmipo.android.trentobus.activities.BusGridAdapter -> com.anmipo.android.trentobus.activities.c:
+com.anmipo.android.trentobus.activities.BusGridAdapter -> com.anmipo.android.trentobus.activities.b:
     java.util.List buses -> a
     android.content.Context context -> b
     int getCount() -> getCount
@@ -46,7 +47,7 @@ com.anmipo.android.trentobus.activities.BusGridAdapter -> com.anmipo.android.tre
     long getItemId(int) -> getItemId
     android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
     java.lang.Object getItem(int) -> getItem
-com.anmipo.android.trentobus.activities.RoutesAdapter -> com.anmipo.android.trentobus.activities.f:
+com.anmipo.android.trentobus.activities.RoutesAdapter -> com.anmipo.android.trentobus.activities.c:
     java.util.ArrayList routes -> a
     android.view.LayoutInflater layoutInflater -> b
     com.anmipo.android.trentobus.db.ScheduleInfo getItem(int) -> a
@@ -54,16 +55,17 @@ com.anmipo.android.trentobus.activities.RoutesAdapter -> com.anmipo.android.tren
     int getCount() -> getCount
     android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
     java.lang.Object getItem(int) -> getItem
-com.anmipo.android.trentobus.activities.RoutesAdapter$1 -> com.anmipo.android.trentobus.activities.a:
+com.anmipo.android.trentobus.activities.RoutesAdapter$1 -> com.anmipo.android.trentobus.activities.d:
     com.anmipo.android.trentobus.activities.RoutesAdapter this$0 -> a
     int compare(java.lang.Object,java.lang.Object) -> compare
-com.anmipo.android.trentobus.activities.RoutesAdapter$ViewHolder -> com.anmipo.android.trentobus.activities.b:
+com.anmipo.android.trentobus.activities.RoutesAdapter$ViewHolder -> com.anmipo.android.trentobus.activities.e:
     android.widget.TextView route -> a
     android.widget.TextView type -> b
 com.anmipo.android.trentobus.activities.ViewBusInfoActivity -> com.anmipo.android.trentobus.activities.ViewBusInfoActivity:
     com.anmipo.android.trentobus.db.BusInfo busInfo -> a
     android.widget.ListView scheduleList -> b
     void onCreate(android.os.Bundle) -> onCreate
+    void show(android.content.Context,java.lang.String) -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.anmipo.android.trentobus.activities.ViewScheduleActivity -> com.anmipo.android.trentobus.activities.ViewScheduleActivity:
     com.anmipo.android.trentobus.view.ScheduleView timetable -> a
@@ -74,15 +76,16 @@ com.anmipo.android.trentobus.activities.ViewScheduleActivity -> com.anmipo.andro
     void onCellSingleTap(int,int) -> a
     void onCellLongPress(int,int) -> b
     void showLegendDialog(com.anmipo.android.trentobus.db.ScheduleLegend$Adapter) -> a
+    void show(android.content.Context,int) -> a
     com.anmipo.android.trentobus.db.Schedule access$0(com.anmipo.android.trentobus.activities.ViewScheduleActivity) -> a
     com.anmipo.android.trentobus.view.ScheduleView access$1(com.anmipo.android.trentobus.activities.ViewScheduleActivity) -> b
-com.anmipo.android.trentobus.activities.ViewScheduleActivity$1 -> com.anmipo.android.trentobus.activities.e:
+com.anmipo.android.trentobus.activities.ViewScheduleActivity$1 -> com.anmipo.android.trentobus.activities.f:
     com.anmipo.android.trentobus.activities.ViewScheduleActivity this$0 -> a
     void onSizeChanged$255f295() -> a
-com.anmipo.android.trentobus.activities.ViewScheduleActivity$2 -> com.anmipo.android.trentobus.activities.d:
+com.anmipo.android.trentobus.activities.ViewScheduleActivity$2 -> com.anmipo.android.trentobus.activities.g:
     com.anmipo.android.trentobus.activities.ViewScheduleActivity this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
-com.anmipo.android.trentobus.db.BusInfo -> com.anmipo.android.trentobus.a.e:
+com.anmipo.android.trentobus.db.BusInfo -> com.anmipo.android.trentobus.a.a:
     java.lang.String busNumber -> a
     java.util.List scheduleInfos -> b
     boolean resourcesLoaded -> c
@@ -92,21 +95,21 @@ com.anmipo.android.trentobus.db.BusInfo -> com.anmipo.android.trentobus.a.e:
     java.util.List getScheduleInfos() -> b
     java.lang.String toString() -> toString
     int getDrawableResource() -> c
-com.anmipo.android.trentobus.db.Direction -> com.anmipo.android.trentobus.a.d:
+com.anmipo.android.trentobus.db.Direction -> com.anmipo.android.trentobus.a.b:
     com.anmipo.android.trentobus.db.Direction UNDEFINED -> a
     com.anmipo.android.trentobus.db.Direction FORWARD -> b
     com.anmipo.android.trentobus.db.Direction RETURN -> c
     java.lang.String symbol -> d
     com.anmipo.android.trentobus.db.Direction readFromStream(java.io.DataInputStream) -> a
-com.anmipo.android.trentobus.db.Schedule -> com.anmipo.android.trentobus.a.i:
-    com.anmipo.android.trentobus.db.ScheduleInfo scheduleInfo -> a
-    com.anmipo.android.trentobus.db.Time[][] times -> b
-    java.lang.String[] stopNames -> c
-    com.anmipo.android.trentobus.db.ScheduleLegend[] legends -> d
-    int rowCount -> e
-    int colCount -> f
-    java.util.Date validFrom -> g
-    java.util.Date validTo -> h
+com.anmipo.android.trentobus.db.Schedule -> com.anmipo.android.trentobus.a.c:
+    com.anmipo.android.trentobus.db.ScheduleInfo scheduleInfo -> h
+    com.anmipo.android.trentobus.db.Time[][] times -> a
+    java.lang.String[] stopNames -> b
+    com.anmipo.android.trentobus.db.ScheduleLegend[] legends -> c
+    int rowCount -> d
+    int colCount -> e
+    java.util.Date validFrom -> f
+    java.util.Date validTo -> g
     void resize(int,int) -> a
     com.anmipo.android.trentobus.db.ScheduleInfo getScheduleInfo() -> a
     void loadFromStream(java.io.DataInputStream) -> a
@@ -117,15 +120,15 @@ com.anmipo.android.trentobus.db.Schedule -> com.anmipo.android.trentobus.a.i:
     com.anmipo.android.trentobus.db.ScheduleLegend[] getLegends() -> c
     int getForthcomingDepartureColumn(java.util.Calendar) -> a
     java.lang.String[][] getTimesAsStrings() -> d
-com.anmipo.android.trentobus.db.ScheduleInfo -> com.anmipo.android.trentobus.a.a:
+com.anmipo.android.trentobus.db.ScheduleInfo -> com.anmipo.android.trentobus.a.d:
     java.lang.String busNumber -> a
-    com.anmipo.android.trentobus.db.Direction direction -> f
-    java.lang.String route -> b
-    com.anmipo.android.trentobus.db.ScheduleType type -> c
-    int scheduleId -> d
-    java.lang.String fileName -> e
+    com.anmipo.android.trentobus.db.Direction direction -> b
+    java.lang.String route -> c
+    com.anmipo.android.trentobus.db.ScheduleType type -> d
+    int scheduleId -> e
+    java.lang.String fileName -> f
     java.lang.String toString() -> toString
-com.anmipo.android.trentobus.db.ScheduleLegend -> com.anmipo.android.trentobus.a.c:
+com.anmipo.android.trentobus.db.ScheduleLegend -> com.anmipo.android.trentobus.a.e:
     java.util.HashMap sAllItemsMap -> a
     com.anmipo.android.trentobus.db.ScheduleLegendItem[] sItemsWithDescription -> b
     com.anmipo.android.trentobus.db.ScheduleLegendItem[] items -> c
@@ -136,18 +139,18 @@ com.anmipo.android.trentobus.db.ScheduleLegend -> com.anmipo.android.trentobus.a
     int getIconSize(android.content.res.Resources) -> a
     com.anmipo.android.trentobus.db.ScheduleLegend$Adapter getDescriptionsAdapter(android.content.Context) -> a
     com.anmipo.android.trentobus.db.ScheduleLegendItem[] access$0() -> b
-com.anmipo.android.trentobus.db.ScheduleLegend$Adapter -> com.anmipo.android.trentobus.a.b:
+com.anmipo.android.trentobus.db.ScheduleLegend$Adapter -> com.anmipo.android.trentobus.a.f:
     int iconPadding -> a
     void setupLayout() -> a
     android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-com.anmipo.android.trentobus.db.ScheduleLegendItem -> com.anmipo.android.trentobus.a.h:
+com.anmipo.android.trentobus.db.ScheduleLegendItem -> com.anmipo.android.trentobus.a.g:
     com.anmipo.android.trentobus.db.ScheduleLegendItem UNKNOWN -> a
     java.lang.String key -> b
     int textId -> c
     int iconId -> d
     java.lang.String toString() -> toString
     boolean hasText() -> a
-com.anmipo.android.trentobus.db.ScheduleManager -> com.anmipo.android.trentobus.a.j:
+com.anmipo.android.trentobus.db.ScheduleManager -> com.anmipo.android.trentobus.a.h:
     android.content.Context context -> a
     java.util.List buses -> b
     java.util.HashMap scheduleInfos -> c
@@ -164,15 +167,15 @@ com.anmipo.android.trentobus.db.ScheduleManager -> com.anmipo.android.trentobus.
     java.util.Date getValidFrom() -> c
     java.util.Date getValidTo() -> d
     int getScheduleValidity() -> e
-com.anmipo.android.trentobus.db.ScheduleType -> com.anmipo.android.trentobus.a.g:
-    com.anmipo.android.trentobus.db.ScheduleType WORKDAY -> b
-    com.anmipo.android.trentobus.db.ScheduleType HOLIDAY -> c
-    int nameResourceId -> a
+com.anmipo.android.trentobus.db.ScheduleType -> com.anmipo.android.trentobus.a.i:
+    com.anmipo.android.trentobus.db.ScheduleType WORKDAY -> a
+    com.anmipo.android.trentobus.db.ScheduleType HOLIDAY -> b
+    int nameResourceId -> c
     com.anmipo.android.trentobus.db.ScheduleType[] ENUM$VALUES -> d
     com.anmipo.android.trentobus.db.ScheduleType parse(java.lang.String) -> a
     com.anmipo.android.trentobus.db.ScheduleType[] values() -> values
     com.anmipo.android.trentobus.db.ScheduleType valueOf(java.lang.String) -> valueOf
-com.anmipo.android.trentobus.db.Time -> com.anmipo.android.trentobus.a.f:
+com.anmipo.android.trentobus.db.Time -> com.anmipo.android.trentobus.a.j:
     com.anmipo.android.trentobus.db.Time EMPTY -> a
     com.anmipo.android.trentobus.db.Time PASS -> b
     int hour -> c
