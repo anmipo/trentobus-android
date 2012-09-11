@@ -3,7 +3,11 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
-
+	<TextView android:id="@+id/validity_status"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    style="@style/scheduleValidityStatus"
+	    android:visibility="gone"/>
     <GridView
         android:id="@+id/buses"
         android:layout_width="fill_parent"

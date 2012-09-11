@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.anmipo.android.common.EulaChecker;
 import com.anmipo.android.common.EulaChecker.EulaListener;
@@ -24,6 +24,7 @@ public class BusChoiceActivity extends Activity implements OnItemClickListener {
     protected static final String TAG = "BusChoice";
     
     private GridView busGrid;
+    private TextView validityStatusView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class BusChoiceActivity extends Activity implements OnItemClickListener {
         setContentView(R.layout.ac_buses);
         
         busGrid = (GridView) findViewById(R.id.buses);
+        validityStatusView = (TextView) findViewById(R.id.validity_status);
         
         List<BusInfo> buses = BusApplication.scheduleManager.getBuses();
         BusGridAdapter adapter = new BusGridAdapter(this, buses);
@@ -56,12 +58,15 @@ public class BusChoiceActivity extends Activity implements OnItemClickListener {
     
     private void checkScheduleValidity() {
         int validity = BusApplication.scheduleManager.getScheduleValidity();
+        
         if (validity < 0) {
-        	Toast.makeText(this, R.string.schedule_is_not_yet_valid, 
-        			Toast.LENGTH_LONG).show();
+        	validityStatusView.setText(R.string.schedule_is_not_yet_valid);
+        	validityStatusView.setVisibility(View.VISIBLE);
         } else if (validity > 0) {
-        	Toast.makeText(this, R.string.schedule_is_out_of_date, 
-        			Toast.LENGTH_LONG).show();
+        	validityStatusView.setText(R.string.schedule_is_out_of_date);
+        	validityStatusView.setVisibility(View.VISIBLE);
+        } else {
+        	validityStatusView.setVisibility(View.GONE);        	
         }
 	}
 
