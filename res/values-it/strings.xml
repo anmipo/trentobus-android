@@ -32,7 +32,7 @@
     
     <string name="about_activity_title">Informazioni su TrentoBus</string>
     <string name="schedule_validity" formatted="false">Dal %s al %s</string>
-    <string name="copyright">©2012 Andrei Popleteev</string>
+    <string name="copyright">©2012-2013 Andrei Popleteev</string>
     <string name="check_for_update">Verifica aggiornamenti</string>
     <string name="rate_this_app">Valuta questa applicazione</string>
     <string name="about_logo_description">Logo</string>
