@@ -1,3 +1,5 @@
+android.annotation.SuppressLint
+android.annotation.TargetApi
 com.anmipo.android.common.EulaChecker:
     private static final java.lang.String PREF_EULA_ACCEPTED
 com.anmipo.android.trentobus.BuildConfig
