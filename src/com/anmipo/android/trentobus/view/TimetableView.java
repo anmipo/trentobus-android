@@ -337,7 +337,7 @@ public class TimetableView extends View {
         if (cells.length != rowCount || cells[0].length != colCount) {
         	throw new IllegalArgumentException("Table dimensions do not match");
         }
-        onLayout(true, 0, 0, width, height);
+        layout(0, 0, width, height);
         postInvalidate();
 	}
 	
