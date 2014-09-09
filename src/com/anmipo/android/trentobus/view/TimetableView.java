@@ -30,7 +30,7 @@ public class TimetableView extends View {
     static final String TAG = "Timetable";
 
 	// font size for cell text
-	public static final int FONT_SIZE_DP = 16;
+	public static final int FONT_SIZE_SP = 16;
 	// horizontal padding for all cells, in px
 	private static final int CELL_PADDING_X = 5;
 	
@@ -121,7 +121,7 @@ public class TimetableView extends View {
 	
 	private void initPaints() {
 		float fontSizePixels = TypedValue
-				.applyDimension(TypedValue.COMPLEX_UNIT_DIP, FONT_SIZE_DP,
+				.applyDimension(TypedValue.COMPLEX_UNIT_SP, FONT_SIZE_SP,
 						getContext().getResources().getDisplayMetrics());
 		fixedColumnPaint = new TextPaint();
 		fixedColumnPaint.setTextAlign(Align.LEFT);
@@ -138,7 +138,6 @@ public class TimetableView extends View {
 		cellPaint = new TextPaint();
 		cellPaint.setColor(Color.BLACK);
 		cellPaint.setTextSize(fontSizePixels);
-		cellPaint.setStyle(Style.STROKE);
 		cellPaint.setTextAlign(Align.CENTER);
 		cellPaint.setAntiAlias(true);
 		updateChildrenLayout();
