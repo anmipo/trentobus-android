@@ -23,7 +23,7 @@ public class ScheduleLegend {
 	
 	static {
 		int index = 0;
-		sItemsWithDescription = new ScheduleLegendItem[8];
+		sItemsWithDescription = new ScheduleLegendItem[9];
 		/* 
 		 * "Frequenza" items, those that are to be shown 
 		 * in the legend description. 
@@ -43,6 +43,9 @@ public class ScheduleLegend {
 		sItemsWithDescription[index++] = new ScheduleLegendItem("\u00E0",
 				R.string.freq_lun_ven_sospesa_2307_0209, 
 				R.drawable.freq_square_half_filled);
+		sItemsWithDescription[index++] = new ScheduleLegendItem("X",
+				R.string.freq_gazzoleti_canova_linea_7,
+				R.drawable.freq_circle_x);
 		
 		// Some special "Linea" items that have a description. 
 		sItemsWithDescription[index++] = new ScheduleLegendItem("o", 
