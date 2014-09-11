@@ -9,10 +9,10 @@ _____________________________________________________________________
 Interfaces (count = 0):
 
 Constant Pool (count = 100):
-  + Integer [2130968607]
   + Integer [2130968608]
   + Integer [2130968609]
   + Integer [2130968610]
+  + Integer [2130968611]
   + String [eula_v1_accepted]
   + Class [android/app/AlertDialog]
   + Class [android/app/AlertDialog$Builder]
@@ -202,20 +202,20 @@ Methods (count = 6):
       [58] invokespecial #20
         + Methodref [android/app/AlertDialog$Builder.<init> (Landroid/content/Context;)V]
       [61] ldc #1
-        + Integer [2130968607]
+        + Integer [2130968608]
       [63] invokevirtual #26
         + Methodref [android/app/AlertDialog$Builder.setTitle (I)Landroid/app/AlertDialog$Builder;]
       [66] ldc #2
-        + Integer [2130968608]
+        + Integer [2130968609]
       [68] invokevirtual #22
         + Methodref [android/app/AlertDialog$Builder.setMessage (I)Landroid/app/AlertDialog$Builder;]
       [71] ldc #3
-        + Integer [2130968609]
+        + Integer [2130968610]
       [73] aload_1 v1
       [74] invokevirtual #25
         + Methodref [android/app/AlertDialog$Builder.setPositiveButton (ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;]
       [77] ldc #4
-        + Integer [2130968610]
+        + Integer [2130968611]
       [79] aload_1 v1
       [80] invokevirtual #23
         + Methodref [android/app/AlertDialog$Builder.setNegativeButton (ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;]
@@ -692,8 +692,8 @@ Constant Pool (count = 178):
   + Integer [2130903040]
   + Integer [2130968576]
   + Integer [2130968579]
-  + Integer [2130968601]
-  + Integer [2130968606]
+  + Integer [2130968602]
+  + Integer [2130968607]
   + Integer [2131165186]
   + Integer [2131165187]
   + Integer [2131165190]
@@ -979,7 +979,7 @@ Methods (count = 4):
         + Fieldref [com/anmipo/android/trentobus/activities/AboutActivity.c Landroid/widget/TextView;]
       [103] aload_1 v1
       [104] ldc #5
-        + Integer [2130968601]
+        + Integer [2130968602]
       [106] iconst_2
       [107] anewarray #30
         + Class [java/lang/Object]
@@ -1117,7 +1117,7 @@ Methods (count = 4):
       [48] pop
       [49] aload_0 v0
       [50] ldc #6
-        + Integer [2130968606]
+        + Integer [2130968607]
       [52] iconst_0
       [53] invokestatic #49
         + Methodref [android/widget/Toast.makeText (Landroid/content/Context;II)Landroid/widget/Toast;]
@@ -2579,7 +2579,7 @@ Constant Pool (count = 226):
   + Integer [2130903042]
   + Integer [2130968582]
   + Integer [2130968587]
-  + Integer [2130968598]
+  + Integer [2130968599]
   + Integer [2131099649]
   + Integer [2131165194]
   + String [, ]
@@ -3100,7 +3100,7 @@ Methods (count = 10):
       [5] invokespecial #42
         + Methodref [android/app/AlertDialog$Builder.<init> (Landroid/content/Context;)V]
       [8] ldc #4
-        + Integer [2130968598]
+        + Integer [2130968599]
       [10] invokevirtual #45
         + Methodref [android/app/AlertDialog$Builder.setTitle (I)Landroid/app/AlertDialog$Builder;]
       [13] aload_1 v1
@@ -5023,14 +5023,14 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 207):
+Constant Pool (count = 211):
   + Integer [2130837532]
   + Integer [2130837533]
   + Integer [2130837534]
   + Integer [2130837535]
   + Integer [2130837536]
   + Integer [2130837537]
-  + Integer [2130837539]
+  + Integer [2130837538]
   + Integer [2130837540]
   + Integer [2130837541]
   + Integer [2130837542]
@@ -5056,6 +5056,7 @@ Constant Pool (count = 207):
   + Integer [2130837562]
   + Integer [2130837563]
   + Integer [2130837564]
+  + Integer [2130837565]
   + Integer [2130968588]
   + Integer [2130968589]
   + Integer [2130968590]
@@ -5064,6 +5065,7 @@ Constant Pool (count = 207):
   + Integer [2130968593]
   + Integer [2130968594]
   + Integer [2130968595]
+  + Integer [2130968596]
   + String [1]
   + String [10]
   + String [11]
@@ -5088,6 +5090,7 @@ Constant Pool (count = 207):
   + String [D]
   + String [E]
   + String [NP]
+  + String [X]
   + String [fvb]
   + String [o]
   + String [?]
@@ -5200,6 +5203,7 @@ Constant Pool (count = 207):
   + Utf8 [Ljava/util/HashMap;]
   + Utf8 [NP]
   + Utf8 [StackMapTable]
+  + Utf8 [X]
   + Utf8 [[Lcom/anmipo/android/trentobus/a/g;]
   + Utf8 [a]
   + Utf8 [add]
@@ -5247,551 +5251,566 @@ Methods (count = 9):
     Access flags: 0x8
       = static void <clinit>()
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 659, locals = 4, stack = 7):
-      [0] bipush 8
-      [2] anewarray #78
+    + Code attribute instructions (code length = 678, locals = 4, stack = 7):
+      [0] bipush 9
+      [2] anewarray #81
         + Class [com/anmipo/android/trentobus/a/g]
       [5] dup
-      [6] putstatic #84
+      [6] putstatic #87
         + Fieldref [com/anmipo/android/trentobus/a/e.b [Lcom/anmipo/android/trentobus/a/g;]
       [9] iconst_0
-      [10] new #78
+      [10] new #81
         + Class [com/anmipo/android/trentobus/a/g]
       [13] dup
-      [14] ldc #67
+      [14] ldc #70
         + String [?]
-      [16] ldc #37
+      [16] ldc #38
         + Integer [2130968592]
-      [18] ldc #1
-        + Integer [2130837532]
-      [20] invokespecial #94
+      [18] ldc #2
+        + Integer [2130837533]
+      [20] invokespecial #97
         + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;II)V]
       [23] aastore
-      [24] getstatic #84
+      [24] getstatic #87
         + Fieldref [com/anmipo/android/trentobus/a/e.b [Lcom/anmipo/android/trentobus/a/g;]
       [27] iconst_1
-      [28] new #78
+      [28] new #81
         + Class [com/anmipo/android/trentobus/a/g]
       [31] dup
-      [32] ldc #68
+      [32] ldc #71
         + String [?]
-      [34] ldc #38
+      [34] ldc #39
         + Integer [2130968593]
-      [36] ldc #5
-        + Integer [2130837536]
-      [38] invokespecial #94
+      [36] ldc #6
+        + Integer [2130837537]
+      [38] invokespecial #97
         + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;II)V]
       [41] aastore
-      [42] getstatic #84
+      [42] getstatic #87
         + Fieldref [com/anmipo/android/trentobus/a/e.b [Lcom/anmipo/android/trentobus/a/g;]
       [45] iconst_2
-      [46] new #78
+      [46] new #81
         + Class [com/anmipo/android/trentobus/a/g]
       [49] dup
-      [50] ldc #69
+      [50] ldc #72
         + String [?]
-      [52] ldc #39
+      [52] ldc #40
         + Integer [2130968594]
-      [54] ldc #4
-        + Integer [2130837535]
-      [56] invokespecial #94
+      [54] ldc #5
+        + Integer [2130837536]
+      [56] invokespecial #97
         + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;II)V]
       [59] aastore
-      [60] getstatic #84
+      [60] getstatic #87
         + Fieldref [com/anmipo/android/trentobus/a/e.b [Lcom/anmipo/android/trentobus/a/g;]
       [63] iconst_3
-      [64] new #78
+      [64] new #81
         + Class [com/anmipo/android/trentobus/a/g]
       [67] dup
-      [68] ldc #71
+      [68] ldc #74
         + String [?]
-      [70] ldc #36
+      [70] ldc #37
         + Integer [2130968591]
-      [72] ldc #2
-        + Integer [2130837533]
-      [74] invokespecial #94
+      [72] ldc #3
+        + Integer [2130837534]
+      [74] invokespecial #97
         + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;II)V]
       [77] aastore
-      [78] getstatic #84
+      [78] getstatic #87
         + Fieldref [com/anmipo/android/trentobus/a/e.b [Lcom/anmipo/android/trentobus/a/g;]
       [81] iconst_4
-      [82] new #78
+      [82] new #81
         + Class [com/anmipo/android/trentobus/a/g]
       [85] dup
-      [86] ldc #70
+      [86] ldc #73
         + String [?]
-      [88] ldc #40
+      [88] ldc #41
         + Integer [2130968595]
-      [90] ldc #3
-        + Integer [2130837534]
-      [92] invokespecial #94
+      [90] ldc #4
+        + Integer [2130837535]
+      [92] invokespecial #97
         + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;II)V]
       [95] aastore
-      [96] getstatic #84
+      [96] getstatic #87
         + Fieldref [com/anmipo/android/trentobus/a/e.b [Lcom/anmipo/android/trentobus/a/g;]
       [99] iconst_5
-      [100] new #78
+      [100] new #81
         + Class [com/anmipo/android/trentobus/a/g]
       [103] dup
-      [104] ldc #66
-        + String [o]
-      [106] ldc #33
-        + Integer [2130968588]
-      [108] ldc #32
-        + Integer [2130837564]
-      [110] invokespecial #94
+      [104] ldc #67
+        + String [X]
+      [106] ldc #42
+        + Integer [2130968596]
+      [108] ldc #1
+        + Integer [2130837532]
+      [110] invokespecial #97
         + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;II)V]
       [113] aastore
-      [114] getstatic #84
+      [114] getstatic #87
         + Fieldref [com/anmipo/android/trentobus/a/e.b [Lcom/anmipo/android/trentobus/a/g;]
       [117] bipush 6
-      [119] new #78
+      [119] new #81
         + Class [com/anmipo/android/trentobus/a/g]
       [122] dup
-      [123] ldc #63
-        + String [E]
-      [125] ldc #35
-        + Integer [2130968590]
-      [127] ldc #29
-        + Integer [2130837561]
-      [129] invokespecial #94
+      [123] ldc #69
+        + String [o]
+      [125] ldc #34
+        + Integer [2130968588]
+      [127] ldc #33
+        + Integer [2130837565]
+      [129] invokespecial #97
         + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;II)V]
       [132] aastore
-      [133] getstatic #84
+      [133] getstatic #87
         + Fieldref [com/anmipo/android/trentobus/a/e.b [Lcom/anmipo/android/trentobus/a/g;]
       [136] bipush 7
-      [138] new #78
+      [138] new #81
         + Class [com/anmipo/android/trentobus/a/g]
       [141] dup
       [142] ldc #65
-        + String [fvb]
-      [144] ldc #34
-        + Integer [2130968589]
+        + String [E]
+      [144] ldc #36
+        + Integer [2130968590]
       [146] ldc #30
         + Integer [2130837562]
-      [148] invokespecial #94
+      [148] invokespecial #97
         + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;II)V]
       [151] aastore
-      [152] new #82
-        + Class [java/util/HashMap]
-      [155] dup
-      [156] invokespecial #102
-        + Methodref [java/util/HashMap.<init> ()V]
-      [159] putstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [162] getstatic #84
+      [152] getstatic #87
         + Fieldref [com/anmipo/android/trentobus/a/e.b [Lcom/anmipo/android/trentobus/a/g;]
-      [165] dup
-      [166] astore_3 v3
-      [167] arraylength
-      [168] istore_2 v2
-      [169] iconst_0
-      [170] istore_1 v1
-      [171] goto +22 (target=193)
-      [174] aload_3 v3
-      [175] iload_1 v1
-      [176] aaload
-      [177] astore_0 v0
-      [178] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [181] aload_0 v0
-      [182] getfield #87
-        + Fieldref [com/anmipo/android/trentobus/a/g.b Ljava/lang/String;]
-      [185] aload_0 v0
-      [186] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [189] pop
-      [190] iinc v1, 1
-      [193] iload_1 v1
-      [194] iload_2 v2
-      [195] ificmplt -21 (target=174)
-      [198] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [201] ldc #41
-        + String [1]
-      [203] new #78
+      [155] bipush 8
+      [157] new #81
         + Class [com/anmipo/android/trentobus/a/g]
-      [206] dup
-      [207] ldc #41
-        + String [1]
-      [209] ldc #7
-        + Integer [2130837539]
-      [211] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [214] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [217] pop
-      [218] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [221] ldc #50
-        + String [2]
-      [223] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [226] dup
-      [227] ldc #50
-        + String [2]
-      [229] ldc #16
-        + Integer [2130837548]
-      [231] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [234] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [237] pop
-      [238] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [241] ldc #51
-        + String [3]
-      [243] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [246] dup
-      [247] ldc #51
-        + String [3]
-      [249] ldc #17
-        + Integer [2130837549]
-      [251] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [254] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [257] pop
-      [258] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [261] ldc #52
-        + String [4]
-      [263] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [266] dup
-      [267] ldc #52
-        + String [4]
-      [269] ldc #18
-        + Integer [2130837550]
-      [271] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [274] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [277] pop
-      [278] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [281] ldc #53
-        + String [5]
-      [283] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [286] dup
-      [287] ldc #53
-        + String [5]
-      [289] ldc #19
-        + Integer [2130837551]
-      [291] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [294] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [297] pop
-      [298] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [301] ldc #54
-        + String [6]
-      [303] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [306] dup
-      [307] ldc #54
-        + String [6]
-      [309] ldc #20
-        + Integer [2130837552]
-      [311] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [314] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [317] pop
-      [318] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [321] ldc #55
-        + String [6/]
-      [323] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [326] dup
-      [327] ldc #55
-        + String [6/]
-      [329] ldc #21
-        + Integer [2130837553]
-      [331] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [334] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [337] pop
-      [338] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [341] ldc #56
-        + String [7]
-      [343] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [346] dup
-      [347] ldc #56
-        + String [7]
-      [349] ldc #22
-        + Integer [2130837554]
-      [351] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [354] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [357] pop
-      [358] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [361] ldc #57
-        + String [8]
-      [363] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [366] dup
-      [367] ldc #57
-        + String [8]
-      [369] ldc #23
-        + Integer [2130837555]
-      [371] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [374] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [377] pop
-      [378] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [381] ldc #58
-        + String [9]
-      [383] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [386] dup
-      [387] ldc #58
-        + String [9]
-      [389] ldc #24
-        + Integer [2130837556]
-      [391] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [394] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [397] pop
-      [398] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [401] ldc #42
-        + String [10]
-      [403] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [406] dup
-      [407] ldc #42
-        + String [10]
-      [409] ldc #8
-        + Integer [2130837540]
-      [411] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [414] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [417] pop
-      [418] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [421] ldc #43
-        + String [11]
-      [423] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [426] dup
-      [427] ldc #43
-        + String [11]
-      [429] ldc #9
-        + Integer [2130837541]
-      [431] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [434] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [437] pop
-      [438] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [441] ldc #44
-        + String [12]
-      [443] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [446] dup
-      [447] ldc #44
-        + String [12]
-      [449] ldc #10
-        + Integer [2130837542]
-      [451] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [454] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [457] pop
-      [458] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [461] ldc #45
-        + String [13]
-      [463] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [466] dup
-      [467] ldc #45
-        + String [13]
-      [469] ldc #11
-        + Integer [2130837543]
-      [471] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [474] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [477] pop
-      [478] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [481] ldc #46
-        + String [14]
-      [483] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [486] dup
-      [487] ldc #46
-        + String [14]
-      [489] ldc #12
-        + Integer [2130837544]
-      [491] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [494] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [497] pop
-      [498] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [501] ldc #47
-        + String [15]
-      [503] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [506] dup
-      [507] ldc #47
-        + String [15]
-      [509] ldc #13
-        + Integer [2130837545]
-      [511] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [514] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [517] pop
-      [518] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [521] ldc #48
-        + String [16]
-      [523] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [526] dup
-      [527] ldc #48
-        + String [16]
-      [529] ldc #14
-        + Integer [2130837546]
-      [531] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [534] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [537] pop
-      [538] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [541] ldc #49
-        + String [17]
-      [543] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [546] dup
-      [547] ldc #49
-        + String [17]
-      [549] ldc #15
-        + Integer [2130837547]
-      [551] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [554] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [557] pop
-      [558] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [561] ldc #59
-        + String [A]
-      [563] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [566] dup
-      [567] ldc #59
-        + String [A]
-      [569] ldc #25
-        + Integer [2130837557]
-      [571] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [574] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [577] pop
-      [578] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [581] ldc #60
-        + String [B]
-      [583] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [586] dup
-      [587] ldc #60
-        + String [B]
-      [589] ldc #26
-        + Integer [2130837558]
-      [591] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [594] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [597] pop
-      [598] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [601] ldc #61
-        + String [C]
-      [603] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [606] dup
-      [607] ldc #61
-        + String [C]
-      [609] ldc #27
-        + Integer [2130837559]
-      [611] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [614] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [617] pop
-      [618] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [621] ldc #62
-        + String [D]
-      [623] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [626] dup
-      [627] ldc #62
-        + String [D]
-      [629] ldc #28
-        + Integer [2130837560]
-      [631] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [634] invokevirtual #105
-        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [637] pop
-      [638] getstatic #83
-        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
-      [641] ldc #64
-        + String [NP]
-      [643] new #78
-        + Class [com/anmipo/android/trentobus/a/g]
-      [646] dup
-      [647] ldc #64
-        + String [NP]
-      [649] ldc #31
+      [160] dup
+      [161] ldc #68
+        + String [fvb]
+      [163] ldc #35
+        + Integer [2130968589]
+      [165] ldc #31
         + Integer [2130837563]
-      [651] invokespecial #93
-        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
-      [654] invokevirtual #105
+      [167] invokespecial #97
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;II)V]
+      [170] aastore
+      [171] new #85
+        + Class [java/util/HashMap]
+      [174] dup
+      [175] invokespecial #105
+        + Methodref [java/util/HashMap.<init> ()V]
+      [178] putstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [181] getstatic #87
+        + Fieldref [com/anmipo/android/trentobus/a/e.b [Lcom/anmipo/android/trentobus/a/g;]
+      [184] dup
+      [185] astore_3 v3
+      [186] arraylength
+      [187] istore_2 v2
+      [188] iconst_0
+      [189] istore_1 v1
+      [190] goto +22 (target=212)
+      [193] aload_3 v3
+      [194] iload_1 v1
+      [195] aaload
+      [196] astore_0 v0
+      [197] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [200] aload_0 v0
+      [201] getfield #90
+        + Fieldref [com/anmipo/android/trentobus/a/g.b Ljava/lang/String;]
+      [204] aload_0 v0
+      [205] invokevirtual #108
         + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
-      [657] pop
-      [658] return
+      [208] pop
+      [209] iinc v1, 1
+      [212] iload_1 v1
+      [213] iload_2 v2
+      [214] ificmplt -21 (target=193)
+      [217] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [220] ldc #43
+        + String [1]
+      [222] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [225] dup
+      [226] ldc #43
+        + String [1]
+      [228] ldc #8
+        + Integer [2130837540]
+      [230] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [233] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [236] pop
+      [237] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [240] ldc #52
+        + String [2]
+      [242] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [245] dup
+      [246] ldc #52
+        + String [2]
+      [248] ldc #17
+        + Integer [2130837549]
+      [250] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [253] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [256] pop
+      [257] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [260] ldc #53
+        + String [3]
+      [262] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [265] dup
+      [266] ldc #53
+        + String [3]
+      [268] ldc #18
+        + Integer [2130837550]
+      [270] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [273] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [276] pop
+      [277] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [280] ldc #54
+        + String [4]
+      [282] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [285] dup
+      [286] ldc #54
+        + String [4]
+      [288] ldc #19
+        + Integer [2130837551]
+      [290] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [293] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [296] pop
+      [297] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [300] ldc #55
+        + String [5]
+      [302] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [305] dup
+      [306] ldc #55
+        + String [5]
+      [308] ldc #20
+        + Integer [2130837552]
+      [310] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [313] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [316] pop
+      [317] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [320] ldc #56
+        + String [6]
+      [322] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [325] dup
+      [326] ldc #56
+        + String [6]
+      [328] ldc #21
+        + Integer [2130837553]
+      [330] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [333] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [336] pop
+      [337] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [340] ldc #57
+        + String [6/]
+      [342] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [345] dup
+      [346] ldc #57
+        + String [6/]
+      [348] ldc #22
+        + Integer [2130837554]
+      [350] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [353] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [356] pop
+      [357] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [360] ldc #58
+        + String [7]
+      [362] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [365] dup
+      [366] ldc #58
+        + String [7]
+      [368] ldc #23
+        + Integer [2130837555]
+      [370] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [373] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [376] pop
+      [377] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [380] ldc #59
+        + String [8]
+      [382] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [385] dup
+      [386] ldc #59
+        + String [8]
+      [388] ldc #24
+        + Integer [2130837556]
+      [390] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [393] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [396] pop
+      [397] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [400] ldc #60
+        + String [9]
+      [402] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [405] dup
+      [406] ldc #60
+        + String [9]
+      [408] ldc #25
+        + Integer [2130837557]
+      [410] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [413] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [416] pop
+      [417] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [420] ldc #44
+        + String [10]
+      [422] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [425] dup
+      [426] ldc #44
+        + String [10]
+      [428] ldc #9
+        + Integer [2130837541]
+      [430] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [433] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [436] pop
+      [437] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [440] ldc #45
+        + String [11]
+      [442] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [445] dup
+      [446] ldc #45
+        + String [11]
+      [448] ldc #10
+        + Integer [2130837542]
+      [450] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [453] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [456] pop
+      [457] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [460] ldc #46
+        + String [12]
+      [462] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [465] dup
+      [466] ldc #46
+        + String [12]
+      [468] ldc #11
+        + Integer [2130837543]
+      [470] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [473] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [476] pop
+      [477] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [480] ldc #47
+        + String [13]
+      [482] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [485] dup
+      [486] ldc #47
+        + String [13]
+      [488] ldc #12
+        + Integer [2130837544]
+      [490] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [493] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [496] pop
+      [497] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [500] ldc #48
+        + String [14]
+      [502] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [505] dup
+      [506] ldc #48
+        + String [14]
+      [508] ldc #13
+        + Integer [2130837545]
+      [510] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [513] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [516] pop
+      [517] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [520] ldc #49
+        + String [15]
+      [522] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [525] dup
+      [526] ldc #49
+        + String [15]
+      [528] ldc #14
+        + Integer [2130837546]
+      [530] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [533] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [536] pop
+      [537] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [540] ldc #50
+        + String [16]
+      [542] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [545] dup
+      [546] ldc #50
+        + String [16]
+      [548] ldc #15
+        + Integer [2130837547]
+      [550] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [553] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [556] pop
+      [557] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [560] ldc #51
+        + String [17]
+      [562] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [565] dup
+      [566] ldc #51
+        + String [17]
+      [568] ldc #16
+        + Integer [2130837548]
+      [570] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [573] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [576] pop
+      [577] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [580] ldc #61
+        + String [A]
+      [582] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [585] dup
+      [586] ldc #61
+        + String [A]
+      [588] ldc #26
+        + Integer [2130837558]
+      [590] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [593] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [596] pop
+      [597] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [600] ldc #62
+        + String [B]
+      [602] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [605] dup
+      [606] ldc #62
+        + String [B]
+      [608] ldc #27
+        + Integer [2130837559]
+      [610] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [613] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [616] pop
+      [617] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [620] ldc #63
+        + String [C]
+      [622] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [625] dup
+      [626] ldc #63
+        + String [C]
+      [628] ldc #28
+        + Integer [2130837560]
+      [630] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [633] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [636] pop
+      [637] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [640] ldc #64
+        + String [D]
+      [642] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [645] dup
+      [646] ldc #64
+        + String [D]
+      [648] ldc #29
+        + Integer [2130837561]
+      [650] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [653] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [656] pop
+      [657] getstatic #86
+        + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
+      [660] ldc #66
+        + String [NP]
+      [662] new #81
+        + Class [com/anmipo/android/trentobus/a/g]
+      [665] dup
+      [666] ldc #66
+        + String [NP]
+      [668] ldc #32
+        + Integer [2130837564]
+      [670] invokespecial #96
+        + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;I)V]
+      [673] invokevirtual #108
+        + Methodref [java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
+      [676] pop
+      [677] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 2):
-        - [174] Var: [i][T][i][i][a:[Lcom/anmipo/android/trentobus/a/g;], Stack: 
-        - [193] Var: ..., Stack: (empty)
+        - [193] Var: [i][T][i][i][a:[Lcom/anmipo/android/trentobus/a/g;], Stack: 
+        - [212] Var: ..., Stack: (empty)
   - Method:       <init>(I)V
     Access flags: 0x2
       = private e(int)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 13, locals = 2, stack = 2):
       [0] aload_0 v0
-      [1] invokespecial #96
+      [1] invokespecial #99
         + Methodref [java/lang/Object.<init> ()V]
       [4] aload_0 v0
       [5] iload_1 v1
-      [6] anewarray #78
+      [6] anewarray #81
         + Class [com/anmipo/android/trentobus/a/g]
-      [9] putfield #85
+      [9] putfield #88
         + Fieldref [com/anmipo/android/trentobus/a/e.c [Lcom/anmipo/android/trentobus/a/g;]
       [12] return
       Code attribute exceptions (count = 0):
@@ -5802,10 +5821,10 @@ Methods (count = 9):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 79, locals = 5, stack = 4):
       [0] aload_0 v0
-      [1] invokevirtual #98
+      [1] invokevirtual #101
         + Methodref [java/lang/String.length ()I]
       [4] aload_1 v1
-      [5] invokevirtual #98
+      [5] invokevirtual #101
         + Methodref [java/lang/String.length ()I]
       [8] ifle +7 (target=15)
       [11] iconst_1
@@ -5813,11 +5832,11 @@ Methods (count = 9):
       [15] iconst_0
       [16] iadd
       [17] istore_2 v2
-      [18] new #76
+      [18] new #79
         + Class [com/anmipo/android/trentobus/a/e]
       [21] dup
       [22] iload_2 v2
-      [23] invokespecial #90
+      [23] invokespecial #93
         + Methodref [com/anmipo/android/trentobus/a/e.<init> (I)V]
       [26] astore_2 v2
       [27] iconst_0
@@ -5829,27 +5848,27 @@ Methods (count = 9):
       [36] iload_3 v3
       [37] aload_0 v0
       [38] iload v4
-      [40] invokevirtual #97
+      [40] invokevirtual #100
         + Methodref [java/lang/String.charAt (I)C]
-      [43] invokestatic #99
+      [43] invokestatic #102
         + Methodref [java/lang/String.valueOf (C)Ljava/lang/String;]
-      [46] invokespecial #91
+      [46] invokespecial #94
         + Methodref [com/anmipo/android/trentobus/a/e.a (ILjava/lang/String;)V]
       [49] iinc v3, 1
       [52] iinc v4, 1
       [55] iload v4
       [57] aload_0 v0
-      [58] invokevirtual #98
+      [58] invokevirtual #101
         + Methodref [java/lang/String.length ()I]
       [61] ificmplt -26 (target=35)
       [64] aload_1 v1
-      [65] invokevirtual #98
+      [65] invokevirtual #101
         + Methodref [java/lang/String.length ()I]
       [68] ifle +9 (target=77)
       [71] aload_2 v2
       [72] iload_3 v3
       [73] aload_1 v1
-      [74] invokespecial #91
+      [74] invokespecial #94
         + Methodref [com/anmipo/android/trentobus/a/e.a (ILjava/lang/String;)V]
       [77] aload_2 v2
       [78] areturn
@@ -5866,30 +5885,30 @@ Methods (count = 9):
       = private void a(int,java.lang.String)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 37, locals = 3, stack = 4):
-      [0] getstatic #83
+      [0] getstatic #86
         + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
       [3] aload_2 v2
-      [4] invokevirtual #103
+      [4] invokevirtual #106
         + Methodref [java/util/HashMap.containsKey (Ljava/lang/Object;)Z]
       [7] ifeq +20 (target=27)
       [10] aload_0 v0
-      [11] getfield #85
+      [11] getfield #88
         + Fieldref [com/anmipo/android/trentobus/a/e.c [Lcom/anmipo/android/trentobus/a/g;]
       [14] iload_1 v1
-      [15] getstatic #83
+      [15] getstatic #86
         + Fieldref [com/anmipo/android/trentobus/a/e.a Ljava/util/HashMap;]
       [18] aload_2 v2
-      [19] invokevirtual #104
+      [19] invokevirtual #107
         + Methodref [java/util/HashMap.get (Ljava/lang/Object;)Ljava/lang/Object;]
-      [22] checkcast #78
+      [22] checkcast #81
         + Class [com/anmipo/android/trentobus/a/g]
       [25] aastore
       [26] return
       [27] aload_0 v0
-      [28] getfield #85
+      [28] getfield #88
         + Fieldref [com/anmipo/android/trentobus/a/e.c [Lcom/anmipo/android/trentobus/a/g;]
       [31] iload_1 v1
-      [32] getstatic #86
+      [32] getstatic #89
         + Fieldref [com/anmipo/android/trentobus/a/g.a Lcom/anmipo/android/trentobus/a/g;]
       [35] aastore
       [36] return
@@ -5904,7 +5923,7 @@ Methods (count = 9):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 6, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #85
+      [1] getfield #88
         + Fieldref [com/anmipo/android/trentobus/a/e.c [Lcom/anmipo/android/trentobus/a/g;]
       [4] arraylength
       [5] ireturn
@@ -5916,7 +5935,7 @@ Methods (count = 9):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 7, locals = 2, stack = 2):
       [0] aload_0 v0
-      [1] getfield #85
+      [1] getfield #88
         + Fieldref [com/anmipo/android/trentobus/a/e.c [Lcom/anmipo/android/trentobus/a/g;]
       [4] iload_1 v1
       [5] aaload
@@ -5929,11 +5948,11 @@ Methods (count = 9):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 10, locals = 1, stack = 2):
       [0] aload_0 v0
-      [1] ldc #6
-        + Integer [2130837537]
-      [3] invokevirtual #88
+      [1] ldc #7
+        + Integer [2130837538]
+      [3] invokevirtual #91
         + Methodref [android/content/res/Resources.getDrawable (I)Landroid/graphics/drawable/Drawable;]
-      [6] invokevirtual #89
+      [6] invokevirtual #92
         + Methodref [android/graphics/drawable/Drawable.getIntrinsicHeight ()I]
       [9] ireturn
       Code attribute exceptions (count = 0):
@@ -5943,18 +5962,18 @@ Methods (count = 9):
       = public final com.anmipo.android.trentobus.a.f a(android.content.Context)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 68, locals = 7, stack = 4):
-      [0] new #81
+      [0] new #84
         + Class [java/util/ArrayList]
       [3] dup
       [4] aload_0 v0
-      [5] getfield #85
+      [5] getfield #88
         + Fieldref [com/anmipo/android/trentobus/a/e.c [Lcom/anmipo/android/trentobus/a/g;]
       [8] arraylength
-      [9] invokespecial #100
+      [9] invokespecial #103
         + Methodref [java/util/ArrayList.<init> (I)V]
       [12] astore_2 v2
       [13] aload_0 v0
-      [14] getfield #85
+      [14] getfield #88
         + Fieldref [com/anmipo/android/trentobus/a/e.c [Lcom/anmipo/android/trentobus/a/g;]
       [17] dup
       [18] astore v6
@@ -5968,24 +5987,24 @@ Methods (count = 9):
       [33] aaload
       [34] dup
       [35] astore_3 v3
-      [36] invokevirtual #95
+      [36] invokevirtual #98
         + Methodref [com/anmipo/android/trentobus/a/g.a ()Z]
       [39] ifeq +9 (target=48)
       [42] aload_2 v2
       [43] aload_3 v3
-      [44] invokevirtual #101
+      [44] invokevirtual #104
         + Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [47] pop
       [48] iinc v4, 1
       [51] iload v4
       [53] iload v5
       [55] ificmplt -26 (target=29)
-      [58] new #77
+      [58] new #80
         + Class [com/anmipo/android/trentobus/a/f]
       [61] dup
       [62] aload_1 v1
       [63] aload_2 v2
-      [64] invokespecial #92
+      [64] invokespecial #95
         + Methodref [com/anmipo/android/trentobus/a/f.<init> (Landroid/content/Context;Ljava/util/List;)V]
       [67] areturn
       Code attribute exceptions (count = 0):
@@ -5999,7 +6018,7 @@ Methods (count = 9):
       = static synthetic com.anmipo.android.trentobus.a.g[] b()
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 4, locals = 0, stack = 1):
-      [0] getstatic #84
+      [0] getstatic #87
         + Fieldref [com/anmipo/android/trentobus/a/e.b [Lcom/anmipo/android/trentobus/a/g;]
       [3] areturn
       Code attribute exceptions (count = 0):
@@ -6253,8 +6272,8 @@ _____________________________________________________________________
 Interfaces (count = 0):
 
 Constant Pool (count = 58):
-  + Integer [2130837537]
-  + Integer [2130968596]
+  + Integer [2130837538]
+  + Integer [2130968597]
   + String []
   + String [', textId: ]
   + String [, iconId: ]
@@ -6337,9 +6356,9 @@ Methods (count = 5):
       [4] ldc #3
         + String []
       [6] ldc #2
-        + Integer [2130968596]
+        + Integer [2130968597]
       [8] ldc #1
-        + Integer [2130837537]
+        + Integer [2130837538]
       [10] invokespecial #14
         + Methodref [com/anmipo/android/trentobus/a/g.<init> (Ljava/lang/String;II)V]
       [13] putstatic #10
@@ -8459,7 +8478,7 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 418):
+Constant Pool (count = 408):
   + Integer [-16777216]
   + Integer [2130837530]
   + Integer [2130837531]
@@ -8492,7 +8511,6 @@ Constant Pool (count = 418):
   + Class [android/graphics/Canvas]
   + Class [android/graphics/Paint]
   + Class [android/graphics/Paint$Align]
-  + Class [android/graphics/Paint$Style]
   + Class [android/graphics/Point]
   + Class [android/graphics/Rect]
   + Class [android/graphics/Region$Op]
@@ -8515,7 +8533,6 @@ Constant Pool (count = 418):
   + Class [java/lang/String]
   + Fieldref [android/graphics/Paint$Align.CENTER Landroid/graphics/Paint$Align;]
   + Fieldref [android/graphics/Paint$Align.LEFT Landroid/graphics/Paint$Align;]
-  + Fieldref [android/graphics/Paint$Style.STROKE Landroid/graphics/Paint$Style;]
   + Fieldref [android/graphics/Region$Op.REPLACE Landroid/graphics/Region$Op;]
   + Fieldref [android/graphics/Typeface.DEFAULT_BOLD Landroid/graphics/Typeface;]
   + Fieldref [android/text/TextUtils$TruncateAt.END Landroid/text/TextUtils$TruncateAt;]
@@ -8567,7 +8584,6 @@ Constant Pool (count = 418):
   + Methodref [android/text/TextPaint.measureText (Ljava/lang/String;)F]
   + Methodref [android/text/TextPaint.setAntiAlias (Z)V]
   + Methodref [android/text/TextPaint.setColor (I)V]
-  + Methodref [android/text/TextPaint.setStyle (Landroid/graphics/Paint$Style;)V]
   + Methodref [android/text/TextPaint.setTextAlign (Landroid/graphics/Paint$Align;)V]
   + Methodref [android/text/TextPaint.setTextSize (F)V]
   + Methodref [android/text/TextPaint.setTypeface (Landroid/graphics/Typeface;)Landroid/graphics/Typeface;]
@@ -8619,7 +8635,6 @@ Constant Pool (count = 418):
   + NameAndType [END Landroid/text/TextUtils$TruncateAt;]
   + NameAndType [LEFT Landroid/graphics/Paint$Align;]
   + NameAndType [REPLACE Landroid/graphics/Region$Op;]
-  + NameAndType [STROKE Landroid/graphics/Paint$Style;]
   + NameAndType [a ()V]
   + NameAndType [a (I)V]
   + NameAndType [a (ILandroid/graphics/Paint;)I]
@@ -8683,7 +8698,6 @@ Constant Pool (count = 418):
   + NameAndType [setColor (I)V]
   + NameAndType [setMeasuredDimension (II)V]
   + NameAndType [setSaveEnabled (Z)V]
-  + NameAndType [setStyle (Landroid/graphics/Paint$Style;)V]
   + NameAndType [setTextAlign (Landroid/graphics/Paint$Align;)V]
   + NameAndType [setTextSize (F)V]
   + NameAndType [setTypeface (Landroid/graphics/Typeface;)Landroid/graphics/Typeface;]
@@ -8720,7 +8734,6 @@ Constant Pool (count = 418):
   + Utf8 [(Landroid/content/Context;Landroid/view/GestureDetector$OnGestureListener;)V]
   + Utf8 [(Landroid/graphics/Canvas;)V]
   + Utf8 [(Landroid/graphics/Paint$Align;)V]
-  + Utf8 [(Landroid/graphics/Paint$Style;)V]
   + Utf8 [(Landroid/graphics/Rect;)V]
   + Utf8 [(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;]
   + Utf8 [(Landroid/os/Parcelable;)V]
@@ -8755,7 +8768,6 @@ Constant Pool (count = 418):
   + Utf8 [I]
   + Utf8 [LEFT]
   + Utf8 [Landroid/graphics/Paint$Align;]
-  + Utf8 [Landroid/graphics/Paint$Style;]
   + Utf8 [Landroid/graphics/Region$Op;]
   + Utf8 [Landroid/graphics/Typeface;]
   + Utf8 [Landroid/graphics/drawable/Drawable;]
@@ -8766,7 +8778,6 @@ Constant Pool (count = 418):
   + Utf8 [Lcom/anmipo/android/trentobus/view/b;]
   + Utf8 [Lcom/anmipo/android/trentobus/view/c;]
   + Utf8 [REPLACE]
-  + Utf8 [STROKE]
   + Utf8 [StackMapTable]
   + Utf8 [Table dimensions do not match]
   + Utf8 [TimetableView.offsetX]
@@ -8779,7 +8790,6 @@ Constant Pool (count = 418):
   + Utf8 [android/graphics/Canvas]
   + Utf8 [android/graphics/Paint]
   + Utf8 [android/graphics/Paint$Align]
-  + Utf8 [android/graphics/Paint$Style]
   + Utf8 [android/graphics/Point]
   + Utf8 [android/graphics/Rect]
   + Utf8 [android/graphics/Region$Op]
@@ -8865,7 +8875,6 @@ Constant Pool (count = 418):
   + Utf8 [setColor]
   + Utf8 [setMeasuredDimension]
   + Utf8 [setSaveEnabled]
-  + Utf8 [setStyle]
   + Utf8 [setTextAlign]
   + Utf8 [setTextSize]
   + Utf8 [setTypeface]
@@ -8966,440 +8975,433 @@ Methods (count = 36):
     Access flags: 0x1
       = public TimetableView(android.content.Context,android.util.AttributeSet)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 513, locals = 4, stack = 10):
+    + Code attribute instructions (code length = 503, locals = 4, stack = 10):
       [0] aload_0 v0
       [1] aload_1 v1
       [2] aload_2 v2
-      [3] invokespecial #116
+      [3] invokespecial #113
         + Methodref [android/view/View.<init> (Landroid/content/Context;Landroid/util/AttributeSet;)V]
       [6] aload_0 v0
       [7] iconst_0
-      [8] putfield #72
+      [8] putfield #70
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.l I]
       [11] aload_0 v0
       [12] iconst_0
-      [13] putfield #73
+      [13] putfield #71
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.m I]
       [16] aload_0 v0
       [17] iconst_0
-      [18] putfield #74
+      [18] putfield #72
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.n I]
       [21] aload_0 v0
       [22] iconst_0
-      [23] putfield #75
+      [23] putfield #73
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.o I]
       [26] aload_0 v0
       [27] aconst_null
-      [28] putfield #86
+      [28] putfield #84
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.z Lcom/anmipo/android/trentobus/view/c;]
       [31] aload_0 v0
       [32] aconst_null
-      [33] putfield #60
+      [33] putfield #58
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.A Lcom/anmipo/android/trentobus/view/b;]
       [36] aload_0 v0
       [37] aload_1 v1
       [38] astore_3 v3
       [39] astore_2 v2
       [40] aload_3 v3
-      [41] invokevirtual #87
+      [41] invokevirtual #85
         + Methodref [android/content/Context.getResources ()Landroid/content/res/Resources;]
       [44] astore_3 v3
       [45] aload_2 v2
       [46] aload_3 v3
       [47] ldc #3
         + Integer [2130837531]
-      [49] invokevirtual #89
+      [49] invokevirtual #87
         + Methodref [android/content/res/Resources.getDrawable (I)Landroid/graphics/drawable/Drawable;]
-      [52] putfield #70
+      [52] putfield #68
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.j Landroid/graphics/drawable/Drawable;]
       [55] aload_2 v2
       [56] aload_3 v3
       [57] ldc #2
         + Integer [2130837530]
-      [59] invokevirtual #89
+      [59] invokevirtual #87
         + Methodref [android/content/res/Resources.getDrawable (I)Landroid/graphics/drawable/Drawable;]
-      [62] putfield #71
+      [62] putfield #69
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.k Landroid/graphics/drawable/Drawable;]
       [65] aload_0 v0
       [66] astore_2 v2
-      [67] iconst_1
+      [67] iconst_2
       [68] ldc #7
         + Float [16.0]
       [70] aload_2 v2
-      [71] invokevirtual #136
+      [71] invokevirtual #133
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.getContext ()Landroid/content/Context;]
-      [74] invokevirtual #87
+      [74] invokevirtual #85
         + Methodref [android/content/Context.getResources ()Landroid/content/res/Resources;]
-      [77] invokevirtual #88
+      [77] invokevirtual #86
         + Methodref [android/content/res/Resources.getDisplayMetrics ()Landroid/util/DisplayMetrics;]
-      [80] invokestatic #113
+      [80] invokestatic #110
         + Methodref [android/util/TypedValue.applyDimension (IFLandroid/util/DisplayMetrics;)F]
       [83] fstore_3 v3
       [84] aload_2 v2
-      [85] new #40
+      [85] new #39
         + Class [android/text/TextPaint]
       [88] dup
-      [89] invokespecial #103
+      [89] invokespecial #101
         + Methodref [android/text/TextPaint.<init> ()V]
-      [92] putfield #67
+      [92] putfield #65
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.g Landroid/text/TextPaint;]
       [95] aload_2 v2
-      [96] getfield #67
+      [96] getfield #65
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.g Landroid/text/TextPaint;]
-      [99] getstatic #55
+      [99] getstatic #54
         + Fieldref [android/graphics/Paint$Align.LEFT Landroid/graphics/Paint$Align;]
-      [102] invokevirtual #109
+      [102] invokevirtual #106
         + Methodref [android/text/TextPaint.setTextAlign (Landroid/graphics/Paint$Align;)V]
       [105] aload_2 v2
-      [106] getfield #67
+      [106] getfield #65
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.g Landroid/text/TextPaint;]
       [109] fload_3 v3
-      [110] invokevirtual #110
+      [110] invokevirtual #107
         + Methodref [android/text/TextPaint.setTextSize (F)V]
       [113] aload_2 v2
-      [114] getfield #67
+      [114] getfield #65
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.g Landroid/text/TextPaint;]
-      [117] getstatic #58
+      [117] getstatic #56
         + Fieldref [android/graphics/Typeface.DEFAULT_BOLD Landroid/graphics/Typeface;]
-      [120] invokevirtual #111
+      [120] invokevirtual #108
         + Methodref [android/text/TextPaint.setTypeface (Landroid/graphics/Typeface;)Landroid/graphics/Typeface;]
       [123] pop
       [124] aload_2 v2
-      [125] getfield #67
+      [125] getfield #65
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.g Landroid/text/TextPaint;]
       [128] iconst_1
-      [129] invokevirtual #106
+      [129] invokevirtual #104
         + Methodref [android/text/TextPaint.setAntiAlias (Z)V]
       [132] aload_2 v2
-      [133] new #40
+      [133] new #39
         + Class [android/text/TextPaint]
       [136] dup
-      [137] invokespecial #103
+      [137] invokespecial #101
         + Methodref [android/text/TextPaint.<init> ()V]
-      [140] putfield #68
+      [140] putfield #66
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.h Landroid/text/TextPaint;]
       [143] aload_2 v2
-      [144] getfield #68
+      [144] getfield #66
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.h Landroid/text/TextPaint;]
-      [147] getstatic #54
+      [147] getstatic #53
         + Fieldref [android/graphics/Paint$Align.CENTER Landroid/graphics/Paint$Align;]
-      [150] invokevirtual #109
+      [150] invokevirtual #106
         + Methodref [android/text/TextPaint.setTextAlign (Landroid/graphics/Paint$Align;)V]
       [153] aload_2 v2
-      [154] getfield #68
+      [154] getfield #66
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.h Landroid/text/TextPaint;]
       [157] fload_3 v3
-      [158] invokevirtual #110
+      [158] invokevirtual #107
         + Methodref [android/text/TextPaint.setTextSize (F)V]
       [161] aload_2 v2
-      [162] getfield #68
+      [162] getfield #66
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.h Landroid/text/TextPaint;]
-      [165] getstatic #58
+      [165] getstatic #56
         + Fieldref [android/graphics/Typeface.DEFAULT_BOLD Landroid/graphics/Typeface;]
-      [168] invokevirtual #111
+      [168] invokevirtual #108
         + Methodref [android/text/TextPaint.setTypeface (Landroid/graphics/Typeface;)Landroid/graphics/Typeface;]
       [171] pop
       [172] aload_2 v2
-      [173] getfield #68
+      [173] getfield #66
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.h Landroid/text/TextPaint;]
       [176] iconst_1
-      [177] invokevirtual #106
+      [177] invokevirtual #104
         + Methodref [android/text/TextPaint.setAntiAlias (Z)V]
       [180] aload_2 v2
-      [181] new #40
+      [181] new #39
         + Class [android/text/TextPaint]
       [184] dup
-      [185] invokespecial #103
+      [185] invokespecial #101
         + Methodref [android/text/TextPaint.<init> ()V]
-      [188] putfield #69
+      [188] putfield #67
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.i Landroid/text/TextPaint;]
       [191] aload_2 v2
-      [192] getfield #69
+      [192] getfield #67
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.i Landroid/text/TextPaint;]
       [195] ldc #1
         + Integer [-16777216]
-      [197] invokevirtual #107
+      [197] invokevirtual #105
         + Methodref [android/text/TextPaint.setColor (I)V]
       [200] aload_2 v2
-      [201] getfield #69
+      [201] getfield #67
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.i Landroid/text/TextPaint;]
       [204] fload_3 v3
-      [205] invokevirtual #110
+      [205] invokevirtual #107
         + Methodref [android/text/TextPaint.setTextSize (F)V]
       [208] aload_2 v2
-      [209] getfield #69
+      [209] getfield #67
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.i Landroid/text/TextPaint;]
-      [212] getstatic #56
-        + Fieldref [android/graphics/Paint$Style.STROKE Landroid/graphics/Paint$Style;]
-      [215] invokevirtual #108
-        + Methodref [android/text/TextPaint.setStyle (Landroid/graphics/Paint$Style;)V]
-      [218] aload_2 v2
-      [219] getfield #69
-        + Fieldref [com/anmipo/android/trentobus/view/TimetableView.i Landroid/text/TextPaint;]
-      [222] getstatic #54
+      [212] getstatic #53
         + Fieldref [android/graphics/Paint$Align.CENTER Landroid/graphics/Paint$Align;]
-      [225] invokevirtual #109
+      [215] invokevirtual #106
         + Methodref [android/text/TextPaint.setTextAlign (Landroid/graphics/Paint$Align;)V]
-      [228] aload_2 v2
-      [229] getfield #69
+      [218] aload_2 v2
+      [219] getfield #67
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.i Landroid/text/TextPaint;]
-      [232] iconst_1
-      [233] invokevirtual #106
+      [222] iconst_1
+      [223] invokevirtual #104
         + Methodref [android/text/TextPaint.setAntiAlias (Z)V]
-      [236] aload_2 v2
-      [237] invokevirtual #127
+      [226] aload_2 v2
+      [227] invokevirtual #124
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.a ()V]
-      [240] aload_2 v2
-      [241] invokespecial #137
+      [230] aload_2 v2
+      [231] invokespecial #134
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.h ()V]
-      [244] aload_0 v0
-      [245] iconst_1
-      [246] invokevirtual #141
+      [234] aload_0 v0
+      [235] iconst_1
+      [236] invokevirtual #138
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.setSaveEnabled (Z)V]
-      [249] aload_0 v0
-      [250] new #44
+      [239] aload_0 v0
+      [240] new #43
         + Class [android/view/GestureDetector]
-      [253] dup
-      [254] aload_1 v1
-      [255] new #49
+      [243] dup
+      [244] aload_1 v1
+      [245] new #48
         + Class [com/anmipo/android/trentobus/view/a]
-      [258] dup
-      [259] aload_0 v0
-      [260] iconst_0
-      [261] invokespecial #142
+      [248] dup
+      [249] aload_0 v0
+      [250] iconst_0
+      [251] invokespecial #139
         + Methodref [com/anmipo/android/trentobus/view/a.<init> (Lcom/anmipo/android/trentobus/view/TimetableView;B)V]
-      [264] invokespecial #114
+      [254] invokespecial #111
         + Methodref [android/view/GestureDetector.<init> (Landroid/content/Context;Landroid/view/GestureDetector$OnGestureListener;)V]
-      [267] putfield #84
+      [257] putfield #82
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.x Landroid/view/GestureDetector;]
-      [270] aload_0 v0
-      [271] new #47
+      [260] aload_0 v0
+      [261] new #46
         + Class [android/widget/Scroller]
-      [274] dup
-      [275] aload_1 v1
-      [276] invokespecial #123
+      [264] dup
+      [265] aload_1 v1
+      [266] invokespecial #120
         + Methodref [android/widget/Scroller.<init> (Landroid/content/Context;)V]
-      [279] putfield #85
+      [269] putfield #83
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.y Landroid/widget/Scroller;]
-      [282] aload_0 v0
-      [283] bipush 6
-      [285] anewarray #53
+      [272] aload_0 v0
+      [273] bipush 6
+      [275] anewarray #52
         + Class [java/lang/String]
-      [288] dup
-      [289] iconst_0
-      [290] ldc #21
+      [278] dup
+      [279] iconst_0
+      [280] ldc #21
         + String [row1]
+      [282] aastore
+      [283] dup
+      [284] iconst_1
+      [285] ldc #22
+        + String [row2]
+      [287] aastore
+      [288] dup
+      [289] iconst_2
+      [290] ldc #23
+        + String [row3]
       [292] aastore
       [293] dup
-      [294] iconst_1
-      [295] ldc #22
-        + String [row2]
+      [294] iconst_3
+      [295] ldc #24
+        + String [row4]
       [297] aastore
       [298] dup
-      [299] iconst_2
-      [300] ldc #23
-        + String [row3]
+      [299] iconst_4
+      [300] ldc #25
+        + String [row5]
       [302] aastore
       [303] dup
-      [304] iconst_3
-      [305] ldc #24
-        + String [row4]
-      [307] aastore
-      [308] dup
-      [309] iconst_4
-      [310] ldc #25
-        + String [row5]
-      [312] aastore
-      [313] dup
-      [314] iconst_5
-      [315] ldc #26
+      [304] iconst_5
+      [305] ldc #26
         + String [row6]
-      [317] aastore
-      [318] iconst_4
-      [319] anewarray #53
+      [307] aastore
+      [308] iconst_4
+      [309] anewarray #52
         + Class [java/lang/String]
-      [322] dup
-      [323] iconst_0
-      [324] ldc #17
+      [312] dup
+      [313] iconst_0
+      [314] ldc #17
         + String [col1]
+      [316] aastore
+      [317] dup
+      [318] iconst_1
+      [319] ldc #18
+        + String [col2]
+      [321] aastore
+      [322] dup
+      [323] iconst_2
+      [324] ldc #19
+        + String [col3]
       [326] aastore
       [327] dup
-      [328] iconst_1
-      [329] ldc #18
-        + String [col2]
-      [331] aastore
-      [332] dup
-      [333] iconst_2
-      [334] ldc #19
-        + String [col3]
-      [336] aastore
-      [337] dup
-      [338] iconst_3
-      [339] ldc #20
+      [328] iconst_3
+      [329] ldc #20
         + String [col4]
-      [341] aastore
-      [342] bipush 6
-      [344] anewarray #27
+      [331] aastore
+      [332] bipush 6
+      [334] anewarray #27
         + Class [[Ljava/lang/String;]
-      [347] dup
-      [348] iconst_0
-      [349] iconst_4
-      [350] anewarray #53
+      [337] dup
+      [338] iconst_0
+      [339] iconst_4
+      [340] anewarray #52
         + Class [java/lang/String]
-      [353] dup
-      [354] iconst_0
-      [355] ldc #9
+      [343] dup
+      [344] iconst_0
+      [345] ldc #9
         + String [12:34]
+      [347] aastore
+      [348] dup
+      [349] iconst_1
+      [350] ldc #11
+        + String [56:78]
+      [352] aastore
+      [353] dup
+      [354] iconst_2
+      [355] ldc #13
+        + String [90:12]
       [357] aastore
       [358] dup
-      [359] iconst_1
-      [360] ldc #11
-        + String [56:78]
-      [362] aastore
-      [363] dup
-      [364] iconst_2
-      [365] ldc #13
-        + String [90:12]
-      [367] aastore
-      [368] dup
-      [369] iconst_3
-      [370] ldc #10
+      [359] iconst_3
+      [360] ldc #10
         + String [34:56]
-      [372] aastore
-      [373] aastore
-      [374] dup
-      [375] iconst_1
-      [376] iconst_4
-      [377] anewarray #53
+      [362] aastore
+      [363] aastore
+      [364] dup
+      [365] iconst_1
+      [366] iconst_4
+      [367] anewarray #52
         + Class [java/lang/String]
-      [380] dup
-      [381] iconst_0
-      [382] ldc #9
+      [370] dup
+      [371] iconst_0
+      [372] ldc #9
         + String [12:34]
+      [374] aastore
+      [375] dup
+      [376] iconst_1
+      [377] ldc #11
+        + String [56:78]
+      [379] aastore
+      [380] dup
+      [381] iconst_2
+      [382] ldc #8
+        + String [*]
       [384] aastore
       [385] dup
-      [386] iconst_1
-      [387] ldc #11
-        + String [56:78]
-      [389] aastore
-      [390] dup
-      [391] iconst_2
-      [392] ldc #8
-        + String [*]
-      [394] aastore
-      [395] dup
-      [396] iconst_3
-      [397] ldc #10
+      [386] iconst_3
+      [387] ldc #10
         + String [34:56]
-      [399] aastore
-      [400] aastore
-      [401] dup
-      [402] iconst_2
-      [403] iconst_4
-      [404] anewarray #53
+      [389] aastore
+      [390] aastore
+      [391] dup
+      [392] iconst_2
+      [393] iconst_4
+      [394] anewarray #52
         + Class [java/lang/String]
-      [407] dup
-      [408] iconst_0
-      [409] ldc #9
+      [397] dup
+      [398] iconst_0
+      [399] ldc #9
         + String [12:34]
+      [401] aastore
+      [402] dup
+      [403] iconst_1
+      [404] ldc #11
+        + String [56:78]
+      [406] aastore
+      [407] dup
+      [408] iconst_2
+      [409] ldc #13
+        + String [90:12]
       [411] aastore
       [412] dup
-      [413] iconst_1
-      [414] ldc #11
-        + String [56:78]
-      [416] aastore
-      [417] dup
-      [418] iconst_2
-      [419] ldc #13
-        + String [90:12]
-      [421] aastore
-      [422] dup
-      [423] iconst_3
-      [424] ldc #10
+      [413] iconst_3
+      [414] ldc #10
         + String [34:56]
-      [426] aastore
-      [427] aastore
-      [428] dup
-      [429] iconst_3
-      [430] iconst_4
-      [431] anewarray #53
+      [416] aastore
+      [417] aastore
+      [418] dup
+      [419] iconst_3
+      [420] iconst_4
+      [421] anewarray #52
         + Class [java/lang/String]
-      [434] dup
-      [435] iconst_0
-      [436] ldc #9
+      [424] dup
+      [425] iconst_0
+      [426] ldc #9
         + String [12:34]
+      [428] aastore
+      [429] dup
+      [430] iconst_1
+      [431] ldc #11
+        + String [56:78]
+      [433] aastore
+      [434] dup
+      [435] iconst_2
+      [436] ldc #13
+        + String [90:12]
       [438] aastore
       [439] dup
-      [440] iconst_1
-      [441] ldc #11
-        + String [56:78]
-      [443] aastore
-      [444] dup
-      [445] iconst_2
-      [446] ldc #13
-        + String [90:12]
-      [448] aastore
-      [449] dup
-      [450] iconst_3
-      [451] ldc #10
+      [440] iconst_3
+      [441] ldc #10
         + String [34:56]
-      [453] aastore
-      [454] aastore
-      [455] dup
-      [456] iconst_4
-      [457] iconst_4
-      [458] anewarray #53
+      [443] aastore
+      [444] aastore
+      [445] dup
+      [446] iconst_4
+      [447] iconst_4
+      [448] anewarray #52
         + Class [java/lang/String]
-      [461] dup
-      [462] iconst_0
-      [463] ldc #9
+      [451] dup
+      [452] iconst_0
+      [453] ldc #9
         + String [12:34]
+      [455] aastore
+      [456] dup
+      [457] iconst_1
+      [458] ldc #11
+        + String [56:78]
+      [460] aastore
+      [461] dup
+      [462] iconst_2
+      [463] ldc #13
+        + String [90:12]
       [465] aastore
       [466] dup
-      [467] iconst_1
-      [468] ldc #11
-        + String [56:78]
-      [470] aastore
-      [471] dup
-      [472] iconst_2
-      [473] ldc #13
-        + String [90:12]
-      [475] aastore
-      [476] dup
-      [477] iconst_3
-      [478] ldc #10
+      [467] iconst_3
+      [468] ldc #10
         + String [34:56]
-      [480] aastore
-      [481] aastore
-      [482] dup
-      [483] iconst_5
-      [484] iconst_4
-      [485] anewarray #53
+      [470] aastore
+      [471] aastore
+      [472] dup
+      [473] iconst_5
+      [474] iconst_4
+      [475] anewarray #52
         + Class [java/lang/String]
-      [488] dup
-      [489] iconst_0
-      [490] ldc #9
+      [478] dup
+      [479] iconst_0
+      [480] ldc #9
         + String [12:34]
+      [482] aastore
+      [483] dup
+      [484] iconst_1
+      [485] ldc #11
+        + String [56:78]
+      [487] aastore
+      [488] dup
+      [489] iconst_2
+      [490] ldc #13
+        + String [90:12]
       [492] aastore
       [493] dup
-      [494] iconst_1
-      [495] ldc #11
-        + String [56:78]
-      [497] aastore
-      [498] dup
-      [499] iconst_2
-      [500] ldc #13
-        + String [90:12]
-      [502] aastore
-      [503] dup
-      [504] iconst_3
-      [505] ldc #10
+      [494] iconst_3
+      [495] ldc #10
         + String [34:56]
-      [507] aastore
-      [508] aastore
-      [509] invokevirtual #131
+      [497] aastore
+      [498] aastore
+      [499] invokevirtual #128
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.a ([Ljava/lang/String;[Ljava/lang/String;[[Ljava/lang/String;)V]
-      [512] return
+      [502] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       onMeasure(II)V
@@ -9408,17 +9410,17 @@ Methods (count = 36):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 17, locals = 3, stack = 3):
       [0] iload_1 v1
-      [1] invokestatic #122
+      [1] invokestatic #119
         + Methodref [android/view/View$MeasureSpec.getSize (I)I]
       [4] istore_1 v1
       [5] iload_2 v2
-      [6] invokestatic #122
+      [6] invokestatic #119
         + Methodref [android/view/View$MeasureSpec.getSize (I)I]
       [9] istore_2 v2
       [10] aload_0 v0
       [11] iload_1 v1
       [12] iload_2 v2
-      [13] invokevirtual #140
+      [13] invokevirtual #137
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.setMeasuredDimension (II)V]
       [16] return
       Code attribute exceptions (count = 0):
@@ -9433,27 +9435,27 @@ Methods (count = 36):
       [2] iload_2 v2
       [3] iload_3 v3
       [4] iload v4
-      [6] invokespecial #121
+      [6] invokespecial #118
         + Methodref [android/view/View.onSizeChanged (IIII)V]
       [9] aload_0 v0
       [10] iload_1 v1
-      [11] putfield #76
+      [11] putfield #74
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.p I]
       [14] aload_0 v0
       [15] iload_2 v2
-      [16] putfield #77
+      [16] putfield #75
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.q I]
       [19] aload_0 v0
-      [20] invokevirtual #127
+      [20] invokevirtual #124
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.a ()V]
       [23] aload_0 v0
-      [24] getfield #86
+      [24] getfield #84
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.z Lcom/anmipo/android/trentobus/view/c;]
       [27] ifnull +12 (target=39)
       [30] aload_0 v0
-      [31] getfield #86
+      [31] getfield #84
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.z Lcom/anmipo/android/trentobus/view/c;]
-      [34] invokeinterface #144
+      [34] invokeinterface #141
         + InterfaceMethodref [com/anmipo/android/trentobus/view/c.a ()V]
       [39] return
       Code attribute exceptions (count = 0):
@@ -9467,28 +9469,28 @@ Methods (count = 36):
     + Code attribute instructions (code length = 196, locals = 5, stack = 4):
       [0] aload_0 v0
       [1] aload_0 v0
-      [2] getfield #69
+      [2] getfield #67
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.i Landroid/text/TextPaint;]
       [5] ldc #12
         + String [88:88]
-      [7] invokevirtual #105
+      [7] invokevirtual #103
         + Methodref [android/text/TextPaint.measureText (Ljava/lang/String;)F]
       [10] f2i
       [11] bipush 10
       [13] iadd
-      [14] invokevirtual #132
+      [14] invokevirtual #129
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.b (I)V]
       [17] aload_0 v0
       [18] ldc #4
         + Float [1.5]
       [20] aload_0 v0
-      [21] getfield #69
+      [21] getfield #67
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.i Landroid/text/TextPaint;]
-      [24] invokevirtual #104
+      [24] invokevirtual #102
         + Methodref [android/text/TextPaint.getTextSize ()F]
       [27] fmul
       [28] f2i
-      [29] putfield #83
+      [29] putfield #81
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.w I]
       [32] aload_0 v0
       [33] aload_0 v0
@@ -9499,14 +9501,14 @@ Methods (count = 36):
       [38] istore_3 v3
       [39] goto +30 (target=69)
       [42] aload_1 v1
-      [43] getfield #67
+      [43] getfield #65
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.g Landroid/text/TextPaint;]
       [46] aload_1 v1
-      [47] getfield #61
+      [47] getfield #59
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.a [Ljava/lang/String;]
       [50] iload_3 v3
       [51] aaload
-      [52] invokevirtual #105
+      [52] invokevirtual #103
         + Methodref [android/text/TextPaint.measureText (Ljava/lang/String;)F]
       [55] dup
       [56] fstore v4
@@ -9518,7 +9520,7 @@ Methods (count = 36):
       [66] iinc v3, 1
       [69] iload_3 v3
       [70] aload_1 v1
-      [71] getfield #65
+      [71] getfield #63
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.e I]
       [74] ificmplt -32 (target=42)
       [77] fload_2 v2
@@ -9528,7 +9530,7 @@ Methods (count = 36):
       [81] dup
       [82] fstore_2 v2
       [83] aload_1 v1
-      [84] getfield #76
+      [84] getfield #74
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.p I]
       [87] iconst_2
       [88] idiv
@@ -9538,7 +9540,7 @@ Methods (count = 36):
       [94] fload_2 v2
       [95] goto +10 (target=105)
       [98] aload_1 v1
-      [99] getfield #76
+      [99] getfield #74
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.p I]
       [102] iconst_2
       [103] idiv
@@ -9548,68 +9550,68 @@ Methods (count = 36):
       [107] dup
       [108] astore_1 v1
       [109] iload_2 v2
-      [110] putfield #78
+      [110] putfield #76
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.r I]
       [113] aload_1 v1
-      [114] invokespecial #137
+      [114] invokespecial #134
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.h ()V]
       [117] aload_0 v0
       [118] aload_0 v0
-      [119] getfield #83
+      [119] getfield #81
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.w I]
-      [122] invokevirtual #128
+      [122] invokevirtual #125
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.a (I)V]
       [125] aload_0 v0
       [126] aload_0 v0
-      [127] getfield #66
+      [127] getfield #64
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.f I]
       [130] aload_0 v0
-      [131] getfield #82
+      [131] getfield #80
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.v I]
       [134] imul
       [135] aload_0 v0
-      [136] getfield #76
+      [136] getfield #74
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.p I]
       [139] aload_0 v0
-      [140] getfield #78
+      [140] getfield #76
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.r I]
       [143] isub
       [144] isub
-      [145] putfield #80
+      [145] putfield #78
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.t I]
       [148] aload_0 v0
       [149] aload_0 v0
-      [150] getfield #65
+      [150] getfield #63
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.e I]
       [153] aload_0 v0
-      [154] getfield #83
+      [154] getfield #81
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.w I]
       [157] imul
       [158] aload_0 v0
-      [159] getfield #77
+      [159] getfield #75
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.q I]
       [162] aload_0 v0
-      [163] getfield #79
+      [163] getfield #77
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.s I]
       [166] isub
       [167] isub
-      [168] putfield #81
+      [168] putfield #79
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.u I]
       [171] aload_0 v0
-      [172] getfield #80
+      [172] getfield #78
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.t I]
       [175] ifge +8 (target=183)
       [178] aload_0 v0
       [179] iconst_0
-      [180] putfield #80
+      [180] putfield #78
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.t I]
       [183] aload_0 v0
-      [184] getfield #81
+      [184] getfield #79
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.u I]
       [187] ifge +8 (target=195)
       [190] aload_0 v0
       [191] iconst_0
-      [192] putfield #81
+      [192] putfield #79
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.u I]
       [195] return
       Code attribute exceptions (count = 0):
@@ -9623,48 +9625,48 @@ Methods (count = 36):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 69, locals = 2, stack = 6):
       [0] aload_0 v0
-      [1] getfield #61
+      [1] getfield #59
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.a [Ljava/lang/String;]
       [4] ifnull +64 (target=68)
       [7] aload_0 v0
       [8] aload_0 v0
-      [9] getfield #61
+      [9] getfield #59
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.a [Ljava/lang/String;]
       [12] arraylength
-      [13] anewarray #53
+      [13] anewarray #52
         + Class [java/lang/String]
-      [16] putfield #64
+      [16] putfield #62
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.d [Ljava/lang/String;]
       [19] iconst_0
       [20] istore_1 v1
       [21] goto +38 (target=59)
       [24] aload_0 v0
-      [25] getfield #64
+      [25] getfield #62
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.d [Ljava/lang/String;]
       [28] iload_1 v1
       [29] aload_0 v0
-      [30] getfield #61
+      [30] getfield #59
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.a [Ljava/lang/String;]
       [33] iload_1 v1
       [34] aaload
       [35] aload_0 v0
-      [36] getfield #67
+      [36] getfield #65
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.g Landroid/text/TextPaint;]
       [39] aload_0 v0
-      [40] getfield #78
+      [40] getfield #76
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.r I]
       [43] i2f
-      [44] getstatic #59
+      [44] getstatic #57
         + Fieldref [android/text/TextUtils$TruncateAt.END Landroid/text/TextUtils$TruncateAt;]
-      [47] invokestatic #112
+      [47] invokestatic #109
         + Methodref [android/text/TextUtils.ellipsize (Ljava/lang/CharSequence;Landroid/text/TextPaint;FLandroid/text/TextUtils$TruncateAt;)Ljava/lang/CharSequence;]
-      [50] invokeinterface #145
+      [50] invokeinterface #142
         + InterfaceMethodref [java/lang/CharSequence.toString ()Ljava/lang/String;]
       [55] aastore
       [56] iinc v1, 1
       [59] iload_1 v1
       [60] aload_0 v0
-      [61] getfield #61
+      [61] getfield #59
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.a [Ljava/lang/String;]
       [64] arraylength
       [65] ificmplt -41 (target=24)
@@ -9686,10 +9688,10 @@ Methods (count = 36):
       [3] iload_3 v3
       [4] iload v4
       [6] iload v5
-      [8] invokespecial #118
+      [8] invokespecial #115
         + Methodref [android/view/View.onLayout (ZIIII)V]
       [11] aload_0 v0
-      [12] invokevirtual #127
+      [12] invokevirtual #124
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.a ()V]
       [15] return
       Code attribute exceptions (count = 0):
@@ -9701,7 +9703,7 @@ Methods (count = 36):
     + Code attribute instructions (code length = 251, locals = 8, stack = 7):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #117
+      [2] invokespecial #114
         + Methodref [android/view/View.onDraw (Landroid/graphics/Canvas;)V]
       [5] aload_0 v0
       [6] aload_1 v1
@@ -9710,83 +9712,83 @@ Methods (count = 36):
       [9] aload_3 v3
       [10] fconst_0
       [11] aload_2 v2
-      [12] getfield #79
+      [12] getfield #77
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.s I]
       [15] i2f
       [16] aload_2 v2
-      [17] getfield #78
+      [17] getfield #76
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.r I]
       [20] i2f
       [21] aload_2 v2
-      [22] getfield #77
+      [22] getfield #75
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.q I]
       [25] i2f
-      [26] getstatic #57
+      [26] getstatic #55
         + Fieldref [android/graphics/Region$Op.REPLACE Landroid/graphics/Region$Op;]
-      [29] invokevirtual #90
+      [29] invokevirtual #88
         + Methodref [android/graphics/Canvas.clipRect (FFFFLandroid/graphics/Region$Op;)Z]
       [32] pop
       [33] aload_2 v2
-      [34] getfield #83
+      [34] getfield #81
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.w I]
       [37] aload_2 v2
-      [38] getfield #67
+      [38] getfield #65
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.g Landroid/text/TextPaint;]
-      [41] invokestatic #129
+      [41] invokestatic #126
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.a (ILandroid/graphics/Paint;)I]
       [44] istore v4
       [46] aload_2 v2
-      [47] getfield #83
+      [47] getfield #81
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.w I]
       [50] aload_2 v2
-      [51] getfield #72
+      [51] getfield #70
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.l I]
       [54] imul
       [55] aload_2 v2
-      [56] getfield #79
+      [56] getfield #77
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.s I]
       [59] iadd
       [60] aload_2 v2
-      [61] getfield #75
+      [61] getfield #73
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.o I]
       [64] isub
       [65] istore v5
       [67] aload_2 v2
-      [68] getfield #72
+      [68] getfield #70
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.l I]
       [71] istore v6
       [73] goto +78 (target=151)
-      [76] new #35
+      [76] new #34
         + Class [android/graphics/Rect]
       [79] dup
       [80] iconst_0
       [81] iload v5
       [83] aload_2 v2
-      [84] getfield #78
+      [84] getfield #76
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.r I]
       [87] iload v5
       [89] aload_2 v2
-      [90] getfield #83
+      [90] getfield #81
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.w I]
       [93] iadd
-      [94] invokespecial #96
+      [94] invokespecial #94
         + Methodref [android/graphics/Rect.<init> (IIII)V]
       [97] astore v7
       [99] aload_2 v2
-      [100] getfield #70
+      [100] getfield #68
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.j Landroid/graphics/drawable/Drawable;]
       [103] aload v7
-      [105] invokevirtual #99
+      [105] invokevirtual #97
         + Methodref [android/graphics/drawable/Drawable.setBounds (Landroid/graphics/Rect;)V]
       [108] aload_2 v2
-      [109] getfield #70
+      [109] getfield #68
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.j Landroid/graphics/drawable/Drawable;]
       [112] aload_3 v3
-      [113] invokevirtual #97
+      [113] invokevirtual #95
         + Methodref [android/graphics/drawable/Drawable.draw (Landroid/graphics/Canvas;)V]
       [116] aload_3 v3
       [117] aload_2 v2
-      [118] getfield #64
+      [118] getfield #62
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.d [Ljava/lang/String;]
       [121] iload v6
       [123] aaload
@@ -9797,51 +9799,51 @@ Methods (count = 36):
       [130] iadd
       [131] i2f
       [132] aload_2 v2
-      [133] getfield #67
+      [133] getfield #65
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.g Landroid/text/TextPaint;]
-      [136] invokevirtual #92
+      [136] invokevirtual #90
         + Methodref [android/graphics/Canvas.drawText (Ljava/lang/String;FFLandroid/graphics/Paint;)V]
       [139] iload v5
       [141] aload_2 v2
-      [142] getfield #83
+      [142] getfield #81
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.w I]
       [145] iadd
       [146] istore v5
       [148] iinc v6, 1
       [151] iload v5
       [153] aload_2 v2
-      [154] getfield #77
+      [154] getfield #75
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.q I]
       [157] ificmpge +12 (target=169)
       [160] iload v6
       [162] aload_2 v2
-      [163] getfield #65
+      [163] getfield #63
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.e I]
       [166] ificmplt -90 (target=76)
       [169] aload_3 v3
       [170] aload_2 v2
-      [171] getfield #78
+      [171] getfield #76
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.r I]
       [174] i2f
       [175] fconst_0
       [176] aload_2 v2
-      [177] getfield #78
+      [177] getfield #76
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.r I]
       [180] i2f
       [181] iload v5
       [183] i2f
       [184] aload_2 v2
-      [185] getfield #67
+      [185] getfield #65
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.g Landroid/text/TextPaint;]
-      [188] invokevirtual #91
+      [188] invokevirtual #89
         + Methodref [android/graphics/Canvas.drawLine (FFFFLandroid/graphics/Paint;)V]
       [191] aload_0 v0
       [192] aload_1 v1
-      [193] invokevirtual #130
+      [193] invokevirtual #127
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.a (Landroid/graphics/Canvas;)V]
       [196] aload_0 v0
       [197] aload_1 v1
-      [198] invokespecial #133
+      [198] invokespecial #130
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.b (Landroid/graphics/Canvas;)V]
       [201] aload_0 v0
       [202] aload_1 v1
@@ -9851,36 +9853,36 @@ Methods (count = 36):
       [206] fconst_0
       [207] fconst_0
       [208] aload_2 v2
-      [209] getfield #76
+      [209] getfield #74
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.p I]
       [212] i2f
       [213] aload_2 v2
-      [214] getfield #77
+      [214] getfield #75
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.q I]
       [217] i2f
-      [218] getstatic #57
+      [218] getstatic #55
         + Fieldref [android/graphics/Region$Op.REPLACE Landroid/graphics/Region$Op;]
-      [221] invokevirtual #90
+      [221] invokevirtual #88
         + Methodref [android/graphics/Canvas.clipRect (FFFFLandroid/graphics/Region$Op;)Z]
       [224] pop
       [225] aload_2 v2
-      [226] getfield #70
+      [226] getfield #68
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.j Landroid/graphics/drawable/Drawable;]
       [229] iconst_0
       [230] iconst_0
       [231] aload_2 v2
-      [232] getfield #78
+      [232] getfield #76
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.r I]
       [235] aload_2 v2
-      [236] getfield #79
+      [236] getfield #77
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.s I]
-      [239] invokevirtual #98
+      [239] invokevirtual #96
         + Methodref [android/graphics/drawable/Drawable.setBounds (IIII)V]
       [242] aload_2 v2
-      [243] getfield #70
+      [243] getfield #68
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.j Landroid/graphics/drawable/Drawable;]
       [246] aload_3 v3
-      [247] invokevirtual #97
+      [247] invokevirtual #95
         + Methodref [android/graphics/drawable/Drawable.draw (Landroid/graphics/Canvas;)V]
       [250] return
       Code attribute exceptions (count = 0):
@@ -9892,115 +9894,115 @@ Methods (count = 36):
     + Code attribute instructions (code length = 241, locals = 11, stack = 6):
       [0] aload_1 v1
       [1] aload_0 v0
-      [2] getfield #78
+      [2] getfield #76
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.r I]
       [5] i2f
       [6] aload_0 v0
-      [7] getfield #79
+      [7] getfield #77
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.s I]
       [10] i2f
       [11] aload_0 v0
-      [12] getfield #76
+      [12] getfield #74
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.p I]
       [15] i2f
       [16] aload_0 v0
-      [17] getfield #77
+      [17] getfield #75
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.q I]
       [20] i2f
-      [21] getstatic #57
+      [21] getstatic #55
         + Fieldref [android/graphics/Region$Op.REPLACE Landroid/graphics/Region$Op;]
-      [24] invokevirtual #90
+      [24] invokevirtual #88
         + Methodref [android/graphics/Canvas.clipRect (FFFFLandroid/graphics/Region$Op;)Z]
       [27] pop
       [28] aload_0 v0
-      [29] getfield #83
+      [29] getfield #81
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.w I]
       [32] aload_0 v0
-      [33] getfield #69
+      [33] getfield #67
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.i Landroid/text/TextPaint;]
-      [36] invokestatic #129
+      [36] invokestatic #126
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.a (ILandroid/graphics/Paint;)I]
       [39] istore_2 v2
       [40] aload_0 v0
-      [41] getfield #82
+      [41] getfield #80
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.v I]
       [44] iconst_2
       [45] idiv
       [46] istore_3 v3
       [47] aload_0 v0
-      [48] getfield #78
+      [48] getfield #76
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.r I]
       [51] aload_0 v0
-      [52] getfield #82
+      [52] getfield #80
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.v I]
       [55] aload_0 v0
-      [56] getfield #73
+      [56] getfield #71
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.m I]
       [59] imul
       [60] iadd
       [61] aload_0 v0
-      [62] getfield #74
+      [62] getfield #72
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.n I]
       [65] isub
       [66] istore v4
       [68] aload_0 v0
-      [69] getfield #72
+      [69] getfield #70
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.l I]
       [72] aload_0 v0
-      [73] getfield #83
+      [73] getfield #81
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.w I]
       [76] imul
       [77] aload_0 v0
-      [78] getfield #79
+      [78] getfield #77
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.s I]
       [81] iadd
       [82] aload_0 v0
-      [83] getfield #75
+      [83] getfield #73
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.o I]
       [86] isub
       [87] istore v5
       [89] aload_0 v0
-      [90] getfield #73
+      [90] getfield #71
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.m I]
       [93] istore v6
       [95] goto +127 (target=222)
       [98] aload_0 v0
-      [99] getfield #72
+      [99] getfield #70
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.l I]
       [102] istore v7
       [104] iload v5
       [106] istore v8
       [108] iload v4
       [110] aload_0 v0
-      [111] getfield #82
+      [111] getfield #80
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.v I]
       [114] iadd
       [115] istore v9
       [117] goto +75 (target=192)
       [120] iload v8
       [122] aload_0 v0
-      [123] getfield #83
+      [123] getfield #81
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.w I]
       [126] iadd
       [127] istore v10
       [129] aload_0 v0
-      [130] getfield #71
+      [130] getfield #69
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.k Landroid/graphics/drawable/Drawable;]
       [133] iload v4
       [135] iload v8
       [137] iload v9
       [139] iload v10
-      [141] invokevirtual #98
+      [141] invokevirtual #96
         + Methodref [android/graphics/drawable/Drawable.setBounds (IIII)V]
       [144] aload_0 v0
-      [145] getfield #71
+      [145] getfield #69
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.k Landroid/graphics/drawable/Drawable;]
       [148] aload_1 v1
-      [149] invokevirtual #97
+      [149] invokevirtual #95
         + Methodref [android/graphics/drawable/Drawable.draw (Landroid/graphics/Canvas;)V]
       [152] aload_1 v1
       [153] aload_0 v0
-      [154] getfield #63
+      [154] getfield #61
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.c [[Ljava/lang/String;]
       [157] iload v7
       [159] aaload
@@ -10015,42 +10017,42 @@ Methods (count = 36):
       [171] iadd
       [172] i2f
       [173] aload_0 v0
-      [174] getfield #69
+      [174] getfield #67
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.i Landroid/text/TextPaint;]
-      [177] invokevirtual #92
+      [177] invokevirtual #90
         + Methodref [android/graphics/Canvas.drawText (Ljava/lang/String;FFLandroid/graphics/Paint;)V]
       [180] iload v8
       [182] aload_0 v0
-      [183] getfield #83
+      [183] getfield #81
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.w I]
       [186] iadd
       [187] istore v8
       [189] iinc v7, 1
       [192] iload v8
       [194] aload_0 v0
-      [195] getfield #77
+      [195] getfield #75
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.q I]
       [198] ificmpge +12 (target=210)
       [201] iload v7
       [203] aload_0 v0
-      [204] getfield #65
+      [204] getfield #63
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.e I]
       [207] ificmplt -87 (target=120)
       [210] iload v4
       [212] aload_0 v0
-      [213] getfield #82
+      [213] getfield #80
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.v I]
       [216] iadd
       [217] istore v4
       [219] iinc v6, 1
       [222] iload v4
       [224] aload_0 v0
-      [225] getfield #76
+      [225] getfield #74
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.p I]
       [228] ificmpge +12 (target=240)
       [231] iload v6
       [233] aload_0 v0
-      [234] getfield #66
+      [234] getfield #64
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.f I]
       [237] ificmplt -139 (target=98)
       [240] return
@@ -10070,83 +10072,83 @@ Methods (count = 36):
     + Code attribute instructions (code length = 155, locals = 6, stack = 6):
       [0] aload_1 v1
       [1] aload_0 v0
-      [2] getfield #78
+      [2] getfield #76
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.r I]
       [5] i2f
       [6] fconst_0
       [7] aload_0 v0
-      [8] getfield #76
+      [8] getfield #74
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.p I]
       [11] i2f
       [12] aload_0 v0
-      [13] getfield #79
+      [13] getfield #77
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.s I]
       [16] i2f
-      [17] getstatic #57
+      [17] getstatic #55
         + Fieldref [android/graphics/Region$Op.REPLACE Landroid/graphics/Region$Op;]
-      [20] invokevirtual #90
+      [20] invokevirtual #88
         + Methodref [android/graphics/Canvas.clipRect (FFFFLandroid/graphics/Region$Op;)Z]
       [23] pop
       [24] aload_0 v0
-      [25] getfield #82
+      [25] getfield #80
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.v I]
       [28] iconst_2
       [29] idiv
       [30] istore_2 v2
       [31] aload_0 v0
-      [32] getfield #79
+      [32] getfield #77
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.s I]
       [35] aload_0 v0
-      [36] getfield #68
+      [36] getfield #66
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.h Landroid/text/TextPaint;]
-      [39] invokestatic #129
+      [39] invokestatic #126
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.a (ILandroid/graphics/Paint;)I]
       [42] istore_3 v3
       [43] aload_0 v0
-      [44] getfield #78
+      [44] getfield #76
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.r I]
       [47] aload_0 v0
-      [48] getfield #82
+      [48] getfield #80
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.v I]
       [51] aload_0 v0
-      [52] getfield #73
+      [52] getfield #71
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.m I]
       [55] imul
       [56] iadd
       [57] aload_0 v0
-      [58] getfield #74
+      [58] getfield #72
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.n I]
       [61] isub
       [62] istore v4
       [64] aload_0 v0
-      [65] getfield #73
+      [65] getfield #71
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.m I]
       [68] istore v5
       [70] goto +66 (target=136)
       [73] aload_0 v0
-      [74] getfield #70
+      [74] getfield #68
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.j Landroid/graphics/drawable/Drawable;]
       [77] iload v4
       [79] iconst_0
       [80] iload v4
       [82] aload_0 v0
-      [83] getfield #82
+      [83] getfield #80
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.v I]
       [86] iadd
       [87] aload_0 v0
-      [88] getfield #79
+      [88] getfield #77
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.s I]
-      [91] invokevirtual #98
+      [91] invokevirtual #96
         + Methodref [android/graphics/drawable/Drawable.setBounds (IIII)V]
       [94] aload_0 v0
-      [95] getfield #70
+      [95] getfield #68
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.j Landroid/graphics/drawable/Drawable;]
       [98] aload_1 v1
-      [99] invokevirtual #97
+      [99] invokevirtual #95
         + Methodref [android/graphics/drawable/Drawable.draw (Landroid/graphics/Canvas;)V]
       [102] aload_1 v1
       [103] aload_0 v0
-      [104] getfield #62
+      [104] getfield #60
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.b [Ljava/lang/String;]
       [107] iload v5
       [109] aaload
@@ -10157,25 +10159,25 @@ Methods (count = 36):
       [115] iload_3 v3
       [116] i2f
       [117] aload_0 v0
-      [118] getfield #68
+      [118] getfield #66
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.h Landroid/text/TextPaint;]
-      [121] invokevirtual #92
+      [121] invokevirtual #90
         + Methodref [android/graphics/Canvas.drawText (Ljava/lang/String;FFLandroid/graphics/Paint;)V]
       [124] iload v4
       [126] aload_0 v0
-      [127] getfield #82
+      [127] getfield #80
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.v I]
       [130] iadd
       [131] istore v4
       [133] iinc v5, 1
       [136] iload v4
       [138] aload_0 v0
-      [139] getfield #76
+      [139] getfield #74
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.p I]
       [142] ificmpge +12 (target=154)
       [145] iload v5
       [147] aload_0 v0
-      [148] getfield #66
+      [148] getfield #64
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.f I]
       [151] ificmplt -78 (target=73)
       [154] return
@@ -10193,11 +10195,11 @@ Methods (count = 36):
       [0] iload_0 v0
       [1] i2f
       [2] aload_1 v1
-      [3] invokevirtual #93
+      [3] invokevirtual #91
         + Methodref [android/graphics/Paint.ascent ()F]
       [6] fsub
       [7] aload_1 v1
-      [8] invokevirtual #94
+      [8] invokevirtual #92
         + Methodref [android/graphics/Paint.descent ()F]
       [11] fsub
       [12] f2i
@@ -10213,30 +10215,30 @@ Methods (count = 36):
     + Code attribute instructions (code length = 76, locals = 4, stack = 5):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] putfield #61
+      [2] putfield #59
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.a [Ljava/lang/String;]
       [5] aload_0 v0
       [6] aload_2 v2
-      [7] putfield #62
+      [7] putfield #60
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.b [Ljava/lang/String;]
       [10] aload_0 v0
       [11] aload_3 v3
-      [12] putfield #63
+      [12] putfield #61
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.c [[Ljava/lang/String;]
       [15] aload_0 v0
       [16] aload_2 v2
       [17] arraylength
-      [18] putfield #66
+      [18] putfield #64
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.f I]
       [21] aload_0 v0
       [22] aload_1 v1
       [23] arraylength
-      [24] putfield #65
+      [24] putfield #63
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.e I]
       [27] aload_3 v3
       [28] arraylength
       [29] aload_0 v0
-      [30] getfield #65
+      [30] getfield #63
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.e I]
       [33] ificmpne +14 (target=47)
       [36] aload_3 v3
@@ -10244,30 +10246,30 @@ Methods (count = 36):
       [38] aaload
       [39] arraylength
       [40] aload_0 v0
-      [41] getfield #66
+      [41] getfield #64
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.f I]
       [44] ificmpeq +13 (target=57)
-      [47] new #52
+      [47] new #51
         + Class [java/lang/IllegalArgumentException]
       [50] dup
       [51] ldc #14
         + String [Table dimensions do not match]
-      [53] invokespecial #143
+      [53] invokespecial #140
         + Methodref [java/lang/IllegalArgumentException.<init> (Ljava/lang/String;)V]
       [56] athrow
       [57] aload_0 v0
       [58] iconst_0
       [59] iconst_0
       [60] aload_0 v0
-      [61] getfield #76
+      [61] getfield #74
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.p I]
       [64] aload_0 v0
-      [65] getfield #77
+      [65] getfield #75
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.q I]
-      [68] invokevirtual #138
+      [68] invokevirtual #135
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.layout (IIII)V]
       [71] aload_0 v0
-      [72] invokevirtual #139
+      [72] invokevirtual #136
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.postInvalidate ()V]
       [75] return
       Code attribute exceptions (count = 0):
@@ -10281,10 +10283,10 @@ Methods (count = 36):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 9, locals = 2, stack = 2):
       [0] aload_0 v0
-      [1] getfield #84
+      [1] getfield #82
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.x Landroid/view/GestureDetector;]
       [4] aload_1 v1
-      [5] invokevirtual #115
+      [5] invokevirtual #112
         + Methodref [android/view/GestureDetector.onTouchEvent (Landroid/view/MotionEvent;)Z]
       [8] ireturn
       Code attribute exceptions (count = 0):
@@ -10296,7 +10298,7 @@ Methods (count = 36):
     + Code attribute instructions (code length = 70, locals = 3, stack = 4):
       [0] iload_2 v2
       [1] aload_0 v0
-      [2] getfield #79
+      [2] getfield #77
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.s I]
       [5] ificmpgt +8 (target=13)
       [8] iconst_m1
@@ -10304,21 +10306,21 @@ Methods (count = 36):
       [10] goto +20 (target=30)
       [13] iload_2 v2
       [14] aload_0 v0
-      [15] getfield #79
+      [15] getfield #77
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.s I]
       [18] isub
       [19] aload_0 v0
-      [20] getfield #75
+      [20] getfield #73
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.o I]
       [23] iadd
       [24] aload_0 v0
-      [25] getfield #83
+      [25] getfield #81
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.w I]
       [28] idiv
       [29] istore_2 v2
       [30] iload_1 v1
       [31] aload_0 v0
-      [32] getfield #78
+      [32] getfield #76
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.r I]
       [35] ificmpgt +8 (target=43)
       [38] iconst_m1
@@ -10326,24 +10328,24 @@ Methods (count = 36):
       [40] goto +20 (target=60)
       [43] iload_1 v1
       [44] aload_0 v0
-      [45] getfield #78
+      [45] getfield #76
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.r I]
       [48] isub
       [49] aload_0 v0
-      [50] getfield #74
+      [50] getfield #72
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.n I]
       [53] iadd
       [54] aload_0 v0
-      [55] getfield #82
+      [55] getfield #80
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.v I]
       [58] idiv
       [59] istore_1 v1
-      [60] new #34
+      [60] new #33
         + Class [android/graphics/Point]
       [63] dup
       [64] iload_1 v1
       [65] iload_2 v2
-      [66] invokespecial #95
+      [66] invokespecial #93
         + Methodref [android/graphics/Point.<init> (II)V]
       [69] areturn
       Code attribute exceptions (count = 0):
@@ -10359,29 +10361,29 @@ Methods (count = 36):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 37, locals = 1, stack = 2):
       [0] aload_0 v0
-      [1] getfield #85
+      [1] getfield #83
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.y Landroid/widget/Scroller;]
-      [4] invokevirtual #124
+      [4] invokevirtual #121
         + Methodref [android/widget/Scroller.computeScrollOffset ()Z]
       [7] ifeq +29 (target=36)
       [10] aload_0 v0
       [11] aload_0 v0
-      [12] getfield #85
+      [12] getfield #83
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.y Landroid/widget/Scroller;]
-      [15] invokevirtual #125
+      [15] invokevirtual #122
         + Methodref [android/widget/Scroller.getCurrX ()I]
-      [18] invokevirtual #135
+      [18] invokevirtual #132
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.d (I)V]
       [21] aload_0 v0
       [22] aload_0 v0
-      [23] getfield #85
+      [23] getfield #83
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.y Landroid/widget/Scroller;]
-      [26] invokevirtual #126
+      [26] invokevirtual #123
         + Methodref [android/widget/Scroller.getCurrY ()I]
-      [29] invokespecial #134
+      [29] invokespecial #131
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.c (I)V]
       [32] aload_0 v0
-      [33] invokevirtual #139
+      [33] invokevirtual #136
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.postInvalidate ()V]
       [36] return
       Code attribute exceptions (count = 0):
@@ -10395,14 +10397,14 @@ Methods (count = 36):
     + Code attribute instructions (code length = 15, locals = 3, stack = 2):
       [0] aload_0 v0
       [1] iload_1 v1
-      [2] invokevirtual #135
+      [2] invokevirtual #132
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.d (I)V]
       [5] aload_0 v0
       [6] iload_2 v2
-      [7] invokespecial #134
+      [7] invokespecial #131
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.c (I)V]
       [10] aload_0 v0
-      [11] invokevirtual #139
+      [11] invokevirtual #136
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.postInvalidate ()V]
       [14] return
       Code attribute exceptions (count = 0):
@@ -10414,22 +10416,22 @@ Methods (count = 36):
     + Code attribute instructions (code length = 25, locals = 3, stack = 3):
       [0] aload_0 v0
       [1] aload_0 v0
-      [2] getfield #74
+      [2] getfield #72
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.n I]
       [5] iload_1 v1
       [6] iadd
-      [7] invokevirtual #135
+      [7] invokevirtual #132
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.d (I)V]
       [10] aload_0 v0
       [11] aload_0 v0
-      [12] getfield #75
+      [12] getfield #73
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.o I]
       [15] iload_2 v2
       [16] iadd
-      [17] invokespecial #134
+      [17] invokespecial #131
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.c (I)V]
       [20] aload_0 v0
-      [21] invokevirtual #139
+      [21] invokevirtual #136
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.postInvalidate ()V]
       [24] return
       Code attribute exceptions (count = 0):
@@ -10443,34 +10445,34 @@ Methods (count = 36):
       [1] ifge +11 (target=12)
       [4] aload_0 v0
       [5] iconst_0
-      [6] putfield #74
+      [6] putfield #72
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.n I]
       [9] goto +27 (target=36)
       [12] iload_1 v1
       [13] aload_0 v0
-      [14] getfield #80
+      [14] getfield #78
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.t I]
       [17] ificmple +14 (target=31)
       [20] aload_0 v0
       [21] aload_0 v0
-      [22] getfield #80
+      [22] getfield #78
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.t I]
-      [25] putfield #74
+      [25] putfield #72
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.n I]
       [28] goto +8 (target=36)
       [31] aload_0 v0
       [32] iload_1 v1
-      [33] putfield #74
+      [33] putfield #72
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.n I]
       [36] aload_0 v0
       [37] aload_0 v0
-      [38] getfield #74
+      [38] getfield #72
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.n I]
       [41] aload_0 v0
-      [42] getfield #82
+      [42] getfield #80
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.v I]
       [45] idiv
-      [46] putfield #73
+      [46] putfield #71
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.m I]
       [49] return
       Code attribute exceptions (count = 0):
@@ -10488,34 +10490,34 @@ Methods (count = 36):
       [1] ifge +11 (target=12)
       [4] aload_0 v0
       [5] iconst_0
-      [6] putfield #75
+      [6] putfield #73
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.o I]
       [9] goto +27 (target=36)
       [12] iload_1 v1
       [13] aload_0 v0
-      [14] getfield #81
+      [14] getfield #79
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.u I]
       [17] ificmple +14 (target=31)
       [20] aload_0 v0
       [21] aload_0 v0
-      [22] getfield #81
+      [22] getfield #79
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.u I]
-      [25] putfield #75
+      [25] putfield #73
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.o I]
       [28] goto +8 (target=36)
       [31] aload_0 v0
       [32] iload_1 v1
-      [33] putfield #75
+      [33] putfield #73
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.o I]
       [36] aload_0 v0
       [37] aload_0 v0
-      [38] getfield #75
+      [38] getfield #73
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.o I]
       [41] aload_0 v0
-      [42] getfield #83
+      [42] getfield #81
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.w I]
       [45] idiv
-      [46] putfield #72
+      [46] putfield #70
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.l I]
       [49] return
       Code attribute exceptions (count = 0):
@@ -10530,30 +10532,30 @@ Methods (count = 36):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 35, locals = 2, stack = 3):
       [0] aload_0 v0
-      [1] invokespecial #120
+      [1] invokespecial #117
         + Methodref [android/view/View.onSaveInstanceState ()Landroid/os/Parcelable;]
       [4] pop
-      [5] new #39
+      [5] new #38
         + Class [android/os/Bundle]
       [8] dup
-      [9] invokespecial #100
+      [9] invokespecial #98
         + Methodref [android/os/Bundle.<init> ()V]
       [12] dup
       [13] astore_1 v1
       [14] ldc #15
         + String [TimetableView.offsetX]
       [16] aload_0 v0
-      [17] getfield #74
+      [17] getfield #72
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.n I]
-      [20] invokevirtual #102
+      [20] invokevirtual #100
         + Methodref [android/os/Bundle.putInt (Ljava/lang/String;I)V]
       [23] aload_1 v1
       [24] ldc #16
         + String [TimetableView.offsetY]
       [26] aload_0 v0
-      [27] getfield #75
+      [27] getfield #73
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.o I]
-      [30] invokevirtual #102
+      [30] invokevirtual #100
         + Methodref [android/os/Bundle.putInt (Ljava/lang/String;I)V]
       [33] aload_1 v1
       [34] areturn
@@ -10566,10 +10568,10 @@ Methods (count = 36):
     + Code attribute instructions (code length = 33, locals = 2, stack = 4):
       [0] aload_0 v0
       [1] aconst_null
-      [2] invokespecial #119
+      [2] invokespecial #116
         + Methodref [android/view/View.onRestoreInstanceState (Landroid/os/Parcelable;)V]
       [5] aload_1 v1
-      [6] checkcast #39
+      [6] checkcast #38
         + Class [android/os/Bundle]
       [9] astore_1 v1
       [10] aload_0 v0
@@ -10577,18 +10579,18 @@ Methods (count = 36):
       [12] ldc #15
         + String [TimetableView.offsetX]
       [14] iconst_0
-      [15] invokevirtual #101
+      [15] invokevirtual #99
         + Methodref [android/os/Bundle.getInt (Ljava/lang/String;I)I]
-      [18] invokevirtual #135
+      [18] invokevirtual #132
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.d (I)V]
       [21] aload_0 v0
       [22] aload_1 v1
       [23] ldc #16
         + String [TimetableView.offsetY]
       [25] iconst_0
-      [26] invokevirtual #101
+      [26] invokevirtual #99
         + Methodref [android/os/Bundle.getInt (Ljava/lang/String;I)I]
-      [29] invokespecial #134
+      [29] invokespecial #131
         + Methodref [com/anmipo/android/trentobus/view/TimetableView.c (I)V]
       [32] return
       Code attribute exceptions (count = 0):
@@ -10600,7 +10602,7 @@ Methods (count = 36):
     + Code attribute instructions (code length = 6, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] putfield #86
+      [2] putfield #84
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.z Lcom/anmipo/android/trentobus/view/c;]
       [5] return
       Code attribute exceptions (count = 0):
@@ -10612,7 +10614,7 @@ Methods (count = 36):
     + Code attribute instructions (code length = 6, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] putfield #60
+      [2] putfield #58
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.A Lcom/anmipo/android/trentobus/view/b;]
       [5] return
       Code attribute exceptions (count = 0):
@@ -10623,7 +10625,7 @@ Methods (count = 36):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #78
+      [1] getfield #76
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.r I]
       [4] ireturn
       Code attribute exceptions (count = 0):
@@ -10634,7 +10636,7 @@ Methods (count = 36):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #82
+      [1] getfield #80
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.v I]
       [4] ireturn
       Code attribute exceptions (count = 0):
@@ -10646,7 +10648,7 @@ Methods (count = 36):
     + Code attribute instructions (code length = 6, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] iload_1 v1
-      [2] putfield #82
+      [2] putfield #80
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.v I]
       [5] return
       Code attribute exceptions (count = 0):
@@ -10657,7 +10659,7 @@ Methods (count = 36):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #79
+      [1] getfield #77
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.s I]
       [4] ireturn
       Code attribute exceptions (count = 0):
@@ -10669,7 +10671,7 @@ Methods (count = 36):
     + Code attribute instructions (code length = 6, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] iload_1 v1
-      [2] putfield #79
+      [2] putfield #77
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.s I]
       [5] return
       Code attribute exceptions (count = 0):
@@ -10680,7 +10682,7 @@ Methods (count = 36):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #73
+      [1] getfield #71
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.m I]
       [4] ireturn
       Code attribute exceptions (count = 0):
@@ -10691,7 +10693,7 @@ Methods (count = 36):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #74
+      [1] getfield #72
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.n I]
       [4] ireturn
       Code attribute exceptions (count = 0):
@@ -10702,7 +10704,7 @@ Methods (count = 36):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #66
+      [1] getfield #64
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.f I]
       [4] ireturn
       Code attribute exceptions (count = 0):
@@ -10713,7 +10715,7 @@ Methods (count = 36):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #85
+      [1] getfield #83
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.y Landroid/widget/Scroller;]
       [4] areturn
       Code attribute exceptions (count = 0):
@@ -10724,7 +10726,7 @@ Methods (count = 36):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #60
+      [1] getfield #58
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.A Lcom/anmipo/android/trentobus/view/b;]
       [4] areturn
       Code attribute exceptions (count = 0):
@@ -10735,7 +10737,7 @@ Methods (count = 36):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #74
+      [1] getfield #72
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.n I]
       [4] ireturn
       Code attribute exceptions (count = 0):
@@ -10746,7 +10748,7 @@ Methods (count = 36):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #75
+      [1] getfield #73
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.o I]
       [4] ireturn
       Code attribute exceptions (count = 0):
@@ -10757,7 +10759,7 @@ Methods (count = 36):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #80
+      [1] getfield #78
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.t I]
       [4] ireturn
       Code attribute exceptions (count = 0):
@@ -10768,7 +10770,7 @@ Methods (count = 36):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #81
+      [1] getfield #79
         + Fieldref [com/anmipo/android/trentobus/view/TimetableView.u I]
       [4] ireturn
       Code attribute exceptions (count = 0):

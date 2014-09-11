@@ -45,11 +45,11 @@ com.anmipo.android.trentobus.db.Time:
     private static final java.lang.String PIPE
 com.anmipo.android.trentobus.view.TimetableView:
     static final java.lang.String TAG
-    public static final int FONT_SIZE_DP
+    public static final int FONT_SIZE_SP
     private static final int CELL_PADDING_X
     private static final java.lang.String STATE_OFFSET_X
     private static final java.lang.String STATE_OFFSET_Y
-    505:505:protected int getRowHeight()
-    530:530:protected int getTopRow()
-    539:539:protected int getOffsetY()
-    545:545:protected int getRowCount()
+    504:504:protected int getRowHeight()
+    529:529:protected int getTopRow()
+    538:538:protected int getOffsetY()
+    544:544:protected int getRowCount()
