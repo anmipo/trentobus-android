@@ -72,6 +72,7 @@ public class ScheduleLegend {
 		sAllItemsMap.put("3", new ScheduleLegendItem("3", R.drawable.linea_3));
 		sAllItemsMap.put("4", new ScheduleLegendItem("4", R.drawable.linea_4));
 		sAllItemsMap.put("5", new ScheduleLegendItem("5", R.drawable.linea_5));
+		sAllItemsMap.put("5/", new ScheduleLegendItem("5/", R.drawable.linea_5b));
 		sAllItemsMap.put("6", new ScheduleLegendItem("6", R.drawable.linea_6));
 		sAllItemsMap.put("6/", new ScheduleLegendItem("6/", R.drawable.linea_6b));
 		sAllItemsMap.put("7", new ScheduleLegendItem("7", R.drawable.linea_7));
