@@ -38,6 +38,7 @@ public class BusInfo {
 		drawableResources.put("3", R.drawable.bus_3);
 		drawableResources.put("4", R.drawable.bus_4);
 		drawableResources.put("5", R.drawable.bus_5);
+		drawableResources.put("5/", R.drawable.bus_5b);
 		drawableResources.put("6", R.drawable.bus_6);
 		drawableResources.put("6/", R.drawable.bus_6b);
 		drawableResources.put("7", R.drawable.bus_7);

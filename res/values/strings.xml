@@ -19,6 +19,8 @@
     <string name="freq_nothing_special">Normal route, nothing special.</string>
     <string name="freq_autonoleggiatore_privato">Performed by a private carrier</string>
     <string name="freq_funivia_bus">Performed by a bus (in case of strong wind)</string>
+    <string name="freq_funivia_bici">Bike transport service</string>
+    <string name="freq_funivia_sospesa_festivi">Suspended on 5-6 April, 1 May, 2 June</string>
     <string name="freq_mezzo_extraurbano">Performed by a suburban (extraurbano) bus</string>
     <string name="freq_feriale_solo_sabato">Only on Saturdays</string>
     <string name="freq_feriale_lunedi_a_venerdi">Monday to Friday</string>

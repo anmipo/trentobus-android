@@ -23,7 +23,7 @@ public class ScheduleLegend {
 	
 	static {
 		int index = 0;
-		sItemsWithDescription = new ScheduleLegendItem[9];
+		sItemsWithDescription = new ScheduleLegendItem[11];
 		/* 
 		 * "Frequenza" items, those that are to be shown 
 		 * in the legend description. 
@@ -46,6 +46,9 @@ public class ScheduleLegend {
 		sItemsWithDescription[index++] = new ScheduleLegendItem("X",
 				R.string.freq_gazzoleti_canova_linea_7,
 				R.drawable.freq_circle_x);
+		sItemsWithDescription[index++] = new ScheduleLegendItem("W", // an arbitrary one-character replacement for "A" which is taken for bus 
+				R.string.freq_funivia_sospesa_festivi, 
+				R.drawable.freq_circle_a);
 		
 		// Some special "Linea" items that have a description. 
 		sItemsWithDescription[index++] = new ScheduleLegendItem("o", 
@@ -57,6 +60,9 @@ public class ScheduleLegend {
 		sItemsWithDescription[index++] = new ScheduleLegendItem("fvb", 
 				R.string.freq_funivia_bus, 
 				R.drawable.linea_funivia_bus);
+		sItemsWithDescription[index++] = new ScheduleLegendItem("fvbc", 
+				R.string.freq_funivia_bici, 
+				R.drawable.linea_bike);
 		
 		sAllItemsMap = new HashMap<String, ScheduleLegendItem>();
 		for (ScheduleLegendItem item: sItemsWithDescription) {
@@ -68,17 +74,25 @@ public class ScheduleLegend {
 		 * but are not listed in legend description.
 		 */
 		sAllItemsMap.put("1", new ScheduleLegendItem("1", R.drawable.linea_1));
+		sAllItemsMap.put("1/", new ScheduleLegendItem("1/", R.drawable.linea_1b));
 		sAllItemsMap.put("2", new ScheduleLegendItem("2", R.drawable.linea_2));
+		sAllItemsMap.put("2/", new ScheduleLegendItem("2/", R.drawable.linea_2b));
 		sAllItemsMap.put("3", new ScheduleLegendItem("3", R.drawable.linea_3));
+		sAllItemsMap.put("3/", new ScheduleLegendItem("3/", R.drawable.linea_3b));
 		sAllItemsMap.put("4", new ScheduleLegendItem("4", R.drawable.linea_4));
+		sAllItemsMap.put("4/", new ScheduleLegendItem("4/", R.drawable.linea_4b));
 		sAllItemsMap.put("5", new ScheduleLegendItem("5", R.drawable.linea_5));
 		sAllItemsMap.put("5/", new ScheduleLegendItem("5/", R.drawable.linea_5b));
 		sAllItemsMap.put("6", new ScheduleLegendItem("6", R.drawable.linea_6));
 		sAllItemsMap.put("6/", new ScheduleLegendItem("6/", R.drawable.linea_6b));
 		sAllItemsMap.put("7", new ScheduleLegendItem("7", R.drawable.linea_7));
+		sAllItemsMap.put("7/", new ScheduleLegendItem("7/", R.drawable.linea_7b));
 		sAllItemsMap.put("8", new ScheduleLegendItem("8", R.drawable.linea_8));
+		sAllItemsMap.put("8/", new ScheduleLegendItem("8/", R.drawable.linea_8b));
 		sAllItemsMap.put("9", new ScheduleLegendItem("9", R.drawable.linea_9));
+		sAllItemsMap.put("9/", new ScheduleLegendItem("9/", R.drawable.linea_9b));
 		sAllItemsMap.put("10", new ScheduleLegendItem("10", R.drawable.linea_10));
+		sAllItemsMap.put("10/", new ScheduleLegendItem("10/", R.drawable.linea_10b));
 		sAllItemsMap.put("11", new ScheduleLegendItem("11", R.drawable.linea_11));
 		sAllItemsMap.put("12", new ScheduleLegendItem("12", R.drawable.linea_12));
 		sAllItemsMap.put("13", new ScheduleLegendItem("13", R.drawable.linea_13));
@@ -86,7 +100,9 @@ public class ScheduleLegend {
 		sAllItemsMap.put("15", new ScheduleLegendItem("15", R.drawable.linea_15));
 		sAllItemsMap.put("16", new ScheduleLegendItem("16", R.drawable.linea_16));
 		sAllItemsMap.put("17", new ScheduleLegendItem("17", R.drawable.linea_17));
+		sAllItemsMap.put("17/", new ScheduleLegendItem("17/", R.drawable.linea_17b));
 		sAllItemsMap.put("A", new ScheduleLegendItem("A", R.drawable.linea_a));
+		sAllItemsMap.put("A/", new ScheduleLegendItem("A/", R.drawable.linea_ab));
 		sAllItemsMap.put("B", new ScheduleLegendItem("B", R.drawable.linea_b));
 		sAllItemsMap.put("C", new ScheduleLegendItem("C", R.drawable.linea_c));
 		sAllItemsMap.put("D", new ScheduleLegendItem("D", R.drawable.linea_d));
