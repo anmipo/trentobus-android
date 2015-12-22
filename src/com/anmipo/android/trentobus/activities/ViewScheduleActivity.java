@@ -27,7 +27,7 @@ import com.anmipo.android.trentobus.view.TimetableView.OnSizeChangedListener;
 public class ViewScheduleActivity extends Activity implements OnCellClickListener {
     private static final String EXTRA_SCHEDULE_ID = "schedule";
     private static final String TAG = "Timetable";
-	
+    
     private ScheduleView timetable;
     private Schedule schedule;
     
@@ -43,8 +43,8 @@ public class ViewScheduleActivity extends Activity implements OnCellClickListene
         }
         schedule = BusApplication.scheduleManager.getSchedule(scheduleId);
         setTitle(getString(R.string.view_schedule_title,
-        		schedule.getScheduleInfo().busNumber,
-        		schedule.getScheduleInfo().route));
+                schedule.getScheduleInfo().busNumber,
+                schedule.getScheduleInfo().route));
         timetable = (ScheduleView) findViewById(R.id.timetable);
         timetable.setSchedule(schedule);
         timetable.setOnCellClickListener(this);
@@ -54,83 +54,83 @@ public class ViewScheduleActivity extends Activity implements OnCellClickListene
         // One of the most reasonable ways is a custom OnSizeChanged listener.
         // The solution is from here: http://stackoverflow.com/questions/4888624/android-need-to-use-onsizechanged-for-view-getwidth-height-in-class-extending
         timetable.setOnSizeChangedListener(new OnSizeChangedListener() {
-			@Override
-			public void onSizeChanged(int width, int height) {
-		        // scroll to the nearest forthcoming column
-		        int forthcomingCol = 
-		        		schedule.getForthcomingDepartureColumn(Calendar.getInstance());
-		        timetable.scrollToColumn(forthcomingCol);				
-			}
-		});
+            @Override
+            public void onSizeChanged(int width, int height) {
+                // scroll to the nearest forthcoming column
+                int forthcomingCol = 
+                        schedule.getForthcomingDepartureColumn(Calendar.getInstance());
+                timetable.scrollToColumn(forthcomingCol);                
+            }
+        });
     }
     
-	@Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-    	super.onPrepareOptionsMenu(menu);
-    	getMenuInflater().inflate(R.menu.menu_timetable, menu);
-		return true;
+        super.onPrepareOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_timetable, menu);
+        return true;
     }
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-    	switch (item.getItemId()) {
-    	case R.id.menu_legend:
-    		showGeneralLegendDescription();
-    		return true;
-		default:
-			return false;
-    	}
+        switch (item.getItemId()) {
+        case R.id.menu_legend:
+            showGeneralLegendDescription();
+            return true;
+        default:
+            return false;
+        }
     }
 
     @Override
     public void onCellSingleTap(int col, int row) {
-		if (row == -1 && col >= 0) {
-			showLegendForColumn(col);
-		} else if (col == -1 && row >= 0) {
-			showStopNameForRow(row);
-		}
+        if (row == -1 && col >= 0) {
+            showLegendForColumn(col);
+        } else if (col == -1 && row >= 0) {
+            showStopNameForRow(row);
+        }
     }
 
     @Override
     public void onCellLongPress(int col, int row) {
-    	// TODO: implement long press handling
-    	Log.d(TAG, "long press: " + col + ", " + row);
+        // TODO: implement long press handling
+        Log.d(TAG, "long press: " + col + ", " + row);
     }
     
     private void showStopNameForRow(int row) {
-		Toast.makeText(this, schedule.getStopName(row), 
-				Toast.LENGTH_SHORT).show();
-	}
+        Toast.makeText(this, schedule.getStopName(row), 
+                Toast.LENGTH_SHORT).show();
+    }
 
-	protected void showLegendForColumn(int col) {
-    	Adapter adapter = schedule.getLegends()[col]
-    			.getDescriptionsAdapter(this);
-    	if (adapter.getCount() > 0) {
-    		showLegendDialog(adapter);
-    	} else {
-    		Toast.makeText(this, R.string.freq_nothing_special, 
-    				Toast.LENGTH_SHORT).show();
-    	}
-	}
+    protected void showLegendForColumn(int col) {
+        Adapter adapter = schedule.getLegends()[col]
+                .getDescriptionsAdapter(this);
+        if (adapter.getCount() > 0) {
+            showLegendDialog(adapter);
+        } else {
+            Toast.makeText(this, R.string.freq_nothing_special, 
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
 
     protected void showGeneralLegendDescription() {
-    	showLegendDialog(new ScheduleLegend.Adapter(this));
-	}
+        showLegendDialog(new ScheduleLegend.Adapter(this));
+    }
 
     protected void showLegendDialog(ScheduleLegend.Adapter adapter) {
-		Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle(R.string.schedule_legend)
-			.setAdapter(adapter, new OnClickListener() {
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					dialog.dismiss();
-				}
-			})
-			.setIcon(0)
-			.show();
+        Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.schedule_legend)
+            .setAdapter(adapter, new OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            })
+            .setIcon(0)
+            .show();
     }
     
-	public static void show(Context context, int scheduleId) {
+    public static void show(Context context, int scheduleId) {
         Intent intent = new Intent(context, ViewScheduleActivity.class);
         intent.putExtra(EXTRA_SCHEDULE_ID, scheduleId);
         context.startActivity(intent);

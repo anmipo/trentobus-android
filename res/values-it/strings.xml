@@ -12,7 +12,7 @@
     <string name="schedule_is_not_yet_valid">L\'orario non è ancora in vigore.</string>
     <string name="schedule_is_out_of_date">L\'orario è scaduto. Aggiorna l\'applicazione.</string>
 
-	<string name="schedule_type_workday">Feriale</string>
+    <string name="schedule_type_workday">Feriale</string>
     <string name="schedule_type_holiday">Festivo</string>
     
     <!-- Frequency descriptions for legend -->
@@ -44,5 +44,5 @@
     <string name="eula_title">Contratto di licenza (EULA)</string>
     <string name="eula_text">Il prodotto viene fornito \'così come è\' con tutti gli errori. Lo sviluppatore nega con ciò tutte le garanzie, esplicite e implicite, comprese senza limite, le garanzie che il prodotto è privo di difetti, commerciabile, idoneo ad un particolare fine e non violabile. Lo sviluppatore declina ogni responsabilità sull’attendibilità degli orari. L’utente si assume l’intero rischio sia nella scelta del prodotto per i suoi fini che per la qualità e il rendimento del prodotto.\n\nAd eccezione di quella prevista per legge, lo sviluppatore non sarà responsabile per nessun danno indiretto, speciale, incidentale, consequenziale o esemplare che proviene o è in qualche modo relazionato a questo accordo o all’uso o all’incapacità di usare questo prodotto, compresi senza limitazione i danni per la perdita della reputazione, la perdita del lavoro, la perdita dei profitti e per il guasto o il malfunzionamento del dispositivo mobile, anche se è stato avvisato della possibilità di tali danni e senza riguardo per la teoria (contratto, illecito e altro) sulla quale si basa questo reclamo. La responsabilità dello sviluppatore in base a questo accordo, non supererà le spese pagate dall’utente ai sensi di questa licenza.\n\nSi accettano i termini dell\'EULA?</string>
     <string name="eula_accept">Accetto</string>
-    <string name="eula_reject">Non accetto</string>    
+    <string name="eula_reject">Non accetto</string>
 </resources>

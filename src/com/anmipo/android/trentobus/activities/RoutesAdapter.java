@@ -25,11 +25,11 @@ public class RoutesAdapter extends BaseAdapter {
         // sort (a copy of) routes to have workdays first
         routes = new ArrayList<ScheduleInfo>(busInfo.getScheduleInfos());
         Collections.sort(routes, new Comparator<ScheduleInfo>() {
-			@Override
-			public int compare(ScheduleInfo s1, ScheduleInfo s2) {
-				return s1.type.compareTo(s2.type);
-			}
-		});
+            @Override
+            public int compare(ScheduleInfo s1, ScheduleInfo s2) {
+                return s1.type.compareTo(s2.type);
+            }
+        });
     }
     
     @Override

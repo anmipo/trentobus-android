@@ -10,7 +10,7 @@ public class ScheduleInfo {
     final public String route;
     final public ScheduleType type;
     final public int scheduleId;
-	final public String fileName;
+    final public String fileName;
     
     /**
      * @param route
@@ -25,9 +25,9 @@ public class ScheduleInfo {
      *            Unique ID of this schedule.
      */
     public ScheduleInfo(String busNumber, Direction direction, String route, 
-    		ScheduleType type, String dataFileName, int scheduleId) {
-    	this.busNumber = busNumber;
-    	this.direction = direction;
+            ScheduleType type, String dataFileName, int scheduleId) {
+        this.busNumber = busNumber;
+        this.direction = direction;
         this.route = route;
         this.type = type;
         this.fileName = dataFileName;

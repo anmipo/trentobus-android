@@ -42,38 +42,38 @@ public class BusChoiceActivity extends Activity implements OnItemClickListener {
 
     @Override
     protected void onResume() {
-    	super.onResume();
-    	
-    	checkScheduleValidity();
+        super.onResume();
+        
+        checkScheduleValidity();
         
         EulaChecker.checkEulaAccepted(this, new EulaListener() {
-			@Override
-			public void onEulaAccepted(boolean accepted) {
-				if (!accepted) {
-					finish();
-				}
-			}
-		});
+            @Override
+            public void onEulaAccepted(boolean accepted) {
+                if (!accepted) {
+                    finish();
+                }
+            }
+        });
     }
     
     private void checkScheduleValidity() {
         int validity = BusApplication.scheduleManager.getScheduleValidity();
         
         if (validity < 0) {
-        	validityStatusView.setText(R.string.schedule_is_not_yet_valid);
-        	validityStatusView.setVisibility(View.VISIBLE);
+            validityStatusView.setText(R.string.schedule_is_not_yet_valid);
+            validityStatusView.setVisibility(View.VISIBLE);
         } else if (validity > 0) {
-        	validityStatusView.setText(R.string.schedule_is_out_of_date);
-        	validityStatusView.setVisibility(View.VISIBLE);
+            validityStatusView.setText(R.string.schedule_is_out_of_date);
+            validityStatusView.setVisibility(View.VISIBLE);
         } else {
-        	validityStatusView.setVisibility(View.GONE);        	
+            validityStatusView.setVisibility(View.GONE);            
         }
-	}
+    }
 
-	@Override
+    @Override
     protected void onPause() {
-    	EulaChecker.dismiss();
-    	super.onPause();
+        EulaChecker.dismiss();
+        super.onPause();
     }
     
     @Override
@@ -88,21 +88,21 @@ public class BusChoiceActivity extends Activity implements OnItemClickListener {
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-    	super.onPrepareOptionsMenu(menu);
-    	getMenuInflater().inflate(R.menu.menu_main, menu);
-    	return true;
+        super.onPrepareOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-    	switch (item.getItemId()) {
-    	case R.id.menu_about:
-    		Intent intent = new Intent(this, AboutActivity.class);
-    		startActivity(intent);
-    		return true;
-		default:
-			return super.onOptionsItemSelected(item);
-    	}
+        switch (item.getItemId()) {
+        case R.id.menu_about:
+            Intent intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
     }
     
     private void showBusInfo(BusInfo busInfo) {

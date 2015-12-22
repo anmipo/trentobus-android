@@ -4,58 +4,58 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-    	android:layout_width="fill_parent"
-    	android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_above="@+id/button_bar"
         android:gravity="center">
     
-	    <ImageView
-	        android:id="@+id/logo"
-	        android:layout_width="150dp"
-	        android:layout_height="150dp"
-	        android:layout_marginRight="20dp"
-	        android:contentDescription="@string/about_logo_description"
-	        android:src="@drawable/app_logo" />
-	
-	    <TextView
-	        android:id="@+id/title"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignTop="@+id/logo"
-	        android:layout_toRightOf="@+id/logo"
-	        android:gravity="center"
-	        android:text="@string/app_title"
-	        android:textAppearance="?android:attr/textAppearanceLarge" />
-	
-	    <TextView
-	        android:id="@+id/version"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/title"
-	        android:layout_below="@+id/title"
-	        android:layout_centerHorizontal="true"
-	        android:text="@string/version_text" />
-	
-	    <TextView
-	        android:id="@+id/validity"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:gravity="center"
-	        android:layout_alignLeft="@+id/title"
-	        android:layout_below="@+id/version"
-	        android:layout_marginTop="10dp"
-	        android:text="@string/schedule_validity" />
-	    
-	    <TextView
-	        android:id="@+id/copyright"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:gravity="center"
-	        android:layout_alignLeft="@+id/title"
-	        android:layout_alignBottom="@+id/logo"
-	        android:text="@string/copyright" />
-	</RelativeLayout>
-	
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginRight="20dp"
+            android:contentDescription="@string/about_logo_description"
+            android:src="@drawable/app_logo" />
+    
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/logo"
+            android:layout_toRightOf="@+id/logo"
+            android:gravity="center"
+            android:text="@string/app_title"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/title"
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:text="@string/version_text" />
+    
+        <TextView
+            android:id="@+id/validity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignLeft="@+id/title"
+            android:layout_below="@+id/version"
+            android:layout_marginTop="10dp"
+            android:text="@string/schedule_validity" />
+        
+        <TextView
+            android:id="@+id/copyright"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignLeft="@+id/title"
+            android:layout_alignBottom="@+id/logo"
+            android:text="@string/copyright" />
+    </RelativeLayout>
+    
     <LinearLayout
         android:id="@+id/button_bar"
         android:layout_width="fill_parent"
