@@ -41,10 +41,10 @@ public class ScheduleLegend {
 				R.string.freq_feriale_solo_sabato, 
 				R.drawable.freq_square_filled);
 		sItemsWithDescription[index++] = new ScheduleLegendItem("\u00E0",
-				R.string.freq_lun_ven_sospesa_2307_0209, 
+				R.string.freq_lun_ven_sospesa_0308_2808, 
 				R.drawable.freq_square_half_filled);
 		sItemsWithDescription[index++] = new ScheduleLegendItem("X",
-				R.string.freq_gazzoleti_canova_linea_7,
+				R.string.freq_romagnosi_canova_linea_7,
 				R.drawable.freq_circle_x);
 		sItemsWithDescription[index++] = new ScheduleLegendItem("W", // an arbitrary one-character replacement for "A" which is taken for bus 
 				R.string.freq_funivia_sospesa_festivi, 
