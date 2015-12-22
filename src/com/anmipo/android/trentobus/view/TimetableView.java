@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2012-2015 Andrei Popleteev.
+ * Licensed under the MIT license.
+ */
 package com.anmipo.android.trentobus.view;
 
 import android.content.Context;
